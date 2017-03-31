@@ -12,6 +12,7 @@ import javax.persistence.Table;
 public class FoodItem {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="menu_id")
 	private int id;
 	
 	private String name;
@@ -27,6 +28,9 @@ public class FoodItem {
 	@Column(name="quantity")
 	private int quantityOfFoodItem;
 	
+	@Column(name="description")
+	private String descriptionOfFoodItem;
+	
 	public int getQuantityOfFoodItem() {
 		return quantityOfFoodItem;
 	}
@@ -35,8 +39,6 @@ public class FoodItem {
 		this.quantityOfFoodItem = quantityOfFoodItem;
 	}
 
-	@Column(name="description")
-	private String descriptionOfFoodItem;
 
 	public int getId() {
 		return id;

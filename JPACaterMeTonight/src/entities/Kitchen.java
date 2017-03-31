@@ -12,6 +12,7 @@ import javax.persistence.Table;
 public class Kitchen {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="kitchen_id")
 	private int id;
 	
 	private String name;

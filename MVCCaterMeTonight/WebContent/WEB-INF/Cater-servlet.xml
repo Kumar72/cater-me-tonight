@@ -16,7 +16,7 @@
 <bean id="myEntityManagerFactory" 
     class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"> 
       <property name="persistenceUnitName" 
-        value="VideoStore" />
+        value="CaterMeTonight" />
   </bean>
   
    <bean id="myTransactionManager"

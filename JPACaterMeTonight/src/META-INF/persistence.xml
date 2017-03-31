@@ -3,8 +3,14 @@
 	<persistence-unit name="CaterMeTonight">
 	  <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 	  
-<!-- 	    <class>entities.Customer</class>
- -->	    
+		<!-- List of entities -->
+		<class>entities.Address</class>
+		<class>entities.Course</class>
+		<class>entities.CreditCard</class>
+		<class>entities.Customer</class>
+		<class>entities.FoodItem</class>
+		<class>entities.Kitchen</class>
+		<class>entities.Order</class>	    
 	    	  
 	  	<properties>
 	  	<!-- Make connection to db -->

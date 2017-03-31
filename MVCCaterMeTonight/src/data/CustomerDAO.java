@@ -1,6 +1,5 @@
 package data;
 
-import entities.Address;
 import entities.Customer;
 
 public interface CustomerDAO {
