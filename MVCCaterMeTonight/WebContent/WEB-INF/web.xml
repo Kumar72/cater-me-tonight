@@ -9,4 +9,15 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-</web-app>
+  <servlet>
+    <servlet-name>Cater</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet
+    </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Cater</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+</web-app> 
+
+
