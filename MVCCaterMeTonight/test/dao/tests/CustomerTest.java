@@ -1,6 +1,6 @@
 package dao.tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,21 +10,23 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import entities.Customer;
+
 public class CustomerTest {
 	EntityManagerFactory emf = null;
 	EntityManager em=null;
 	
 	
-//	@Before
-//	public void setUp(){
-//		emf = Persistence.createEntityManagerFactory("catermetonight");
-//		em = emf.createEntityManager();
-//	}
-//	@After
-//	public void tearDown(){
-//		emf.close();
-//		em.close();
-//	}
+	@Before
+	public void setUp(){
+		emf = Persistence.createEntityManagerFactory("CaterMeTonight");
+		em = emf.createEntityManager();
+	}
+	@After
+	public void tearDown(){
+		emf.close();
+		em.close();
+	}
 	@Test
 	public void test(){
 		boolean test = true;
@@ -33,7 +35,7 @@ public class CustomerTest {
 	
 	@Test
 	public void testGetCustomerById(){
-		showCustomer();
+		System.out.println(em.find(Customer.class, 1));
 	}
 	
 	
