@@ -15,9 +15,9 @@
 	  	<properties>
 	  	<!-- Make connection to db -->
 	  		<property name="javax.persistence.jdbc.url"
-	          value="jdbc:mysql://localhost:3306/sdvid" />
-	  		<property name="javax.persistence.jdbc.user" value="student"/>
-	  		<property name="javax.persistence.jdbc.password" value="student" />
+	          value="jdbc:mysql://localhost:3306/catermetonight" />
+	  		<property name="javax.persistence.jdbc.user" value="admin"/>
+	  		<property name="javax.persistence.jdbc.password" value="admin" />
 	  		<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 	  		
 	  	<!-- config for debug -->

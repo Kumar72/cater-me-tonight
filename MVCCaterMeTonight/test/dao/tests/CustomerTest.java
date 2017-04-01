@@ -35,7 +35,7 @@ public class CustomerTest {
 	
 	@Test
 	public void testGetCustomerById(){
-		System.out.println(em.find(Customer.class, 1));
+		em.find(Customer.class, 1);
 	}
 	
 	
