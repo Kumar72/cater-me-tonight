@@ -141,7 +141,7 @@ DROP TABLE IF EXISTS `creditcard` ;
 CREATE TABLE IF NOT EXISTS `creditcard` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `full_name` VARCHAR(75) NOT NULL,
-  `expiration_date` DATE NOT NULL,
+  `expiration_date` VARCHAR(45) NOT NULL,
   `security_code` INT NOT NULL,
   `user_id` INT NOT NULL,
   `billing_address_id` INT NOT NULL,
@@ -190,7 +190,10 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `catermetonight`;
-INSERT INTO `user` (`id`, `email`, `username`, `password`, `status`, `first_name`, `last_name`, `picture_url`, `last_update`) VALUES (1, 'vichandan@gmail.com', 'Kumar72', 'admin', 'admin', DEFAULT, DEFAULT, NULL, NULL);
+INSERT INTO `user` (`id`, `email`, `username`, `password`, `status`, `first_name`, `last_name`, `picture_url`, `last_update`) VALUES (1, 'vichandan@gmail.com', 'Kumar72', 'admin', 'admin', 'Chandan', 'Thakur', NULL, NULL);
+INSERT INTO `user` (`id`, `email`, `username`, `password`, `status`, `first_name`, `last_name`, `picture_url`, `last_update`) VALUES (2, 'email4chandan@yahoo.com', 'Crank72', 'client', 'client', 'Aryan', 'Kumar', NULL, NULL);
+INSERT INTO `user` (`id`, `email`, `username`, `password`, `status`, `first_name`, `last_name`, `picture_url`, `last_update`) VALUES (3, 'student@sd9.com', 'student', 'student', 'client', 'Event', 'Planner', NULL, NULL);
+INSERT INTO `user` (`id`, `email`, `username`, `password`, `status`, `first_name`, `last_name`, `picture_url`, `last_update`) VALUES (4, 'admin@sd9.com', 'admin', 'admin', 'admin', 'Admin', 'Test', NULL, NULL);
 
 COMMIT;
 
@@ -264,8 +267,10 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `catermetonight`;
-INSERT INTO `address` (`id`, `address`, `address2`, `postal_code`, `phone`, `city`, `state`, `country`) VALUES (1, '7400 E. Orchard Rd', NULL, '80301', '303-330-5730', '1', DEFAULT, DEFAULT);
-INSERT INTO `address` (`id`, `address`, `address2`, `postal_code`, `phone`, `city`, `state`, `country`) VALUES (2, '7300 E. Orchard Rd', NULL, '80301', '303-338-3212', '1', DEFAULT, DEFAULT);
+INSERT INTO `address` (`id`, `address`, `address2`, `postal_code`, `phone`, `city`, `state`, `country`) VALUES (1, '7400 E. Orchard Rd', NULL, '80301', '303-330-5730', 'Denver', 'CO', 'US');
+INSERT INTO `address` (`id`, `address`, `address2`, `postal_code`, `phone`, `city`, `state`, `country`) VALUES (2, '7300 E. Orchard Rd', NULL, '80301', '303-338-3212', 'Denver', 'CO', 'US');
+INSERT INTO `address` (`id`, `address`, `address2`, `postal_code`, `phone`, `city`, `state`, `country`) VALUES (3, '1st St Merlin Dr. ', NULL, '76706', '254-345-4432', 'Waco', 'TX', 'US');
+INSERT INTO `address` (`id`, `address`, `address2`, `postal_code`, `phone`, `city`, `state`, `country`) VALUES (4, 'Main St', NULL, '80301', '303-212-2349', 'Boulder', DEFAULT, DEFAULT);
 
 COMMIT;
 
@@ -275,8 +280,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `catermetonight`;
-INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `security_code`, `user_id`, `billing_address_id`) VALUES (1, 'Chandan', DEFAULT, 321, 1, 1);
-INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `security_code`, `user_id`, `billing_address_id`) VALUES (2, 'Chandan', DEFAULT, 123, 1, 1);
+INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `security_code`, `user_id`, `billing_address_id`) VALUES (1, 'Chandan K Thakur', '2017-20', 321, 1, 1);
+INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `security_code`, `user_id`, `billing_address_id`) VALUES (2, 'Chandan K Thakur', '2018-20', 123, 1, 1);
 
 COMMIT;
 
