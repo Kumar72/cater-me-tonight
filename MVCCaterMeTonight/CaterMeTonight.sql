@@ -45,27 +45,6 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 
 -- -----------------------------------------------------
--- Table `appetizer`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `appetizer` ;
-
-CREATE TABLE IF NOT EXISTS `appetizer` (
-  `id` INT NOT NULL,
-  `name` VARCHAR(45) NOT NULL,
-  `description` VARCHAR(45) NULL,
-  `price` DECIMAL(4,2) NULL,
-  `kitchen_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `kitchen_id`),
-  INDEX `fk_appetizer_kitchen_idx` (`kitchen_id` ASC),
-  CONSTRAINT `fk_appetizer_kitchen`
-    FOREIGN KEY (`kitchen_id`)
-    REFERENCES `kitchen` (`kitchen_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `course`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `course` ;
@@ -133,39 +112,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `state`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `state` ;
-
-CREATE TABLE IF NOT EXISTS `state` (
-  `state_id` INT NOT NULL,
-  `state` VARCHAR(45) NOT NULL,
-  `last_update` VARCHAR(45) NULL,
-  PRIMARY KEY (`state_id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `city`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `city` ;
-
-CREATE TABLE IF NOT EXISTS `city` (
-  `city_id` INT NOT NULL AUTO_INCREMENT,
-  `city` VARCHAR(45) NOT NULL,
-  `last_update` TIMESTAMP NOT NULL,
-  `state_id` INT NOT NULL,
-  PRIMARY KEY (`city_id`, `state_id`),
-  INDEX `fk_city_country1_idx` (`state_id` ASC),
-  CONSTRAINT `fk_city_country1`
-    FOREIGN KEY (`state_id`)
-    REFERENCES `state` (`state_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `address`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `address` ;
@@ -176,15 +122,11 @@ CREATE TABLE IF NOT EXISTS `address` (
   `address2` VARCHAR(45) NULL,
   `postal_code` VARCHAR(10) NULL,
   `phone` VARCHAR(20) NOT NULL,
+  `city` VARCHAR(45) NOT NULL,
   `last_update` TIMESTAMP NOT NULL,
-  `city_id` INT NOT NULL,
-  PRIMARY KEY (`address_id`),
-  INDEX `fk_Address_city1_idx` (`city_id` ASC),
-  CONSTRAINT `fk_Address_city1`
-    FOREIGN KEY (`city_id`)
-    REFERENCES `city` (`city_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  `state` VARCHAR(45) NULL,
+  `country` VARCHAR(45) NULL,
+  PRIMARY KEY (`address_id`))
 ENGINE = InnoDB;
 
 
@@ -269,7 +211,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `catermetonight`;
-INSERT INTO `order` (`order_id`, `ordered_date`, `comment`, `user_id`) VALUES (1, '2017-3-31', 'Testing SQL', 1);
+INSERT INTO `order` (`order_id`, `ordered_date`, `comment`, `user_id`) VALUES (1, '2017-3-31', 'Order 1', 1);
+INSERT INTO `order` (`order_id`, `ordered_date`, `comment`, `user_id`) VALUES (2, '2017-4-1', 'Order 2', 1);
 
 COMMIT;
 
@@ -315,40 +258,12 @@ COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `state`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `catermetonight`;
-INSERT INTO `state` (`state_id`, `state`, `last_update`) VALUES (1, 'Colorado', NULL);
-INSERT INTO `state` (`state_id`, `state`, `last_update`) VALUES (2, 'North Carolina', NULL);
-INSERT INTO `state` (`state_id`, `state`, `last_update`) VALUES (3, 'Texas', NULL);
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `city`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `catermetonight`;
-INSERT INTO `city` (`city_id`, `city`, `last_update`, `state_id`) VALUES (1, 'Denver', DEFAULT, 1);
-INSERT INTO `city` (`city_id`, `city`, `last_update`, `state_id`) VALUES (2, 'Greensboro', DEFAULT, 2);
-INSERT INTO `city` (`city_id`, `city`, `last_update`, `state_id`) VALUES (3, 'Boulder', DEFAULT, 1);
-INSERT INTO `city` (`city_id`, `city`, `last_update`, `state_id`) VALUES (4, 'Aurora', DEFAULT, 1);
-INSERT INTO `city` (`city_id`, `city`, `last_update`, `state_id`) VALUES (5, 'Dallas', DEFAULT, 3);
-INSERT INTO `city` (`city_id`, `city`, `last_update`, `state_id`) VALUES (6, 'Austin', DEFAULT, 3);
-INSERT INTO `city` (`city_id`, `city`, `last_update`, `state_id`) VALUES (7, 'Waco', DEFAULT, 3);
-
-COMMIT;
-
-
--- -----------------------------------------------------
 -- Data for table `address`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `catermetonight`;
-INSERT INTO `address` (`address_id`, `address`, `address2`, `postal_code`, `phone`, `last_update`, `city_id`) VALUES (1, '7400 E. Orchard Rd', NULL, '80301', '303-330-5730', DEFAULT, 1);
-INSERT INTO `address` (`address_id`, `address`, `address2`, `postal_code`, `phone`, `last_update`, `city_id`) VALUES (2, '7300 E. Orchard Rd', NULL, '80301', '303-338-3212', DEFAULT, 1);
+INSERT INTO `address` (`address_id`, `address`, `address2`, `postal_code`, `phone`, `city`, `last_update`, `state`, `country`) VALUES (1, '7400 E. Orchard Rd', NULL, '80301', '303-330-5730', '1', DEFAULT, NULL, NULL);
+INSERT INTO `address` (`address_id`, `address`, `address2`, `postal_code`, `phone`, `city`, `last_update`, `state`, `country`) VALUES (2, '7300 E. Orchard Rd', NULL, '80301', '303-338-3212', '1', DEFAULT, NULL, NULL);
 
 COMMIT;
 
