@@ -29,7 +29,7 @@ public class LoginController {
 	}
 
 	@RequestMapping(path = "Login.do", method = RequestMethod.GET)
-	public String show(User user, Model model) {
+	public String login(User user, Model model) {
 		user = userDAO.getUserByUsernameAndPassword(user);
 		model.addAttribute("user", user);
 		if (user != null) {
