@@ -10,7 +10,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import entities.Customer;
+import entities.User;
 
 public class CustomerTest {
 	EntityManagerFactory emf = null;
@@ -35,7 +35,7 @@ public class CustomerTest {
 	
 	@Test
 	public void testGetCustomerById(){
-		em.find(Customer.class, 1);
+		em.find(User.class, 1);
 	}
 	
 	
