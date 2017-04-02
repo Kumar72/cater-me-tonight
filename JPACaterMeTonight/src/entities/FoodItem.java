@@ -23,32 +23,32 @@ public class FoodItem {
 	private int courseId;
 	
 	private double price;
-	
-	@Column(name="quantity")
-	private int quantityOfFoodItem;
-	
-	@Column(name="description")
-	private String descriptionOfFoodItem;
-	
-	public int getQuantityOfFoodItem() {
-		return quantityOfFoodItem;
-	}
-
-	public void setQuantityOfFoodItem(int quantityOfFoodItem) {
-		this.quantityOfFoodItem = quantityOfFoodItem;
-	}
+//	
+//	@Column(name="quantity")
+//	private int quantityOfFoodItem;
+//	
+//	@Column(name="description")
+//	private String descriptionOfFoodItem;
+//	
+//	public int getQuantityOfFoodItem() {
+//		return quantityOfFoodItem;
+//	}
+//
+//	public void setQuantityOfFoodItem(int quantityOfFoodItem) {
+//		this.quantityOfFoodItem = quantityOfFoodItem;
+//	}
 
 
 	public int getId() {
 		return id;
 	}
-
-	@Override
-	public String toString() {
-		return "FoodItem [name=" + name + ", kitchenId=" + kitchenId + ", courseId=" + courseId + ", price=" + price
-				+ ", quantityOfFoodItem=" + quantityOfFoodItem + ", descriptionOfFoodItem=" + descriptionOfFoodItem
-				+ "]";
-	}
+//
+//	@Override
+//	public String toString() {
+//		return "FoodItem [name=" + name + ", kitchenId=" + kitchenId + ", courseId=" + courseId + ", price=" + price
+//				+ ", quantityOfFoodItem=" + quantityOfFoodItem + ", descriptionOfFoodItem=" + descriptionOfFoodItem
+//				+ "]";
+//	}
 
 	public String getName() {
 		return name;
@@ -81,14 +81,14 @@ public class FoodItem {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-
-	public String getDescriptionOfFoodItem() {
-		return descriptionOfFoodItem;
-	}
-
-	public void setDescriptionOfFoodItem(String descriptionOfFoodItem) {
-		this.descriptionOfFoodItem = descriptionOfFoodItem;
-	}
+//
+//	public String getDescriptionOfFoodItem() {
+//		return descriptionOfFoodItem;
+//	}
+//
+//	public void setDescriptionOfFoodItem(String descriptionOfFoodItem) {
+//		this.descriptionOfFoodItem = descriptionOfFoodItem;
+//	}
 }
 	
 	

@@ -30,9 +30,9 @@ public class OrderItem {
 	
 	private int quantity;
 	
-	@Column(name="placed_order_id")
-	private int orderId;
-	
-	@Column(name="menu_item_id")
-	private int menuItemId;
+//	@Column(name="placed_order_id")
+//	private int orderId;
+//	
+//	@Column(name="menu_item_id")
+//	private int menuItemId;
 }

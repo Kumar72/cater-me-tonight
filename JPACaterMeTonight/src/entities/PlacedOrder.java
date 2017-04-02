@@ -17,7 +17,24 @@ import javax.persistence.Table;
 @Entity
 @Table(name="placed_order")
 public class PlacedOrder {
+	//Total fields: 5  		3fk(User, Delivery Addr, Creditcard)
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
+
+	@Column(name="user_id")
+	private User userId;
+	
+	@Column(name="date_created")
+	private String dateCreated;
+	
+	@Column(name="delivery_address_id")
+	private String deliveryAddress;
+//	
+//	@Column(name="creditcard_id")
+//	private creditCard cxreditCardId;
+
 	@OneToMany(mappedBy="placedOrder")
 	private List<OrderItem> orderItem;
 	
@@ -28,68 +45,51 @@ public class PlacedOrder {
 	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinColumn(name="address_id")
 	private Address address;
-	
-	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
-	@JoinColumn(name="creditcard_id")
-	private CreditCard creditcard;
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
-
-	@Column(name="user_id")
-	private int userId;
-	
-	@Column(name="date_created")
-	private String dateCreated;
-	
-	@Column(name="delivery_address_id")
-	private String deliveryAddress;
-	
-	@Column(name="creditcard_id")
-	private int creditCardId;
-
+//	
+//	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+//	@JoinColumn(name="creditcard_id")
+//	private CreditCard creditcard;
 	public int getId() {
 		return id;
 	}
 
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-	public String getDateCreated() {
-		return dateCreated;
-	}
-
-	public void setDateCreated(String dateCreated) {
-		this.dateCreated = dateCreated;
-	}
-
-	public String getDeliveryAddress() {
-		return deliveryAddress;
-	}
-
-	public void setDeliveryAddress(String deliveryAddress) {
-		this.deliveryAddress = deliveryAddress;
-	}
-
-	public int getCreditCardId() {
-		return creditCardId;
-	}
-
-	public void setCreditCardId(int creditCardId) {
-		this.creditCardId = creditCardId;
-	}
-
-	@Override
-	public String toString() {
-		return "PlacedOrder [userId=" + userId + ", dateCreated=" + dateCreated + ", deliveryAddress=" + deliveryAddress
-				+ ", creditCardId=" + creditCardId + "]";
-	}
+//	public int getUserId() {
+//		return userId;
+//	}
+//
+//	public void setUserId(int userId) {
+//		this.userId = userId;
+//	}
+//
+//	public String getDateCreated() {
+//		return dateCreated;
+//	}
+//
+//	public void setDateCreated(String dateCreated) {
+//		this.dateCreated = dateCreated;
+//	}
+//
+//	public String getDeliveryAddress() {
+//		return deliveryAddress;
+//	}
+//
+//	public void setDeliveryAddress(String deliveryAddress) {
+//		this.deliveryAddress = deliveryAddress;
+//	}
+//
+//	public int getCreditCardId() {
+//		return creditCardId;
+//	}
+//
+//	public void setCreditCardId(int creditCardId) {
+//		this.creditCardId = creditCardId;
+//	}
+//
+//	@Override
+//	public String toString() {
+//		return "PlacedOrder [userId=" + userId + ", dateCreated=" + dateCreated + ", deliveryAddress=" + deliveryAddress
+//				+ ", creditCardId=" + creditCardId + "]";
+//	}
 	
 	
 	

@@ -17,7 +17,7 @@ import javax.persistence.Table;
 public class MenuItem {
 	
 	@OneToMany(mappedBy= "menuItem")
-	private List <MenuItem> orderMenuItems;
+	private List <OrderItem> orderMenuItems;
 	
 	@ManyToOne
 	@JoinColumn(name="kitchen_id")
@@ -35,18 +35,18 @@ public class MenuItem {
 	
 	private String description;
 	
-	@Column(name="kitchen_id")
-	private int kitchenId;
+//	@Column(name="kitchen_id")
+//	private int kitchenId;
 	
-	@Column(name="course_id")
-	private int courseId;
-	
+//	@Column(name="course_id")
+//	private int courseId;
+//	
 	private double price;
 	
 	private int quantity;
-	
-	@Column(name="order_id")
-	private int orderId;
+//	
+//	@Column(name="order_id")
+//	private int orderId;
 
 	public int getId() {
 		return id;
@@ -67,22 +67,22 @@ public class MenuItem {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	public int getKitchenId() {
-		return kitchenId;
-	}
-
-	public void setKitchenId(int kitchenId) {
-		this.kitchenId = kitchenId;
-	}
-
-	public int getCourseId() {
-		return courseId;
-	}
-
-	public void setCourseId(int courseId) {
-		this.courseId = courseId;
-	}
+//
+//	public int getKitchenId() {
+//		return kitchenId;
+//	}
+//
+//	public void setKitchenId(int kitchenId) {
+//		this.kitchenId = kitchenId;
+//	}
+//
+//	public int getCourseId() {
+//		return courseId;
+//	}
+//
+//	public void setCourseId(int courseId) {
+//		this.courseId = courseId;
+//	}
 
 	public double getPrice() {
 		return price;
@@ -99,18 +99,17 @@ public class MenuItem {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-
-	public int getOrderId() {
-		return orderId;
-	}
-
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
-	}
-	
-	@Override
-	public String toString() {
-		return "Menu [name=" + name + ", description=" + description + ", kitchenId=" + kitchenId + ", courseId="
-				+ courseId + ", price=" + price + ", quantity=" + quantity + ", orderId=" + orderId + "]";
-	}
+//
+//	public int getOrderId() {
+//		return orderId;
+//	}
+//
+//	public void setOrderId(int orderId) {
+//		this.orderId = orderId;
+//	}
+//	
+//	@Override
+//	public String toString() {
+//		return "Menu [name=" + name + ", description=" + description + ", kitchenId=" + kitchenId  + ", price=" + price + ", quantity=" + quantity + ", orderId=" + orderId + "]";
+//	}
 }
