@@ -60,11 +60,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `order`
+-- Table `user_order`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `order` ;
+DROP TABLE IF EXISTS `user_order` ;
 
-CREATE TABLE IF NOT EXISTS `order` (
+CREATE TABLE IF NOT EXISTS `user_order` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `ordered_date` DATE NOT NULL,
   `user_id` INT NOT NULL,
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_item_order1`
     FOREIGN KEY (`order_id`)
-    REFERENCES `order` (`id`)
+    REFERENCES `user_order` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -212,12 +212,12 @@ COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `order`
+-- Data for table `user_order`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `catermetonight`;
-INSERT INTO `order` (`id`, `ordered_date`, `user_id`, `comment`, `quantity`) VALUES (1, '2017-3-31', 1, 'Order 1', DEFAULT);
-INSERT INTO `order` (`id`, `ordered_date`, `user_id`, `comment`, `quantity`) VALUES (2, '2017-4-1', 1, 'Order 2', DEFAULT);
+INSERT INTO `user_order` (`id`, `ordered_date`, `user_id`, `comment`, `quantity`) VALUES (1, '2017-3-31', 1, 'Order 1', DEFAULT);
+INSERT INTO `user_order` (`id`, `ordered_date`, `user_id`, `comment`, `quantity`) VALUES (2, '2017-4-1', 1, 'Order 2', DEFAULT);
 
 COMMIT;
 
@@ -283,3 +283,4 @@ INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `security_code`,
 INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `security_code`, `user_id`, `billing_address_id`) VALUES (2, 'Chandan K Thakur', '2018-20', 123, 1, 1);
 
 COMMIT;
+
