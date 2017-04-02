@@ -60,11 +60,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `order`
+-- Table `user_order`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `order` ;
+DROP TABLE IF EXISTS `user_order` ;
 
-CREATE TABLE IF NOT EXISTS `order` (
+CREATE TABLE IF NOT EXISTS `user_order` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `ordered_date` DATE NOT NULL,
   `user_id` INT NOT NULL,
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_item_order1`
     FOREIGN KEY (`order_id`)
-    REFERENCES `order` (`id`)
+    REFERENCES `user_order` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -212,12 +212,12 @@ COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `order`
+-- Data for table `user_order`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `catermetonight`;
-INSERT INTO `order` (`id`, `ordered_date`, `user_id`, `comment`, `quantity`) VALUES (1, '2017-3-31', 1, 'Order 1', DEFAULT);
-INSERT INTO `order` (`id`, `ordered_date`, `user_id`, `comment`, `quantity`) VALUES (2, '2017-4-1', 1, 'Order 2', DEFAULT);
+INSERT INTO `user_order` (`id`, `ordered_date`, `user_id`, `comment`, `quantity`) VALUES (1, '2017-3-31', 1, 'Order 1', DEFAULT);
+INSERT INTO `user_order` (`id`, `ordered_date`, `user_id`, `comment`, `quantity`) VALUES (2, '2017-4-1', 1, 'Order 2', DEFAULT);
 
 COMMIT;
 
@@ -233,6 +233,7 @@ INSERT INTO `menu` (`id`, `name`, `description`, `kitchen_id`, `course_id`, `pri
 INSERT INTO `menu` (`id`, `name`, `description`, `kitchen_id`, `course_id`, `price`, `order_id`, `picture_url`) VALUES (4, 'Tawa Chicken', DEFAULT, 2, 2, 9.99, NULL, NULL);
 INSERT INTO `menu` (`id`, `name`, `description`, `kitchen_id`, `course_id`, `price`, `order_id`, `picture_url`) VALUES (5, 'Chicken Quesadilla', DEFAULT, 3, 1, 9.29, 1, NULL);
 INSERT INTO `menu` (`id`, `name`, `description`, `kitchen_id`, `course_id`, `price`, `order_id`, `picture_url`) VALUES (6, 'Mild and Spicy Queso', DEFAULT, 3, 1, 6.99, NULL, NULL);
+INSERT INTO `menu` (`id`, `name`, `description`, `kitchen_id`, `course_id`, `price`, `order_id`, `picture_url`) VALUES (6, 'Rasgulla', DEFAULT, 2, 3, 5.99, NULL, NULL);
 INSERT INTO `menu` (`id`, `name`, `description`, `kitchen_id`, `course_id`, `price`, `order_id`, `picture_url`) VALUES (7, 'Chicken Fajitas', DEFAULT, 3, 2, 27.99, NULL, NULL);
 INSERT INTO `menu` (`id`, `name`, `description`, `kitchen_id`, `course_id`, `price`, `order_id`, `picture_url`) VALUES (8, 'California Roll', DEFAULT, 4, 2, 6.99, 1, NULL);
 INSERT INTO `menu` (`id`, `name`, `description`, `kitchen_id`, `course_id`, `price`, `order_id`, `picture_url`) VALUES (9, 'Yaki Udon', DEFAULT, 4, 2, 8.50, NULL, NULL);
@@ -283,3 +284,4 @@ INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `security_code`,
 INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `security_code`, `user_id`, `billing_address_id`) VALUES (2, 'Chandan K Thakur', '2018-20', 123, 1, 1);
 
 COMMIT;
+
