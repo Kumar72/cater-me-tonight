@@ -18,7 +18,7 @@
 <context:component-scan base-package="controllers"></context:component-scan>
 
     <bean id="creditCardDao" class="data.CreditCardDAOImpl" />
-    <bean id="customerDao" class="data.CustomerDAOImpl" />
+    <bean id="userDao" class="data.UserDAOImpl" />
     <bean id="foodItemDao" class="data.FoodItemDAOImpl" />
     <bean id="kitchenDao" class="data.KitchenDAOImpl" />
     <bean id="orderDao" class="data.OrderDAOImpl" />

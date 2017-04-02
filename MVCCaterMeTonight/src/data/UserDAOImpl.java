@@ -16,36 +16,38 @@ public class UserDAOImpl implements UserDAO {
 	private EntityManager em;
 	
 	@Override
-	public User showCustomer(int id) { //returning a single customer
+	public User showUser(int id) { //returning a single customer
 		return em.find(User.class, 1);
 	}
 
 	@Override
-	public User createANewCustomer(User customer) {
+	public User createNewUser(User user) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public User updateCustomerInfo(int id, User customer) {
+	public User updateUserInfo(int id, User user) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean deleteCustomer(int id) {
+	public boolean deleteUser(int id) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public User getCustomerByUsernameAndPassword(User user) {
+	public User getUserByUsernameAndPassword(User user) {
 		User returnedUser = null;
 		String queryString = "SELECT user " 
 						+ "FROM User user "
-						+ "WHERE user.username = :username"
+						+ "WHERE user.username = :username "
 						+ "AND user.password = :password ";
 		try {
+			System.out.println(user.getUsername());
+			System.out.println(user.getPassword());
 			returnedUser = em.createQuery(queryString, User.class)
 					.setParameter("username", user.getUsername())
 					.setParameter("password", user.getPassword())					

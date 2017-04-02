@@ -50,33 +50,10 @@
 	<container>
 	<div class="row padding-top">
 		<div class="col-md-offset-1 col-md-3">
-            <div class="form-login">
-            <h4>Welcome back.</h4>
-            <form action="Login.do" method="get">
-            <input type="text" id="username" name="username" class="form-control input-sm chat-input" placeholder="username" />
-            </br>
-            <input type="text" id="password" name="password" class="form-control input-sm chat-input" placeholder="password" />
-            </br>
-            <div class="wrapper">
-            <span class="group-btn"> 
-            	<input type="submit" class="btn btn-primary btn-md" value="Login">
-            </span>
-            </div>
-            </form>
-            <form action="AddUser.do">
-            <div class="wrapper">
-            <span class="group-btn"> 
-            	<input type="submit" class="btn btn-primary btn-md" value="Add User">
-            </span>
-            </div>
-            </form>
-            </div>
-        
+            Welcome, ${user.username}        
         </div>
 		<div class="col-md-offset-1 col-md-6 clear-area">
-			<h3>Your one stop shop to cater all your corporate and family
-				events. We offer same day catering from a wide selection of foods
-				from all over the world.</h3>
+			
 		</div>
     </div>
 	</container>

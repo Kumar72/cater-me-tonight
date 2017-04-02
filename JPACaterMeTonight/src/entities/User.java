@@ -25,14 +25,12 @@ public class User {
 	private String lastName;
 	
 	private String email;
-	
-	@Column(name="creditcard_id")
-	private int creditCardId;
+
 	
 	@Column(name="picture_url")
-	private int pictureUrl;
+	private String pictureUrl;
 
-	private int status;
+	private String status;
 
 	public String getUsername() {
 		return username;
@@ -74,27 +72,20 @@ public class User {
 		this.email = email;
 	}
 
-	public int getCreditCardId() {
-		return creditCardId;
-	}
 
-	public void setCreditCardId(int creditCardId) {
-		this.creditCardId = creditCardId;
-	}
-
-	public int getPictureUrl() {
+	public String getPictureUrl() {
 		return pictureUrl;
 	}
 
-	public void setPictureUrl(int pictureUrl) {
+	public void setPictureUrl(String pictureUrl) {
 		this.pictureUrl = pictureUrl;
 	}
 
-	public int getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
@@ -105,7 +96,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", email=" + email + ", creditCardId=" + creditCardId + ", pictureUrl="
+				+ ", lastName=" + lastName + ", email=" + email + ", pictureUrl="
 				+ pictureUrl + ", status=" + status + "]";
 	}
 	
