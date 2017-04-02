@@ -5,11 +5,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="address")
 public class Address {
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
@@ -24,9 +31,7 @@ public class Address {
 	
 	@Column(name="postal_code")
 	private int zipCode;
-	
-	@Column(name="phone")
-	private String phoneNumber;
+
 
 	public int getId() {
 		return id;
@@ -35,7 +40,7 @@ public class Address {
 	@Override
 	public String toString() {
 		return "Address [city=" + city + ", state=" + state + ", streetAddress=" + streetAddress + ", zipCode="
-				+ zipCode + ", phoneNumber=" + phoneNumber + "]";
+				+ zipCode + "]";
 	}
 
 	public String getCity() {
@@ -69,14 +74,5 @@ public class Address {
 	public void setZipCode(int zipCode) {
 		this.zipCode = zipCode;
 	}
-
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-	
 	
 }

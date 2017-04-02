@@ -1,15 +1,32 @@
 package entities;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "user")
 public class User {
+	
+	@OneToMany(mappedBy="placed_order")
+	private List <PlacedOrder> placedOrder;
+	
+	@OneToMany(mappedBy="address")
+	private List<Address> address;
+	
+	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+	@JoinColumn(name="creditcard")
+	private CreditCard creditcard;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -25,6 +42,9 @@ public class User {
 	private String lastName;
 	
 	private String email;
+	
+	@Column(name="phone")
+	private String phoneNumber;
 
 	
 	@Column(name="picture_url")
