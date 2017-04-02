@@ -1,23 +1,23 @@
 package data;
 
-import entities.Order;
+import entities.UserOrder;
 
-public class OrderDAOImpl implements OrderDAO {
+public class UserOrderDAOImpl implements UserOrderDAO {
 
 	@Override
-	public Order getOrder(int id) {
+	public UserOrder getUserOrder(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Order updateOrder(int id) {
+	public UserOrder updateUserOrder(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean cancelOrder(int id) {
+	public boolean cancelUserOrder(int id) {
 		// TODO Auto-generated method stub
 		return false;
 	}

@@ -9,10 +9,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="order")
-public class Order {
+public class UserOrder {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="order_id")
 	private int id;
 	
 	private String username;
