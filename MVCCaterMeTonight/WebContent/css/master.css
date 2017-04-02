@@ -1,0 +1,63 @@
+body {
+	padding-top: 30px;
+	background-image: url('../images/background.jpg');	
+}
+
+.clear-area {
+	    background: rgba(255, 255, 255, 0.90);	
+	    padding: 10px;
+}
+
+.btn, .centered{
+	display: block; 
+	margin: 5px auto;
+}
+
+img {
+	display: block;
+	margin: 0 auto;
+	width: 80%;
+	height: 80%;
+}
+
+th {
+	text-align: center;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: lightgreen;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.horizontal {
+	display: inline-block;
+}
+
+.txt_3[type="text"] {
+	margin: 10px 0 0;
+	padding: 10px 0 10px 5px;
+	width: 100%;
+}
+
+.txt2[type="submit"] {
+	border: 1px solid #4f5c04;
+	color: #fff;
+	font-size: 16px;
+	font-style: normal;
+	line-height: 35px;
+	margin: 10px 0;
+	padding: 0;
+	text-transform: uppercase;
+	width: 30%;
+}
+
+.txt2:hover {
+	background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+	color: #5793ef;
+	transition: all 0.5s ease 0s;
+}
+
+input[type=number]{
+	width: 75px;
+}
