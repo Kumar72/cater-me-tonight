@@ -7,10 +7,13 @@
 		<class>entities.Address</class>
 		<class>entities.Course</class>
 		<class>entities.CreditCard</class>
-		<class>entities.Customer</class>
 		<class>entities.FoodItem</class>
 		<class>entities.Kitchen</class>
-		<class>entities.Order</class>	    
+		<class>entities.MenuItem</class>
+		<class>entities.OrderItem</class>
+		<class>entities.PlacedOrder</class>
+		<class>entities.User</class>
+			    
 	    	  
 	  	<properties>
 	  	<!-- Make connection to db -->
@@ -21,8 +24,8 @@
 	  		<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 	  		
 	  	<!-- config for debug -->
-	  		<property name="hibernate.show_sql" value="true" />
-		      <property name="hibernate.format_sql" value="true" />
+	  		<property name="hibernate.show_sql" value="false" />
+		      <property name="hibernate.format_sql" value="false" />
 		      <property name="hibernate.dialect"
 		        value="org.hibernate.dialect.MySQLDialect" />
 		        
