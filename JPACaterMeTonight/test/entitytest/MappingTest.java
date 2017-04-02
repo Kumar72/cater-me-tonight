@@ -72,11 +72,6 @@ public class MappingTest {
 //		 assertEquals("Chandan K Thakur", creditCard.getFullName());
 	 }
 	 @Test
-	 public void test_fooditem_mapping() {		//?? What does this connect to on the sql
-		 foodItem = em.find(FoodItem.class, 1);
-		 assertEquals("Drink", foodItem.getName());
-	 }
-	 @Test
 	 public void test_kitchen_mapping() {
 		 kitchen = em.find(Kitchen.class, 1);
 		 assertEquals("French", kitchen.getName());
@@ -90,12 +85,13 @@ public class MappingTest {
 	 @Test
 	 public void test_orderitem_mapping() {
 		 orderItem = em.find(OrderItem.class, 1);
+		 System.out.println(orderItem);
 		 assertEquals(21, orderItem.getQuantity());
 	 }
 	 @Test
 	 public void test_placedorder_mapping() {
 		 placedOrder = em.find(PlacedOrder.class, 1);
-		 assertEquals(4, placedOrder.getDeliverAddressId());
+		 assertEquals(1, placedOrder.getId());
 	 }
 	 @Test
 	 public void test_user_mapping() {

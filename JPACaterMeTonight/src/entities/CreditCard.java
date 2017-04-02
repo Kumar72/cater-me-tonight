@@ -79,10 +79,10 @@ public class CreditCard {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public int getBillingAddressId() {
+	public Address getBillingAddressId() {
 		return billingAddressId;
 	}
-	public void setBillingAddressId(int billingAddressId) {
+	public void setBillingAddressId(Address billingAddressId) {
 		this.billingAddressId = billingAddressId;
 	}
 	
