@@ -2,7 +2,10 @@ package controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import data.CustomerDAO;
@@ -26,12 +29,12 @@ public class LoginController {
 		return mv;
 	}
   
-//  @RequestMapping(path = "GetFilm.do", method = RequestMethod.GET)
-//  public String show(@RequestParam("id") Integer id, Model model) {
-//    Film film = filmDAO.show(id);
-//    model.addAttribute("film", film);
-//    return "film/show.jsp";
-//  }
+  @RequestMapping(path = "Login.do", method = RequestMethod.GET)
+  public String show(Customer customer, Model model) {
+    Film film = filmDAO.show(id);
+    model.addAttribute("film", film);
+    return "film/show.jsp";
+  }
 //  
 //  @RequestMapping(path = "GetFilms.do", method = RequestMethod.GET)
 //  public String index(Model model) {

@@ -52,20 +52,24 @@
 		<div class="col-md-offset-1 col-md-3">
             <div class="form-login">
             <h4>Welcome back.</h4>
-            <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" />
+            <form action="Login.do" method="get">
+            <input type="text" id="username" class="form-control input-sm chat-input" placeholder="username" />
             </br>
-            <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
+            <input type="text" id="password" class="form-control input-sm chat-input" placeholder="password" />
             </br>
             <div class="wrapper">
-            <span class="group-btn">     
-                <a href="#" class="btn btn-primary btn-md">Login <i class="fa fa-sign-in"></i></a>
+            <span class="group-btn"> 
+            	<input type="submit" class="btn btn-primary btn-md" value="Login">
             </span>
             </div>
+            </form>
+            <form action="AddUser.do">
             <div class="wrapper">
-            <span class="group-btn">     
-                <a href="#" class="btn btn-primary btn-md">Add User <i class="fa fa-sign-in"></i></a>
+            <span class="group-btn"> 
+            	<input type="submit" class="btn btn-primary btn-md" value="Add User">
             </span>
             </div>
+            </form>
             </div>
         
         </div>
