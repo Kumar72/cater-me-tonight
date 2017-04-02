@@ -2,7 +2,7 @@ package data;
 
 import entities.User;
 
-public interface CustomerDAO {
+public interface UserDAO {
 	public User showCustomer(int id);
 	public User getCustomerByUsernameAndPassword(User customer);
 	public User createANewCustomer(User customer);

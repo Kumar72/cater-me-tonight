@@ -10,7 +10,7 @@ import entities.User;
 
 @Transactional
 @Repository
-public class CustomerDAOImpl implements CustomerDAO {
+public class UserDAOImpl implements UserDAO {
 
 	@PersistenceContext
 	private EntityManager em;
@@ -39,9 +39,22 @@ public class CustomerDAOImpl implements CustomerDAO {
 	}
 
 	@Override
-	public User getCustomerByUsernameAndPassword(User customer) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public User getCustomerByUsernameAndPassword(User user) {
+		User returnedUser = null;
+		String queryString = "SELECT user " 
+						+ "FROM User user "
+						+ "WHERE user.username = :username"
+						+ "AND user.password = :password ";
+		try {
+			returnedUser = em.createQuery(queryString, User.class)
+					.setParameter("username", user.getUsername())
+					.setParameter("password", user.getPassword())					
+					.getSingleResult();
+		} catch (Exception e) {
+			System.out.println(e);
+	
+		}
+		return returnedUser;
+	}	
 
 }
