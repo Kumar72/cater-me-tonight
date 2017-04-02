@@ -14,7 +14,6 @@ import javax.persistence.Table;
 public class CreditCard {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="creditcard_id")
 	private int id;
 	
 	@Column(name="expiration_date")
