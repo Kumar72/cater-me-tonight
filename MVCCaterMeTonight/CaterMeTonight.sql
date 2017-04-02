@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `order` (
   `user_id` INT NOT NULL,
   `comment` VARCHAR(45) NULL,
   `quantity` INT NOT NULL,
-  PRIMARY KEY (`id`, `user_id`),
+  PRIMARY KEY (`id`),
   INDEX `fk_order_user1_idx` (`user_id` ASC),
   CONSTRAINT `fk_order_user1`
     FOREIGN KEY (`user_id`)
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `price` DECIMAL(4,2) NOT NULL,
   `order_id` INT NULL,
   `picture_url` VARCHAR(100) NULL,
-  PRIMARY KEY (`id`, `kitchen_id`, `course_id`),
+  PRIMARY KEY (`id`),
   INDEX `fk_item_course_idx` (`course_id` ASC),
   INDEX `fk_item_order1_idx` (`order_id` ASC),
   CONSTRAINT `fk_item_kitchen1`
@@ -145,7 +145,7 @@ CREATE TABLE IF NOT EXISTS `creditcard` (
   `security_code` INT NOT NULL,
   `user_id` INT NOT NULL,
   `billing_address_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `user_id`),
+  PRIMARY KEY (`id`),
   INDEX `fk_creditcard_user1_idx` (`user_id` ASC),
   INDEX `fk_creditcard_Address1_idx` (`billing_address_id` ASC),
   CONSTRAINT `fk_creditcard_user1`
