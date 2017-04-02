@@ -233,7 +233,6 @@ INSERT INTO `menu` (`id`, `name`, `description`, `kitchen_id`, `course_id`, `pri
 INSERT INTO `menu` (`id`, `name`, `description`, `kitchen_id`, `course_id`, `price`, `order_id`, `picture_url`) VALUES (4, 'Tawa Chicken', DEFAULT, 2, 2, 9.99, NULL, NULL);
 INSERT INTO `menu` (`id`, `name`, `description`, `kitchen_id`, `course_id`, `price`, `order_id`, `picture_url`) VALUES (5, 'Chicken Quesadilla', DEFAULT, 3, 1, 9.29, 1, NULL);
 INSERT INTO `menu` (`id`, `name`, `description`, `kitchen_id`, `course_id`, `price`, `order_id`, `picture_url`) VALUES (6, 'Mild and Spicy Queso', DEFAULT, 3, 1, 6.99, NULL, NULL);
-INSERT INTO `menu` (`id`, `name`, `description`, `kitchen_id`, `course_id`, `price`, `order_id`, `picture_url`) VALUES (6, 'Rasgulla', DEFAULT, 2, 3, 5.99, NULL, NULL);
 INSERT INTO `menu` (`id`, `name`, `description`, `kitchen_id`, `course_id`, `price`, `order_id`, `picture_url`) VALUES (7, 'Chicken Fajitas', DEFAULT, 3, 2, 27.99, NULL, NULL);
 INSERT INTO `menu` (`id`, `name`, `description`, `kitchen_id`, `course_id`, `price`, `order_id`, `picture_url`) VALUES (8, 'California Roll', DEFAULT, 4, 2, 6.99, 1, NULL);
 INSERT INTO `menu` (`id`, `name`, `description`, `kitchen_id`, `course_id`, `price`, `order_id`, `picture_url`) VALUES (9, 'Yaki Udon', DEFAULT, 4, 2, 8.50, NULL, NULL);
