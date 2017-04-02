@@ -32,10 +32,10 @@ public class LoginController {
 	public String show(User user, Model model) {
 		user = userDAO.getUserByUsernameAndPassword(user);
 		model.addAttribute("user", user);
-		if (user == null) {
-			return "index";
-		} else {
+		if (user != null) {
 			return "select";
+		} else {
+			return "invalidusernameorpassword";
 		}
 
 	}
