@@ -1,7 +1,9 @@
 body {
 	padding-top: 0px;
 	background-image: url('../images/background.jpg');
-font-family: 'Forum', cursive;
+	font-family: 'Forum', cursive;
+	text-align: justify;
+	
 
 }
 
