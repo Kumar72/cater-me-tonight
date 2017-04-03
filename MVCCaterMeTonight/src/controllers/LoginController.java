@@ -33,7 +33,7 @@ public class LoginController {
 		user = userDAO.getUserByUsernameAndPassword(user);
 		model.addAttribute("user", user);
 		if (user != null) {
-			return "select";
+			return "startorder";
 		} else {
 			return "invalidusernameorpassword";
 		}

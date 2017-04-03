@@ -13,6 +13,10 @@ public class KitchenDAOImpl implements KitchenDAO {
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("CaterMeTonight");
 	EntityManager em = emf.createEntityManager();
 
+	public static void main(String[] args) {
+		KitchenDAOImpl kImp = new KitchenDAOImpl();
+		kImp.listOfKitchen();
+	}
 	
 	//DONE
 	@Override
@@ -35,14 +39,17 @@ public class KitchenDAOImpl implements KitchenDAO {
 	public List<Kitchen> listOfKitchen() {
 		Kitchen k = new Kitchen();
 		List<Kitchen> kitchens = new ArrayList<>();
-		int idCount = k.getId();
-//		while ( )
-			kitchens.add(em.find(Kitchen.class, idCount));
+		int idCount = 0;
+//		while(idCount <= k.getId()){
+			kitchens.add(em.find(Kitchen.class, k.getId()));
+			System.out.println(kitchens);
+//			idCount++;
 			
-//		}
+			return kitchens;
+		}
 		
-		return null;
-	}
+		
+//	}
 	
 	//DONE
 	@Override
