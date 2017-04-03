@@ -87,7 +87,33 @@ public class LoginControllerTest {
       fail(e.toString());
     }
   }
-  
+  @Test
+  public void test_viewMenuOptions_enter_kitchen_num_of_people_courses_and_returns_menu_view_and_placedOrder_object(){
+    try {
+      // Use MockMVC to create a request to the test servlet and get a response
+      MvcResult response = mockMvc.perform(get("/ViewMenuOptions.do")
+    		  				.param("kitchenId", "1")
+    		  				.param("numberOfPeople", "10")
+    		  				.param("appetizer", "true")
+    		  				.param("entree", "true")
+    		  				.param("dessert", "true")
+    		  				.param("drink", "true")
+    		  				)   		  				
+                            .andExpect(
+                                status().isOk()
+                            ).andReturn();
+      // Extract the returned ModelAndView from the response
+      ModelAndView mv = response.getModelAndView();
+      // Extract the Model from the ModelAndView
+      ModelMap map = mv.getModelMap();
+      
+      // Check the values with JUnit tests
+      assertEquals("emenu", mv.getViewName());
+      assertEquals("Crank72", user.getUsername());
+    } catch (Exception e) {
+      fail(e.toString());
+    }
+  }
 //  @Test
 //  public void test_get_films_returns_films_and_index_view(){
 //    try {
