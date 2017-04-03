@@ -21,7 +21,7 @@
     <bean id="userDao" class="data.UserDAOImpl" />
     <bean id="foodItemDao" class="data.FoodItemDAOImpl" />
     <bean id="kitchenDao" class="data.KitchenDAOImpl" />
-    <bean id="orderDao" class="data.OrderDAOImpl" />
+    <bean id="userOrderDao" class="data.UserOrderDAOImpl" />
 
 <bean id="myEntityManagerFactory" 
     class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"> 

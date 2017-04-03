@@ -2,7 +2,6 @@ package data;
 
 import java.util.List;
 
-import entities.FoodItem;
 import entities.Kitchen;
 
 public interface KitchenDAO {

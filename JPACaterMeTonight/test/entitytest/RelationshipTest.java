@@ -11,14 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import entities.Address;
-import entities.Course;
-import entities.CreditCard;
-import entities.FoodItem;
-import entities.Kitchen;
-import entities.MenuItem;
-import entities.OrderItem;
-import entities.PlacedOrder;
-import entities.User;
+
 
 public class RelationshipTest {
 
@@ -30,14 +23,7 @@ public class RelationshipTest {
 	private EntityManagerFactory emf = null;
 	private EntityManager em = null;
 	private Address addr;
-	private Course course;
-	private CreditCard creditCard;
-	private FoodItem foodItem;
-	private Kitchen kitchen;
-	private MenuItem menuItem;
-	private OrderItem orderItem;
-	private PlacedOrder placedOrder;
-	private User user;
+	
 	
 	
 	 @Before

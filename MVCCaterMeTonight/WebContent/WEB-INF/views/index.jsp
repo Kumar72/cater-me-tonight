@@ -55,7 +55,7 @@
             <form action="Login.do" method="get">
             <input type="text" id="username" name="username" class="form-control input-sm chat-input" placeholder="username" />
             </br>
-            <input type="text" id="password" name="password" class="form-control input-sm chat-input" placeholder="password" />
+            <input type="password" id="password" name="password" class="form-control input-sm chat-input" placeholder="password" />
             </br>
             <div class="wrapper">
             <span class="group-btn"> 
@@ -74,6 +74,7 @@
         
         </div>
 		<div class="col-md-offset-1 col-md-6 clear-area">
+		<h1 class="text-hide" id="image-header">Cater Me Tonight</h1>
 			<h3><img class="centered" src="images/logo.png" alt="Cater Me Tonight" width="220" height="88"/>
 			Your one stop shop to cater all your corporate and family
 				events. We offer same day catering from a wide selection of foods
