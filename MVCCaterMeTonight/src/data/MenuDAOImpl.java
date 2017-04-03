@@ -36,7 +36,7 @@ public class MenuDAOImpl implements MenuDAO {
 	}
 
 	@Override
-	public List<MenuItem> getAllMenuItemsFromEntres(int id) {
+	public List<MenuItem> getAllMenuItemsFromEntrees(int id) {
 		String query = "SELECT m from MenuItem m where m.kitchen.id = :id and m.course.name = :name";
 		List<MenuItem> menuItems = em.createQuery(query, MenuItem.class).setParameter("id", id).setParameter("name", "Entre").getResultList();
 		Course course = new Course();

@@ -48,20 +48,24 @@
 	</div>
 	<container>
 	<div class="row padding-top"></div>
-<c:forEach items="${appetizerItems }" var="appItem">
-	${appItem }<br>
+	<h3>Appetizers</h3>
+<c:forEach items="${appetizerItems}" var="appItem">
+	${appItem}<br>
 </c:forEach>
 
+<h3>Entreés</h3>
 <c:forEach items="${entreeItems}" var="entreeItem">
 	${entreeItem}<br>
 </c:forEach>
 
+<h3>Desserts</h3>
 <c:forEach items="${dessertItems}" var="dessertItem">
 	${dessertItem}<br>
 </c:forEach>
 
-<c:forEach items="${drinkItems}" car="drinkItem">
-	${drinkItem}
+<h3>Drinks</h3>
+<c:forEach items="${drinkItems}" var="drinkItem">
+	${drinkItem}<br>
 </c:forEach>
 
 </container>

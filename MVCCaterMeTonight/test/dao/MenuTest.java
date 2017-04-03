@@ -58,7 +58,7 @@ public class MenuTest {
 	
 	@Test 
 	public void testGetAllMenuItemsFromEntres(){
-		List<MenuItem> m = dao.getAllMenuItemsFromEntres(1);
+		List<MenuItem> m = dao.getAllMenuItemsFromEntrees(1);
 		assertEquals("Sockeye Salmon", m.get(0).getName());
 	}
 	

@@ -131,6 +131,15 @@ public class PlacedOrder {
 	public void setDeliveryAddressId(Address deliveryAddressId) {
 		this.deliveryAddressId = deliveryAddressId;
 	}
+	
+	public Kitchen getKitchen() {
+		return kitchen;
+	}
+
+	public void setKitchen(Kitchen kitchen) {
+		this.kitchen = kitchen;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
