@@ -46,7 +46,7 @@ public class PlacedOrder {
 	
 	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinColumn(name="creditcard_id")
-	private CreditCard creditCard;
+	private Creditcard creditCard;
 	
 	@OneToMany(mappedBy="order")
 	private List<OrderItem> orderItem;
@@ -83,10 +83,10 @@ public class PlacedOrder {
 	public void setDeliveryAddress(Address deliveryAddress) {
 		this.deliveryAddressId = deliveryAddress;
 	}
-	public CreditCard getCreditCard() {
+	public Creditcard getCreditCard() {
 		return creditCard;
 	}
-	public void setCreditCard(CreditCard creditCard) {
+	public void setCreditCard(Creditcard creditCard) {
 		this.creditCard = creditCard;
 	}
 	public List<OrderItem> getOrderItem() {

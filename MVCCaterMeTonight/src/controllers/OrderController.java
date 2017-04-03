@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import data.PlacedOrderDAO;
-import entities.FoodItem;
 @Controller
 public class OrderController {
 	@SuppressWarnings("unused")

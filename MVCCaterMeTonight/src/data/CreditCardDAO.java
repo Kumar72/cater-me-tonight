@@ -1,5 +1,5 @@
 package data;
 
-public interface CreditCardDAO {
+public interface CreditcardDAO {
 	public boolean validOrInvalidCreditCard();
 }

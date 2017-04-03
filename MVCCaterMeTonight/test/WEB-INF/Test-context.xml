@@ -7,13 +7,11 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	<context:component-scan base-package="controllers"></context:component-scan>
- 	<bean id="userdao" class="data.UserDAOImpl" />
- 	
- 	<bean id="creditCardDao" class="data.CreditCardDAOImpl" />
-    <bean id="foodItemDao" class="data.FoodItemDAOImpl" />
-    <bean id="kitchenDao" class="data.KitchenDAOImpl" />
-    <bean id="userOrderDao" class="data.UserOrderDAOImpl" />
-    <bean id="PlacedOrderDAO" class="data.PlacedOrderDAOImpl"/>
+ 	<bean id="userDAO" class="data.UserDAOImpl" />
+ 	 <bean id="creditcardDAO" class="data.CreditcardDAOImpl" />
+    <bean id="kitchenDAO" class="data.KitchenDAOImpl" />
+    <bean id="userOrderDAO" class="data.UserOrderDAOImpl" />
+    <bean id="placedOrderDAO" class="data.PlacedOrderDAOImpl"/>
     <bean id="menuDAO" class="data.MenuDAOImpl"/>
     
  	
