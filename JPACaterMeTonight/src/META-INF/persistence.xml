@@ -7,6 +7,7 @@
 		<class>entities.Address</class>
 		<class>entities.Course</class>
 		<class>entities.CreditCard</class>
+
 		<class>entities.FoodItem</class>
 		<class>entities.Kitchen</class>
 		<class>entities.MenuItem</class>
