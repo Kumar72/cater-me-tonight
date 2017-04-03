@@ -46,12 +46,12 @@ public class MappingTest {
 	 
 	 }
 	 @After
-	  public void tearDown() throws Exception { 
-		 
-		 
-	/*##################### MAPPING TEST BELOW #######################*/
-		 
+	  public void tearDown() throws Exception {
+		 em.close();
+		 emf.close();		 
 	 }
+	 /*##################### MAPPING TEST BELOW #######################*/
+	 
 	 @Test 
 	 public void test_address_mapping() {
 		addr = em.find(Address.class, 1);
@@ -78,13 +78,13 @@ public class MappingTest {
 	 @Test
 	 public void test_menuitem_mapping() {
 		 menuItem = em.find(MenuItem.class, 3);
-		 System.out.println(menuItem);
+//		 System.out.println(menuItem);
 		 assertEquals("Samosa", menuItem.getName());
 	 }
 	 @Test
 	 public void test_orderitem_mapping() {
 		 orderItem = em.find(OrderItem.class, 1);
-		 System.out.println(orderItem);
+//		 System.out.println(orderItem);
 		 assertEquals(21, orderItem.getQuantity());
 	 }
 	 @Test

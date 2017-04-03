@@ -34,6 +34,8 @@ public class RelationshipTest {
 	 }
 	 @After
 	  public void tearDown() throws Exception { 
+		 em.close();
+		 emf.close();
 		 
 		 
 	/*##################### MAPPING TEST BELOW #######################*/

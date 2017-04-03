@@ -45,7 +45,7 @@ public class LoginControllerTest {
 
   @Before
   public void setUp() throws Exception {
-	userDAO = (UserDAO) wac.getBean("filmdao");
+	userDAO = (UserDAO) wac.getBean("userdao");
 
 //    dao = wac.getBean(FilmDAOImpl.class);
     controller.setUserDAO(userDAO);
@@ -76,7 +76,7 @@ public class LoginControllerTest {
       // Cast the Object value paired to the "film" key to a Film object
       User user = (User) map.get("user");
       // Check the values with JUnit tests
-      assertEquals("select", mv.getViewName());
+      assertEquals("startorder", mv.getViewName());
       assertEquals("Crank72", user.getUsername());
     } catch (Exception e) {
       fail(e.toString());
