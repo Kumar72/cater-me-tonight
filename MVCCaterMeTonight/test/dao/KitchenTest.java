@@ -62,7 +62,7 @@ public class KitchenTest {
 		assertEquals("Test Description", test.getDescription());
 		assertEquals("pic", test.getPicture());
 		
-//		dao.removeKitchenAndCuisine(id);
+		dao.removeKitchenAndCuisine(test.getId());
 		
 	}
 	
@@ -70,7 +70,7 @@ public class KitchenTest {
 	public void test_read_a_list_of_kitchen() {
 		dao = new KitchenDAOImpl();
 		List<Kitchen> test = dao.listOfKitchen();
-		assertEquals("Chinese", test.get(3).getName());
+		assertEquals("Japanese", test.get(3).getName());
 	}
 	
 	@Test
@@ -79,17 +79,26 @@ public class KitchenTest {
 		Kitchen kitchen = new Kitchen();
 		kitchen.setName("Chinese");
 		kitchen.setDescription("Testing");
-		int id = 4;
-		Kitchen test = dao.updateKitchen(id, kitchen);
+		kitchen.setPicture("Create TEST");
+		dao.createKitchen(kitchen);
+		kitchen.setName("TEST");
+		kitchen.setDescription("TEST DESC");
+		Kitchen test = dao.updateKitchen(kitchen.getId(), kitchen);
 		
-		assertEquals("Chinese", test.getName());
+		assertEquals("TEST", test.getName());
+		
+		dao.removeKitchenAndCuisine(test.getId());
 
 	}
 	
 	@Test
 	public void test_delete_a_kitchen() {
-		int id = 5;
 		dao = new KitchenDAOImpl();
-		assertEquals(false, dao.removeKitchenAndCuisine(id));	
+		Kitchen kitchen = new Kitchen();
+		kitchen.setName("TEST");
+		kitchen.setDescription("TEST DESC");
+		kitchen.setPicture("TEST");
+		dao.createKitchen(kitchen);
+		assertEquals(false, dao.removeKitchenAndCuisine(kitchen.getId()));	
 	}
 }

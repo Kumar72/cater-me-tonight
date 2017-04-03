@@ -34,7 +34,7 @@ public class PlacedOrder {
 	@Column(name="number_of_people")
 	private int numberOfPeople;
 	
-	private boolean appetizer, entre, dessert, drink;
+	private boolean appetizer, entree, dessert, drink;
 	
 	@ManyToOne
 	@JoinColumn(name="user_id")
@@ -107,11 +107,11 @@ public class PlacedOrder {
 	public void setAppetizer(boolean appetizer) {
 		this.appetizer = appetizer;
 	}
-	public boolean isEntre() {
-		return entre;
+	public boolean isEntree() {
+		return entree;
 	}
-	public void setEntre(boolean entre) {
-		this.entre = entre;
+	public void setEntree(boolean entre) {
+		this.entree = entre;
 	}
 	public boolean isDessert() {
 		return dessert;
