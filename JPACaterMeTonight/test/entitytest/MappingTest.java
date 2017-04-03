@@ -32,7 +32,6 @@ public class MappingTest {
 	private Address addr;
 	private Course course;
 	private CreditCard creditCard;
-	private FoodItem foodItem;
 	private Kitchen kitchen;
 	private MenuItem menuItem;
 	private OrderItem orderItem;

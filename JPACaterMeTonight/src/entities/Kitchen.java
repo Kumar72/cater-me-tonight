@@ -1,6 +1,5 @@
 package entities;
 
-import java.awt.Menu;
 import java.util.List;
 
 import javax.persistence.Column;
