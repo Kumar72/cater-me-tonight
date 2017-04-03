@@ -22,6 +22,7 @@
     <bean id="kitchenDAO" class="data.KitchenDAOImpl" />
     <bean id="userOrderDAO" class="data.UserOrderDAOImpl" />
     <bean id="PlacedOrderDAO" class="data.PlacedOrderDAOImpl"/>
+    <bean id="MenuDAO" class="data.MenuDAOImpl"/>
     
 
 <bean id="myEntityManagerFactory" 

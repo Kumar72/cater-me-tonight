@@ -5,10 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import data.KitchenDAO;
+import data.MenuDAO;
 import data.PlacedOrderDAO;
 import data.UserDAO;
 import entities.Kitchen;
@@ -18,6 +18,9 @@ import entities.User;
 @Controller
 public class LoginController {
 	@SuppressWarnings("unused")
+	
+	@Autowired
+	private MenuDAO menuDAO;
 	@Autowired
 	private UserDAO userDAO;
 	@Autowired
@@ -61,11 +64,11 @@ public class LoginController {
 		}
 
 	}
-	@RequestMapping(path = "ViewMenuOptions.do", method = RequestMethod.GET)
-	public String viewMenuOptions(PlacedOrder placedOrder, Model model) {
-		model.addAttribute("placedOrder", placedOrder);
-		return "menu";
-	}
+//	@RequestMapping(path = "ViewMenuOptions.do", method = RequestMethod.GET)
+//	public String viewMenuOptions(PlacedOrder placedOrder, Model model) {
+//		model.addAttribute("placedOrder", placedOrder);
+//		return "menu";
+//	}
 	//
 	// @RequestMapping(path = "GetFilms.do", method = RequestMethod.GET)
 	// public String index(Model model) {
