@@ -1,6 +1,8 @@
 package dao.tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -63,17 +65,30 @@ public class KitchenTest {
 	}
 	
 	@Test
+	public void test_read_a_list_of_kitchen() {
+		dao = new KitchenDAOImpl();
+		List<Kitchen> test = dao.listOfKitchen();
+		assertEquals("Mexican", test.get(3).getName());
+	}
+	
+	@Test
 	public void test_edit_a_kitchen() {
+		dao = new KitchenDAOImpl();
 		Kitchen kitchen = new Kitchen();
 		kitchen.setName("Chinese");
 		kitchen.setDescription("Testing");
-		dao = new KitchenDAOImpl();
 		int id = 4;
 		Kitchen test = dao.updateKitchen(id, kitchen);
-//		assertEquals("Chinese" test.getName());
+		
+		assertEquals("Chinese", test.getName());
 
-		assertNull(test);
-	}
+	}	
 	
+	@Test
+	public void test_delete_a_kitchen() {
+		int id = 11;
+		dao = new KitchenDAOImpl();
+		assertEquals(false, dao.removeKitchenAndCuisine(id));	
+	}
 
 }

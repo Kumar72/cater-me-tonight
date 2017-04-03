@@ -34,21 +34,23 @@ public class KitchenDAOImpl implements KitchenDAO {
 		return kitchen;
 	}
 
-	//Get The loop working
+	//DONE
 	@Override
 	public List<Kitchen> listOfKitchen() {
-		Kitchen k = new Kitchen();
-		List<Kitchen> kitchens = new ArrayList<>();
-		int idCount = 0;
-//		while(idCount <= k.getId()){
-			kitchens.add(em.find(Kitchen.class, k.getId()));
-			System.out.println(kitchens);
-//			idCount++;
-			
-			return kitchens;
-		}
+		List<Kitchen> kitchens = new ArrayList<>();		
+		String query ="SELECT k FROM Kitchen k";
+		kitchens = em.createQuery(query, Kitchen.class).getResultList();
 		
-//	}
+//		Kitchen k = new Kitchen();
+//		int idCount = 0;
+//		while(idCount < k.getId()){
+//			kitchens.add(em.find(Kitchen.class, k.getId()));
+//			System.out.println(kitchens);
+//			idCount++;	
+//		}
+		return kitchens;
+		
+	}
 	
 	//DONE
 	@Override
@@ -62,7 +64,7 @@ public class KitchenDAOImpl implements KitchenDAO {
 	return kitchen;
 	}
 
-	//DONE
+	//not DONE -- need a way to remove all the menu-item
 	@Override
 	public boolean removeKitchenAndCuisine(int id) {
 		em.getTransaction().begin();
