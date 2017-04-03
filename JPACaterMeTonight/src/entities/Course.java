@@ -17,7 +17,7 @@ public class Course {
 	private int id;
 	
 	@Column(name="name")
-	private String course;
+	private String name;
 
 //	@OneToMany(mappedBy="course")		//
 //	private List<MenuItem> courseMenuItems;
@@ -26,15 +26,19 @@ public class Course {
 		return id;
 	}
 
-	public String getNameOfCourse() {
-		return course;
+	
+	public String getName() {
+		return name;
 	}
 
-	public void setNameOfCourse(String nameOfCourse) {
-		this.course = nameOfCourse;
+
+	public void setName(String name) {
+		this.name = name;
 	}
+
+
 	@Override
 	public String toString() {
-		return "Course [nameOfCourse=" + course + "]";
+		return "Course [name=" + name + "]";
 	}
 }

@@ -17,11 +17,10 @@
 	
 <context:component-scan base-package="controllers"></context:component-scan>
 
-    <bean id="creditCardDao" class="data.CreditCardDAOImpl" />
-    <bean id="userDao" class="data.UserDAOImpl" />
-    <bean id="foodItemDao" class="data.FoodItemDAOImpl" />
-    <bean id="kitchenDao" class="data.KitchenDAOImpl" />
-    <bean id="userOrderDao" class="data.UserOrderDAOImpl" />
+    <bean id="creditcardDAO" class="data.CreditcardDAOImpl" />
+    <bean id="userDAO" class="data.UserDAOImpl" />
+    <bean id="kitchenDAO" class="data.KitchenDAOImpl" />
+    <bean id="userOrderDAO" class="data.UserOrderDAOImpl" />
     <bean id="PlacedOrderDAO" class="data.PlacedOrderDAOImpl"/>
     
 

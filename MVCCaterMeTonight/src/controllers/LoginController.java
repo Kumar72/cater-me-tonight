@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import data.KitchenDAO;
 import data.PlacedOrderDAO;
 import data.UserDAO;
 import entities.PlacedOrder;
@@ -20,12 +21,17 @@ public class LoginController {
 	private UserDAO userDAO;
 	@Autowired
 	private PlacedOrderDAO placedOrderDAO;
+	@Autowired
+	private KitchenDAO kitchenDAO;
 	
 	public void setUserDAO(UserDAO dao) {
 		userDAO = dao;
 	}
 	public void setPlacedOrderDAO(PlacedOrderDAO dao) {
 		placedOrderDAO = dao;
+	}
+	public void setKitchenDAO(KitchenDAO dao) {
+		kitchenDAO = dao;
 	}
 
 	@RequestMapping(value = "Home.do")
@@ -40,6 +46,7 @@ public class LoginController {
 		user = userDAO.getUserByUsernameAndPassword(user);
 		model.addAttribute("user", user);
 		if (user != null) {
+			model.addAttribute("kitchens", kitchenDAO.listOfKitchen());
 			model.addAttribute("placedOrder", new PlacedOrder());
 			return "startorder";
 		} else {

@@ -50,11 +50,17 @@
 	<container>
 	<div class="row padding-top">
 		<div class="col-md-offset-1 col-md-10 clear-area">
-		<h1 class="text-hide" id="image-header">Cater Me Tonight</h1>
-			<h3><img class="centered" src="images/logo.png" alt="Cater Me Tonight" width="220" height="88"/>
-			Your one stop shop to cater all your corporate and family
-				events. We offer same day catering from a wide selection of foods
-				from all over the world.</h3>
+		<h1>Start Your Order</h1>
+		<form>
+		<label for="kitchenId">Kitchen: </label>
+		<select name="kitchenId">
+		<c:forEach var="kitchen" items="${kitchens}">
+			<option value="${kitchen.id}">${kitchen.name}</option>
+		</c:forEach>
+		</select>
+		
+		</form>
+			
 		</div>
     </div>
 	</container>

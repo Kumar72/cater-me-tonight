@@ -24,12 +24,11 @@ public class MenuDAOImpl implements MenuDAO {
 	
 	@Override
 	public List<MenuItem> getAllMenuItemsFromAppetizers(int id) {
-		System.out.println(em==null);
-		String query = "SELECT m from MenuItem m where m.kitchen.id = :id and m.course.course = :name";
+		String query = "SELECT m from MenuItem m where m.kitchen.id = :id and m.course.name = :name";
 		List<MenuItem> menuItems = em.createQuery(query, MenuItem.class).setParameter("id", id).setParameter("name", "Appetizer").getResultList();
 		Course course = new Course();
 		course=em.find(Course.class, id);
-		course.getNameOfCourse();
+		course.getName();
 		for (MenuItem menuItem : menuItems) {
 			System.out.println(menuItem);
 		}
@@ -38,20 +37,45 @@ public class MenuDAOImpl implements MenuDAO {
 
 	@Override
 	public List<MenuItem> getAllMenuItemsFromEntres(int id) {
-		em.find(Course.class, id);
-		return null;
+		String query = "SELECT m from MenuItem m where m.kitchen.id = :id and m.course.name = :name";
+		List<MenuItem> menuItems = em.createQuery(query, MenuItem.class).setParameter("id", id).setParameter("name", "Entre").getResultList();
+		Course course = new Course();
+		course=em.find(Course.class, id);
+		course.getName();
+		for (MenuItem menuItem : menuItems) {
+			System.out.println(menuItem);
+		}
+		return menuItems;
 	}
 
 	@Override
 	public List<MenuItem> getAllMenuItemsFromDesserts(int id) {
-		em.find(Course.class, id);
-		return null;
+		String query = "SELECT m from MenuItem m where m.kitchen.id = :id and m.course.name = :name";
+		List<MenuItem> menuItems = em.createQuery(query, MenuItem.class).setParameter("id", id).setParameter("name", "Dessert").getResultList();
+		Course course = new Course();
+		course=em.find(Course.class, id);
+		course.getName();
+		for (MenuItem menuItem : menuItems) {
+			System.out.println(menuItem);
+		}
+		return menuItems;
+		
 	}
-
+	
+	
+	
 	@Override
 	public List<MenuItem> getAllMenuItemsFromDrinks(int id) {
-		em.find(Course.class, id);
-		return null;
+		String query = "SELECT m from MenuItem m where m.kitchen.id = :id and m.course.name = :name";
+		List<MenuItem> menuItems = em.createQuery(query, MenuItem.class).setParameter("id", id).setParameter("name", "Drink").getResultList();
+		Course course = new Course();
+		course=em.find(Course.class, id);
+		course.getName();
+		for (MenuItem menuItem : menuItems) {
+			System.out.println(menuItem);
+		}
+		return menuItems;
+		
 	}
 
 }
