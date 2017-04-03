@@ -68,7 +68,7 @@ public class KitchenTest {
 	public void test_read_a_list_of_kitchen() {
 		dao = new KitchenDAOImpl();
 		List<Kitchen> test = dao.listOfKitchen();
-		assertEquals("Mexican", test.get(3).getName());
+		assertEquals("Chinese", test.get(3).getName());
 	}
 	
 	@Test
@@ -86,7 +86,7 @@ public class KitchenTest {
 	
 	@Test
 	public void test_delete_a_kitchen() {
-		int id = 11;
+		int id = 5;
 		dao = new KitchenDAOImpl();
 		assertEquals(false, dao.removeKitchenAndCuisine(id));	
 	}
