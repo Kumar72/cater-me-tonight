@@ -1,90 +1,90 @@
 package entities;
 
-import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="credit_card")
+@Table(name="creditcard")
 public class CreditCard {
+	//Total fields: 7 		2fk(User,BillingAddr)
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+
+	@Column(name="full_name")
+	private String fullName;
 	
+
 	@Column(name="expiration_date")
-	private Date expirationDate;
-	
-	@Column(name="first_name")
-	private String firstNameOnCard;
-	
-	@Column(name="last_name")
-	private String lastNameOnCard;
-	
-	@Column(name="credit_card_number")
+	private String expirationDate;
+
+	@Column(name="creditcard_number")
 	private double ccNum;
-	
+		
 	@Column(name="security_code")
 	private int ccv;
 
-	@Column(name="billing_address_id")
-	private int billingAddressId;
+	
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
+	
+	@OneToOne
+	@JoinColumn(name="billing_address_id")
+	private Address billingAddressId;
 
+	
+	
+	//GETTERS and SETTERS below (no setter for 'id')
+	
 	public int getId() {
 		return id;
 	}
-
-	public String getFirstNameOnCard() {
-		return firstNameOnCard;
+	public String getFullName() {
+		return fullName;
 	}
-
-	public void setFirstNameOnCard(String firstNameOnCard) {
-		this.firstNameOnCard = firstNameOnCard;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
-
-	public String getLastNameOnCard() {
-		return lastNameOnCard;
+	public String getExpirationDate() {
+		return expirationDate;
 	}
-
-	public void setLastNameOnCard(String lastNameOnCard) {
-		this.lastNameOnCard = lastNameOnCard;
+	public void setExpirationDate(String expirationDate) {
+		this.expirationDate = expirationDate;
 	}
-
 	public double getCcNum() {
 		return ccNum;
 	}
-
 	public void setCcNum(double ccNum) {
 		this.ccNum = ccNum;
 	}
-
 	public int getCcv() {
 		return ccv;
 	}
-
 	public void setCcv(int ccv) {
 		this.ccv = ccv;
 	}
-
-	public Date getExpirationDate() {
-		return expirationDate;
+	public User getUser() {
+		return user;
 	}
-
-	public void setExpirationDate(Date expirationDate) {
-		this.expirationDate = expirationDate;
+	public void setUser(User user) {
+		this.user = user;
 	}
-
-	public int getBillingAddress() {
+	public Address getBillingAddressId() {
 		return billingAddressId;
 	}
-
-	public void setBillingAddress(int billingAddress) {
-		this.billingAddressId = billingAddress;
+	public void setBillingAddressId(Address billingAddressId) {
+		this.billingAddressId = billingAddressId;
 	}
-
 	
+
 }

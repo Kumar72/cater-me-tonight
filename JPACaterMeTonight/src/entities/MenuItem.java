@@ -1,6 +1,5 @@
 package entities;
 
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,15 +8,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="menu")
+@Table(name="menu_item")
 public class MenuItem {
+	//Total fields:7 	2fk(Kitchen, Course)
 	
-	@OneToMany(mappedBy= "menuItem")
-	private List <MenuItem> orderMenuItems;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
+
+	private String name;	
+	private String description;
+	private Double price;
+
+	@Column(name="picture_url")
+	private String picture;
+	
 	
 	@ManyToOne
 	@JoinColumn(name="kitchen_id")
@@ -27,90 +35,65 @@ public class MenuItem {
 	@JoinColumn(name="course_id")
 	private Course course;
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
-
-	private String name;
-	
-	private String description;
-	
-	@Column(name="kitchen_id")
-	private int kitchenId;
-	
-	@Column(name="course_id")
-	private int courseId;
-	
-	private double price;
-	
-	private int quantity;
-	
-	@Column(name="order_id")
-	private int orderId;
+//	@OneToMany(mappedBy="menu")		//We don't need this to be bidirectional
+//	private List<OrderItem> order;
 
 	public int getId() {
 		return id;
 	}
-
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
 	public String getDescription() {
 		return description;
 	}
-
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	public int getKitchenId() {
-		return kitchenId;
-	}
-
-	public void setKitchenId(int kitchenId) {
-		this.kitchenId = kitchenId;
-	}
-
-	public int getCourseId() {
-		return courseId;
-	}
-
-	public void setCourseId(int courseId) {
-		this.courseId = courseId;
-	}
-
-	public double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
-
-	public void setPrice(double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
-
-	public int getQuantity() {
-		return quantity;
+	public String getPicture() {
+		return picture;
 	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	public void setPicture(String picture) {
+		this.picture = picture;
 	}
-
-	public int getOrderId() {
-		return orderId;
+	public Kitchen getKitchen() {
+		return kitchen;
 	}
-
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
+	public void setKitchen(Kitchen kitchen) {
+		this.kitchen = kitchen;
+	}
+	public Course getCourse() {
+		return course;
+	}
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 	
 	@Override
 	public String toString() {
-		return "Menu [name=" + name + ", description=" + description + ", kitchenId=" + kitchenId + ", courseId="
-				+ courseId + ", price=" + price + ", quantity=" + quantity + ", orderId=" + orderId + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("MenuItem [name=");
+		builder.append(name);
+		builder.append(", description=");
+		builder.append(description);
+		builder.append(", price=");
+		builder.append(price);
+		builder.append(", picture=");
+		builder.append(picture);
+		builder.append("]");
+		return builder.toString();
 	}
+
 }

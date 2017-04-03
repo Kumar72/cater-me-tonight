@@ -1,6 +1,5 @@
 package entities;
 
-import java.awt.Menu;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -14,6 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="kitchen")
 public class Kitchen {
+	//Total fields:4 	
 	
 	@OneToMany(mappedBy="kitchen")
 	private List<MenuItem> menuItems;
