@@ -18,10 +18,10 @@ public class KitchenController {
 	
 	@RequestMapping(path = "GetKitchen.do",
 		method = RequestMethod.GET)
-	 public String index(Model model) {
+	 public ModelAndView getAllKitchen() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("main");
+		mv.setViewName("kitchen.jsp");
 		mv.addObject("kitchens", kitchenDao.listOfKitchen());
-	 return ".jsp";
+	 return mv;
 	 }
 }
