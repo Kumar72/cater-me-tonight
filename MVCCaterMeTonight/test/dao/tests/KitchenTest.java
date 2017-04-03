@@ -63,14 +63,17 @@ public class KitchenTest {
 	}
 	
 	@Test
-	public void test_create_a_kitchen_for_null() {
+	public void test_edit_a_kitchen() {
 		Kitchen kitchen = new Kitchen();
+		kitchen.setName("Chinese");
+		kitchen.setDescription("Testing");
 		dao = new KitchenDAOImpl();
-		Kitchen test = dao.createKitchen(kitchen);
-		
-		assertEquals(kitchen.getId(), test.getId());
+		int id = 4;
+		Kitchen test = dao.updateKitchen(id, kitchen);
+//		assertEquals("Chinese" test.getName());
+
 		assertNull(test);
-		
 	}
+	
 
 }

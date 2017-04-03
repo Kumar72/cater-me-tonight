@@ -48,7 +48,6 @@ public class KitchenDAOImpl implements KitchenDAO {
 			return kitchens;
 		}
 		
-		
 //	}
 	
 	//DONE

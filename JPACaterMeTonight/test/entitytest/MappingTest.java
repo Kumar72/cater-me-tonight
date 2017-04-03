@@ -98,5 +98,11 @@ public class MappingTest {
 		 assertEquals("Kumar72", user.getUsername());
 	 }
 	 
+	 @Test
+	 public void test_placed_order_for_boolean_type() {
+		 placedOrder = em.find(PlacedOrder.class, 1);
+		 assertEquals(false, placedOrder.isAppetizer());
+	 }
+	 
 	
 }
