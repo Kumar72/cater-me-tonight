@@ -16,6 +16,8 @@
     <bean id="PlacedOrderDAO" class="data.PlacedOrderDAOImpl"/>
     <bean id="menuDAO" class="data.MenuDAOImpl"/>
     
+ 	
+ 	
  	<bean id="myEntityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="persistenceUnitName" value="TestCaterMeTonight" />

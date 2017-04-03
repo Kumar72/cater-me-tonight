@@ -10,43 +10,30 @@ import org.springframework.web.servlet.ModelAndView;
 
 import data.PlacedOrderDAO;
 import data.UserDAO;
-import entities.PlacedOrder;
 import entities.User;
 
 @Controller
-public class LoginController {
+public class PlaceOrderController {
 	@SuppressWarnings("unused")
 	@Autowired
-	private UserDAO userDAO;
-	@Autowired
 	private PlacedOrderDAO placedOrderDAO;
-	
-	public void setUserDAO(UserDAO dao) {
-		userDAO = dao;
-	}
+
 	public void setPlacedOrderDAO(PlacedOrderDAO dao) {
 		placedOrderDAO = dao;
 	}
 
-	@RequestMapping(value = "Home.do")
-	public ModelAndView home() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("index");
-		return mv;
-	}
 
-	@RequestMapping(path = "Login.do", method = RequestMethod.GET)
-	public String login(User user, Model model) {
-		user = userDAO.getUserByUsernameAndPassword(user);
-		model.addAttribute("user", user);
-		if (user != null) {
-			model.addAttribute("placedOrder", new PlacedOrder());
-			return "startorder";
-		} else {
-			return "invalidusernameorpassword";
-		}
-
-	}
+//	@RequestMapping(path = "Login.do", method = RequestMethod.GET)
+//	public String login(User user, Model model) {
+//		user = userDAO.getUserByUsernameAndPassword(user);
+//		model.addAttribute("user", user);
+//		if (user != null) {
+//			return "startorder";
+//		} else {
+//			return "invalidusernameorpassword";
+//		}
+//
+//	}
 	//
 	// @RequestMapping(path = "GetFilms.do", method = RequestMethod.GET)
 	// public String index(Model model) {

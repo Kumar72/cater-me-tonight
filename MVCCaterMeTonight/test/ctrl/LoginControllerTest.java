@@ -24,6 +24,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ModelAndView;
 
 import controllers.LoginController;
+import data.PlacedOrderDAO;
 import data.UserDAO;
 import entities.User;
 
@@ -42,13 +43,17 @@ public class LoginControllerTest {
   private LoginController controller;
 
   private UserDAO userDAO;
+  private PlacedOrderDAO placedOrderDAO;
+
 
   @Before
   public void setUp() throws Exception {
 	userDAO = (UserDAO) wac.getBean("userdao");
+	placedOrderDAO = (PlacedOrderDAO) wac.getBean("placedorderdao");
 
 //    dao = wac.getBean(FilmDAOImpl.class);
     controller.setUserDAO(userDAO);
+    controller.setPlacedOrderDAO(placedOrderDAO);
     this.mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
   }
 

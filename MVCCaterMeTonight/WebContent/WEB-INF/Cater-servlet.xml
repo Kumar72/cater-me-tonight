@@ -23,6 +23,7 @@
     <bean id="kitchenDao" class="data.KitchenDAOImpl" />
     <bean id="userOrderDao" class="data.UserOrderDAOImpl" />
     <bean id="PlacedOrderDAO" class="data.PlacedOrderDAOImpl"/>
+    
 
 <bean id="myEntityManagerFactory" 
     class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"> 
