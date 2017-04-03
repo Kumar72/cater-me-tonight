@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import data.KitchenDAO;
 import data.PlacedOrderDAO;
 import data.UserDAO;
+import entities.Kitchen;
 import entities.PlacedOrder;
 import entities.User;
 
@@ -47,8 +48,14 @@ public class LoginController {
 		model.addAttribute("user", user);
 		if (user != null) {
 			model.addAttribute("kitchens", kitchenDAO.listOfKitchen());
+			if(!user.getStatus().equals("admin")) {
 			model.addAttribute("placedOrder", new PlacedOrder());
 			return "startorder";
+			}
+			else{
+				model.addAttribute("kitchen", new Kitchen());
+				return "kitchen";
+			}
 		} else {
 			return "invalidusernameorpassword";
 		}
