@@ -21,10 +21,26 @@ public class MenuController {
 	public ModelAndView viewAppetizerMenuOptions(PlacedOrder placedOrder, @RequestParam("kitchenId") int id) {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("placedOrder", placedOrder);
-		mv.addObject("appetizerItems", menuDAO.getAllMenuItemsFromAppetizers(id));
-		mv.addObject("entreeItems", menuDAO.getAllMenuItemsFromEntrees(id));
-		mv.addObject("dessertItems", menuDAO.getAllMenuItemsFromDesserts(id));
-		mv.addObject("drinkItems", menuDAO.getAllMenuItemsFromDrinks(id));
+		if(placedOrder.isAppetizer()){
+			System.out.println("in Appetizer items");
+			mv.addObject("appetizerItems", menuDAO.getAllMenuItemsFromAppetizers(id));	
+		}
+
+		if(placedOrder.isEntree()){
+			System.out.println("in Entree items");
+			mv.addObject("entreeItems", menuDAO.getAllMenuItemsFromEntrees(id));
+		}
+		
+		if(placedOrder.isDessert()){
+			System.out.println("in dessert items");
+			mv.addObject("dessertItems", menuDAO.getAllMenuItemsFromDesserts(id));
+		}
+		
+		if(placedOrder.isDrink()){
+			System.out.println("in drink items");
+			mv.addObject("drinkItems", menuDAO.getAllMenuItemsFromDrinks(id));
+		}
+		
 		mv.setViewName("menu");
 
 		return mv;

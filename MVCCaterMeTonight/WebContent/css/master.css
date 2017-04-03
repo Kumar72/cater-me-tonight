@@ -3,7 +3,7 @@ body {
 	background-image: url('../images/background.jpg');
 	font-family: 'Forum', cursive;
 	text-align: justify;
-	
+
 
 }
 
@@ -12,7 +12,7 @@ body {
 }
 
 .btn, .centered{
-	display: block; 
+	display: block;
 	margin: 5px auto;
 }
 
@@ -67,7 +67,6 @@ input[type=number]{
 
 .container {
     padding: 0px 10px;
-    position: fixed;
 }
 
 .form-login, .clear-area{
@@ -80,10 +79,11 @@ input[type=number]{
     border-color:#d2d2d2;
     border-width: 5px;
     box-shadow:0 1px 0 #cfcfcf;
+
 }
 
-h4 { 
- border:0 solid #fff; 
+h4 {
+ border:0 solid #fff;
  border-bottom-width:1px;
  padding-bottom:10px;
  text-align: center;
@@ -105,3 +105,11 @@ h4 {
 	padding-top: 0px;
 }
 
+.well {
+	width: 80vw;
+	position: center;
+}
+
+#entreeMenuItems{
+	background-color: : black;
+}

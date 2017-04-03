@@ -142,14 +142,20 @@ public class PlacedOrder {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("PlacedOrder [dateCreated=");
-		builder.append(dateCreated);
-		builder.append("Number of People=");
-		builder.append(numberOfPeople);
-		builder.append("]");
-		return builder.toString();
+		return "PlacedOrder [appetizer=" + appetizer + ", entree=" + entree + ", dessert=" + dessert + ", drink="
+				+ drink + "]";
 	}
+
+//	@Override
+//	public String toString() {
+//		StringBuilder builder = new StringBuilder();
+//		builder.append("PlacedOrder [dateCreated=");
+//		builder.append(dateCreated);
+//		builder.append("Number of People=");
+//		builder.append(numberOfPeople);
+//		builder.append("]");
+//		return builder.toString();
+//	}
 		
 	
 	
