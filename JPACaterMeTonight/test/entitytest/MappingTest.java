@@ -61,7 +61,7 @@ public class MappingTest {
 	 @Test
 	 public void test_course_mapping() {
 		 course = em.find(Course.class, 4);
-		 assertEquals("Drink", course.getNameOfCourse());
+		 assertEquals("Drink", course.getName());
 	 }
 	 
 	 @Test

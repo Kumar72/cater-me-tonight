@@ -51,11 +51,29 @@ public class MenuTest {
 	}
 
 	@Test
-	public void getAllMenuItemsFromAppetizers() {
+	public void testGetAllMenuItemsFromAppetizers() {
 		List<MenuItem> m = dao.getAllMenuItemsFromAppetizers(1);
-		assertEquals("", m.get(0).getCourse());
+		assertEquals("Soup du Jour", m.get(0).getName());
 	}
-
+	
+	@Test 
+	public void testGetAllMenuItemsFromEntres(){
+		List<MenuItem> m = dao.getAllMenuItemsFromEntres(1);
+		assertEquals("Sockeye Salmon", m.get(0).getName());
+	}
+	
+	@Test 
+	public void testGetAllMenuItemsFromDesserts(){
+		List<MenuItem> m = dao.getAllMenuItemsFromDesserts(1);
+		assertEquals("Chevre Cheesecake", m.get(0).getName());
+	}
+	
+	@Test 
+	public void testGetAllMenuItemsFromDrinks(){
+		List<MenuItem> m = dao.getAllMenuItemsFromDrinks(1);
+		assertEquals("Cinnamental", m.get(0).getName());
+	}
+	
 	@After
 	public void tearDown() {
 		dao = null;
