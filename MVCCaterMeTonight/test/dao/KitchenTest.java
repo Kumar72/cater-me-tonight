@@ -1,4 +1,4 @@
-package dao.tests;
+package dao;
 
 import static org.junit.Assert.assertEquals;
 
@@ -62,6 +62,8 @@ public class KitchenTest {
 		assertEquals("Test Description", test.getDescription());
 		assertEquals("pic", test.getPicture());
 		
+//		dao.removeKitchenAndCuisine(id);
+		
 	}
 	
 	@Test
@@ -82,7 +84,7 @@ public class KitchenTest {
 		
 		assertEquals("Chinese", test.getName());
 
-	}	
+	}
 	
 	@Test
 	public void test_delete_a_kitchen() {
@@ -90,5 +92,4 @@ public class KitchenTest {
 		dao = new KitchenDAOImpl();
 		assertEquals(false, dao.removeKitchenAndCuisine(id));	
 	}
-
 }

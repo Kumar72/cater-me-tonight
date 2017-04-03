@@ -49,7 +49,7 @@ public class User {
 	
 	@OneToMany(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinColumn(name="user")
-	private List<CreditCard> creditcard;
+	private List<Creditcard> creditcard;
 	
 	
 	//GETTERS and SETTERS below (no setter for 'id')
@@ -117,10 +117,10 @@ public class User {
 	public void setAddress(List<Address> address) {
 		this.address = address;
 	}
-	public List<CreditCard> getCreditcard() {
+	public List<Creditcard> getCreditcard() {
 		return creditcard;
 	}
-	public void setCreditcard(List<CreditCard> creditcard) {
+	public void setCreditcard(List<Creditcard> creditcard) {
 		this.creditcard = creditcard;
 	}
 	

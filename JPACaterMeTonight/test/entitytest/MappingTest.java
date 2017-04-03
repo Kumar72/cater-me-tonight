@@ -12,8 +12,7 @@ import org.junit.Test;
 
 import entities.Address;
 import entities.Course;
-import entities.CreditCard;
-import entities.FoodItem;
+import entities.Creditcard;
 import entities.Kitchen;
 import entities.MenuItem;
 import entities.OrderItem;
@@ -31,7 +30,7 @@ public class MappingTest {
 	private EntityManager em = null;
 	private Address addr;
 	private Course course;
-	private CreditCard creditCard;
+	private Creditcard creditCard;
 	private Kitchen kitchen;
 	private MenuItem menuItem;
 	private OrderItem orderItem;
@@ -67,7 +66,7 @@ public class MappingTest {
 	 
 	 @Test
 	 public void test_creditcard_mapping() {
-		 creditCard = em.find(CreditCard.class, 1);
+		 creditCard = em.find(Creditcard.class, 1);
 //		 assertEquals("Chandan K Thakur", creditCard.getFullName());
 	 }
 	 @Test

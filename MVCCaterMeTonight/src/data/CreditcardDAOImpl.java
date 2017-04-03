@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @Repository
-public class CreditCardDAOImpl implements CreditCardDAO {
+public class CreditcardDAOImpl implements CreditcardDAO {
 	@PersistenceContext
 	private EntityManager em;
 	

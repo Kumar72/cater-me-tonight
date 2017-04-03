@@ -48,8 +48,8 @@ public class LoginControllerTest {
 
   @Before
   public void setUp() throws Exception {
-	userDAO = (UserDAO) wac.getBean("userdao");
-	placedOrderDAO = (PlacedOrderDAO) wac.getBean("placedorderdao");
+	userDAO = (UserDAO) wac.getBean("userDAO");
+	placedOrderDAO = (PlacedOrderDAO) wac.getBean("placedOrderDAO");
 
 //    dao = wac.getBean(FilmDAOImpl.class);
     controller.setUserDAO(userDAO);

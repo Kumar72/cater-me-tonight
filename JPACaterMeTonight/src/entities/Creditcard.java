@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="creditcard")
-public class CreditCard {
+public class Creditcard {
 	//Total fields: 7 		2fk(User,BillingAddr)
 	
 	@Id
