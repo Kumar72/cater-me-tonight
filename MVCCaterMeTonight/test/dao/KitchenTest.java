@@ -62,6 +62,8 @@ public class KitchenTest {
 		assertEquals("Test Description", test.getDescription());
 		assertEquals("pic", test.getPicture());
 		
+//		dao.removeKitchenAndCuisine(id);
+		
 	}
 	
 	@Test
@@ -82,13 +84,12 @@ public class KitchenTest {
 		
 		assertEquals("Chinese", test.getName());
 
-	}	
+	}
 	
-//	@Test
-//	public void test_delete_a_kitchen() {
-//		int id = 11;
-//		dao = new KitchenDAOImpl();
-//		assertEquals(false, dao.removeKitchenAndCuisine(id));	
-//	}
-
+	@Test
+	public void test_delete_a_kitchen() {
+		int id = 5;
+		dao = new KitchenDAOImpl();
+		assertEquals(false, dao.removeKitchenAndCuisine(id));	
+	}
 }

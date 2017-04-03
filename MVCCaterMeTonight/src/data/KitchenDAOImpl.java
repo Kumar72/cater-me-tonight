@@ -26,6 +26,7 @@ public class KitchenDAOImpl implements KitchenDAO {
 			em.getTransaction().begin();
 				em.persist(kitchen);
 				em.flush();
+//				System.out.println(kitchen);
 			em.getTransaction().commit();
 		}
 		else {
