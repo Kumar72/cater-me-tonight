@@ -49,16 +49,23 @@
 	</div>
 	<container>
 	<div class="row padding-top">
-		<div class="col-md-offset-1 col-md-10 clear-area">
+		<div class="col-md-offset-3 col-md-6 clear-area">
 		<h1>Start Your Order</h1>
-		<form>
-		<label for="kitchenId">Kitchen: </label>
-		<select name="kitchenId">
-		<c:forEach var="kitchen" items="${kitchens}">
-			<option value="${kitchen.id}">${kitchen.name}</option>
-		</c:forEach>
-		</select>
-		
+		<form action="ViewMenuOptions.do" method="GET">
+			<label for="kitchenId">Kitchen: </label>
+			<select name="kitchenId">
+			<c:forEach var="kitchen" items="${kitchens}">
+				<option value="${kitchen.id}">${kitchen.name}</option>
+			</c:forEach>
+			</select><br>
+			<label for="numberOfPeople">Number of People in Your Party: </label>
+			<input type="number" min="1" name="numberOfPeople" value="1"/><br>
+			<label>Include Courses: </label><br>
+			<input type="checkbox" name="appetizer" checked/> Appetizer<br>
+			<input type="checkbox" name="entree" checked/> Entree<br>
+			<input type="checkbox" name="dessert" checked/> Dessert<br>
+			<input type="checkbox" name="drink" checked/> Drink<br>
+			<input type="submit" value="View Menu Options"/>
 		</form>
 			
 		</div>
