@@ -54,6 +54,11 @@ public class LoginController {
 		}
 
 	}
+	@RequestMapping(path = "ViewMenuOptions.do", method = RequestMethod.GET)
+	public String viewMenuOptions(PlacedOrder placedOrder, Model model) {
+		model.addAttribute("placedOrder", placedOrder);
+		return "menu";
+	}
 	//
 	// @RequestMapping(path = "GetFilms.do", method = RequestMethod.GET)
 	// public String index(Model model) {
