@@ -104,5 +104,4 @@ public class MappingTest {
 		 assertEquals(false, placedOrder.isAppetizer());
 	 }
 	 
-	
 }
