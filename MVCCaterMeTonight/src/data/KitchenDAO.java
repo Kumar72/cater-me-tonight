@@ -6,7 +6,7 @@ import entities.Kitchen;
 
 public interface KitchenDAO {
 	
-	//admin privileges 
+//	admin privileges 
 	public List<Kitchen> listOfKitchen();
 	public Kitchen createKitchen(Kitchen kitchen);
 //	public Kitchen createKitchenAndCuisine(Kitchen kitchen, FoodItem food);
@@ -15,11 +15,5 @@ public interface KitchenDAO {
 	
 	
 	//client privileges
-	
 
 }
-
-//public Actor createActor(Actor actor);
-//public Actor updateActor(int id, Actor actor);
-//public boolean removePlayer(int id);
-//public Actor createActorAndFilm(Actor actor, Film film);
