@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import entities.MenuItem;
 
 public interface MenuDAO {
+	public List<MenuItem> getAllItemsFromKitchen(int id);
 	public List<MenuItem> getAllMenuItemsFromAppetizers(int id);
 	public List<MenuItem> getAllMenuItemsFromEntrees(int id);
 	public List<MenuItem> getAllMenuItemsFromDesserts(int id);
