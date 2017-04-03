@@ -32,16 +32,16 @@
 				</div>
 				<div class="collapse navbar-collapse" id="navcol-1">
 					<ul class="nav navbar-nav navbar-right">
-						<li class="active" role="presentation"><a href="#"> </a></li>
-						<li role="presentation"><a href="#"> </a></li>
-						<li role="presentation"><a href="#"> </a></li>
+						<li class="active" role="presentation"><a href="#">About</a></li>
+						<li role="presentation"><a href="#">${user.username}</a></li>
+						<!--  <li role="presentation"><a href="#">C</a></li>
 						<li class="dropdown"><a class="dropdown-toggle"
-							data-toggle="dropdown" aria-expanded="false" href="#"> </a>
+							data-toggle="dropdown" aria-expanded="false" href="#">D</a>
 							<ul class="dropdown-menu" role="menu">
 								<li role="presentation"><a href="#">First Item</a></li>
 								<li role="presentation"><a href="#">Second Item</a></li>
 								<li role="presentation"><a href="#">Third Item</a></li>
-							</ul></li>
+							</ul></li> -->
 					</ul>
 				</div>
 			</div>
@@ -49,11 +49,12 @@
 	</div>
 	<container>
 	<div class="row padding-top">
-		<div class="col-md-offset-1 col-md-3">
-            Welcome, ${user.username}        
-        </div>
-		<div class="col-md-offset-1 col-md-6 clear-area">
-			
+		<div class="col-md-offset-1 col-md-10 clear-area">
+		<h1 class="text-hide" id="image-header">Cater Me Tonight</h1>
+			<h3><img class="centered" src="images/logo.png" alt="Cater Me Tonight" width="220" height="88"/>
+			Your one stop shop to cater all your corporate and family
+				events. We offer same day catering from a wide selection of foods
+				from all over the world.</h3>
 		</div>
     </div>
 	</container>
