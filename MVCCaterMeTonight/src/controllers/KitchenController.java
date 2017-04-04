@@ -31,19 +31,19 @@ public class KitchenController {
 			mv.addObject("selectedMenu", menuDao.getAllItemsFromKitchen(id));
 		}
 		else if (action.equalsIgnoreCase("appetizer")){
-			mv.setViewName("menu");
+			mv.setViewName("kitchen");
 			mv.addObject("selectedMenu", menuDao.getAllMenuItemsFromAppetizers(id));
 		}
 		else if(action.equalsIgnoreCase("entree")) {
-			mv.setViewName("menu");
+			mv.setViewName("kitchen");
 			mv.addObject("selectedMenu", menuDao.getAllMenuItemsFromEntrees(id));
 		}
 		else if(action.equalsIgnoreCase("dessert")) {
-			mv.setViewName("menu");
+			mv.setViewName("kitchen");
 			mv.addObject("selectedMenu", menuDao.getAllMenuItemsFromDesserts(id));
 		}
 		else if(action.equalsIgnoreCase("drink")) {
-			mv.setViewName("menu");
+			mv.setViewName("kitchen");
 			mv.addObject("selectedMenu", menuDao.getAllMenuItemsFromDrinks(id));
 		}
 	 return mv;
@@ -60,18 +60,18 @@ public class KitchenController {
 	
 	@RequestMapping(path = "UpdateKitchen.do",
 			method = RequestMethod.POST)
-		 public ModelAndView updateKitchen(int id, Kitchen kitchen) {
+		 public ModelAndView updateKitchen(@RequestParam("kitchenId")int id, Kitchen kitchen) {
 			ModelAndView mv = new ModelAndView();
-			mv.setViewName("kitchen.jsp");
+			mv.setViewName("admin");
 			mv.addObject("kitchens", kitchenDao.updateKitchen(id, kitchen));
 		 return mv;
 		 }
 	
 	@RequestMapping(path = "RemoveKitchen.do",
 			method = RequestMethod.POST)
-		 public ModelAndView removeKitchen(@RequestParam("delete")int id) {
+		 public ModelAndView removeKitchen(@RequestParam("kitchenId")int id) {
 			ModelAndView mv = new ModelAndView();
-			mv.setViewName("kitchen.jsp");
+			mv.setViewName("admin");
 			mv.addObject("kitchens", kitchenDao.removeKitchenAndCuisine(id));
 		 return mv;
 		 }

@@ -50,21 +50,22 @@
 	<container>
 	<div class="row padding-top">
 		<div class="col-md-offset-3 col-md-6 clear-area">
-		<h1>Admin</h1>
-		<form action="ViewMenuOptions.do" method="GET">
-			<label for="kitchenId">Kitchen: </label>
-			<select name="kitchenId">
-			<c:forEach var="kitchen" items="${kitchens}">
-				<option value="${kitchen.id}">${kitchen.name}</option>
+		<h1><a href="">Link this back to kitchen</a></h1>
+		<c:forEach var="menu" items="${selectedMenu}">
+				<a href="${menu.picture}">Insert Picture Here</a>
+				<tr>
+					<td>${menu.name}</td>
+					<td>${menu.price}</td>
+					<td><button value="UpdateKitchen.do?action=menuId=${menu.id}">EDIT</button>
+					<td><button value="RemoveKitchen.do?action=menuId=${menu.id}">DELETE</button>
+				</tr>
+				<br>
+				<input value="${kitchen.description}">${kitchen.description}DESCRIPTION</input>
+				<br>
 			</c:forEach>
-			</select><br>
-			<label>Include Courses: </label><br>
-			<input type="checkbox" name="appetizer" checked/> Appetizer<br>
-			<input type="checkbox" name="entree" checked/> Entree<br>
-			<input type="checkbox" name="dessert" checked/> Dessert<br>
-			<input type="checkbox" name="drink" checked/> Drink<br>
-			<input type="submit" value="View Menu Options"/>
-		</form>
+		<!-- <form action="ViewMenuOptions.do" method="GET">
+			<label for="kitchenId">Kitchen: </label>
+		</form> -->
 			
 		</div>
     </div>
