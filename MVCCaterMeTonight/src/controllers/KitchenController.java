@@ -62,7 +62,7 @@ public class KitchenController {
 			method = RequestMethod.POST)
 		 public ModelAndView updateKitchen(@RequestParam("kitchenId")int id, Kitchen kitchen) {
 			ModelAndView mv = new ModelAndView();
-			mv.setViewName("admin");
+			mv.setViewName("adminupdatepage");
 			mv.addObject("kitchens", kitchenDao.updateKitchen(id, kitchen));
 		 return mv;
 		 }

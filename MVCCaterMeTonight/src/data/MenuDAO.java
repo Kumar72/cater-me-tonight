@@ -12,7 +12,13 @@ public interface MenuDAO {
 	public List<MenuItem> getAllMenuItemsFromEntrees(int id);
 	public List<MenuItem> getAllMenuItemsFromDesserts(int id);
 	public List<MenuItem> getAllMenuItemsFromDrinks(int id);
-	public void setEntityManager(EntityManager emInj);
 	
 	public List <MenuItem> addMenuItemsToCart(int id);
+	
+	
+	public MenuItem createMenuItem(MenuItem menuItem);
+	public MenuItem updateMenuItem(int id, MenuItem menuItem);
+	public boolean removeMenuItem(int id);
+	public boolean removeMenuItemByKitchen(int kitchenId);
+	
 }
