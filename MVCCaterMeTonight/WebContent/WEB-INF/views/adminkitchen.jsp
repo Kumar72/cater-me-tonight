@@ -52,20 +52,23 @@
 	<div class="row padding-top">
 		<div class="col-md-offset-3 col-md-6 clear-area">
 			<h1>
-				<a href="">Link this back to kitchen</a>
+		
 			</h1>
+				
 			<c:forEach var="menu" items="${selectedMenu}">
+				<tbody>
 				<tr>
 					<img style="width: 25%" src="${menu.picture}" />
 					<td></td>
 					<td>${menu.name}</td>
-					<td></td>
 					<td>${menu.price}</td>
 					<td><button value="UpdateKitchen.do?action=menuId=${menu.id}">EDIT</button>
 					<td><button value="RemoveKitchen.do?action=menuId=${menu.id}">DELETE</button>
 				</tr>
+				<p>${menu.description}</p>
+				</tbody>
 				<br>
-				<input value="${kitchen.description}">${kitchen.description}DESCRIPTION</input>
+				<p></p>
 				<br>
 			</c:forEach>
 			<!-- <form action="ViewMenuOptions.do" method="GET">

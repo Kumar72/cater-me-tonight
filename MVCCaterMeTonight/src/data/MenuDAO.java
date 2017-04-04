@@ -18,4 +18,13 @@ public interface MenuDAO {
 	public MenuItem display(int menuItemId);
 	
 //	public List <MenuItem> addMenuItemsToCart(int id);
+	
+//	public List <MenuItem> addMenuItemsToCart(int id);
+	
+	
+	public MenuItem createMenuItem(MenuItem menuItem);
+	public MenuItem updateMenuItem(int id, MenuItem menuItem);
+	public boolean removeMenuItem(int id);
+	public boolean removeMenuItemByKitchen(int kitchenId);
+	
 }
