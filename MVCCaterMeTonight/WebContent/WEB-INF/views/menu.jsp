@@ -50,14 +50,15 @@
 							Appetizers
 							</h2>
 							<c:forEach items="${appetizerItems}" var="appItem">
-								<form action="AddMenuItemsToCart.do">
-								<input type ="hidden" name="kitchenId" value="${appItem.id}">
+								<form action="ItemsAddedToShoppingCart.do">
+								<input type ="hidden" name="kitchenId" value="${kitchenId}">
+								<input type ="hidden" name="menuItemId" value="${appItem.id}">
 								<ul>
-									<li>${appItem.name},<%-- ${appItem.description}, --%>
-										${appItem.price}
+									<li>${appItem.name},${appItem.description}, 
+										${appItem.price}, <img style="width: 25%" src="${appItem.picture}" />
 									</li>
 								</ul>
-									Quantity<input type="number" min="0" value="0"> 
+									Quantity<input type="number" name="quantity" min="0" value="0"> 
 									<input type="submit" value="Add to order"/>
 									<br>
 								</form>
@@ -70,13 +71,14 @@
 							Entreés
 							</h2>
 							<c:forEach items="${entreeItems}" var="entreeItem">
-							<form action="AddMenuItemsToCart.do">
-								<input type ="hidden" name="kitchenId" value="${entreeItem.id}">
+							<form action="ItemsAddedToShoppingCart.do">
+								<input type ="hidden" name="kitchenId" value="${kitchenId}">
+								<input type ="hidden" name="menuItemId" value="${entreeItem.id}">
 								<ul>
 									<li>${entreeItem.name},<%-- ${entreeItem.description}, --%>
 										${entreeItem.price}
 									</li>
-									<input type="number" min="0" value="0" />
+									<input type="number" name="quantity" min="0" value="0" />
 									<button>Add To Order</button>
 									<br>
 								</ul>
@@ -89,13 +91,14 @@
 							Desserts
 							</h2>
 							<c:forEach items="${dessertItems}" var="dessertItem">
-							<form action="AddMenuItemsToCart.do">
-								<input type ="hidden" name="kitchenId" value="${dessertItem.id}">
+							<form action="ItemsAddedToShoppingCart.do">
+								<input type ="hidden" name="kitchenId" value="${kitchenId}">
+								<input type ="hidden" name="menuItemId" value="${dessertItem.id}">
 								<ul>
 									<li>${dessertItem.name},<%-- ${dessertItem.description}, --%>
 										${dessertItem.price}
 									</li>
-									<input type="number" min="0" value="0" />
+									<input type="number" name="quantity" min="0" value="0" />
 									<button>Add To Order</button>
 									<br>
 								</ul>
@@ -109,13 +112,15 @@
 							Drinks
 							</h2>
 							<c:forEach items="${drinkItems}" var="drinkItem">
-							<form action="AddMenuItemsToCart.do">
-								<input type ="hidden" name="kitchenId" value="${drinkItem.id}">
+							<form action="ItemsAddedToShoppingCart.do">
+								<input type ="hidden" name="kitchenId" value="${kitchenId}">
+								<input type ="hidden" name="menuItemId" value="${drinkItem.id}">
+								
 								<ul>
 									<li>${drinkItem.name},<%-- ${drinkItem.description},  --%>
 										${drinkItem.price}
 									</li>
-									<input type="number" min="0" value="0" />
+									<input type="number" name="quantity" min="0" value="" />
 									<button>Add To Order</button>
 									<br>
 								</ul>
@@ -124,6 +129,13 @@
 				</c:if>
 			</div>
 			<!--closing div tag for menuItems  -->
+		</div>
+		<div class="col-md-3 clear-area">
+			<h2>Items in shopping cart</h2>
+			<c:forEach var="item" items="${shoppingCart.orderItemsAddedToCart}">
+			${item.value.menuItem.name}, ${item.value.quantity} <br>
+			</c:forEach>
+		
 		</div>
 	</div>
 	</container>

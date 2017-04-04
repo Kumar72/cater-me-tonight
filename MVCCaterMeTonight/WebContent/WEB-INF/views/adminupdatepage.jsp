@@ -78,8 +78,7 @@
 	<container>
 	<div class="row padding-top">
 		<div class="col-md-offset-3 col-md-6 clear-area">
-			<h1>Admin Kitchen</h1>
-			<button value="CreateKitchen.do">Create New Kitchen</button>
+			<h1>Admin Update Kitchen Page</h1>
 			<label for="kitchenId"></label><br>
 			<c:forEach var="kitchen" items="${kitchens}">
 				<div class="btn-group">

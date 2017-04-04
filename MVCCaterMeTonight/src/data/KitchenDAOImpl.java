@@ -4,68 +4,68 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import entities.Kitchen;
 
+@Transactional
+@Repository
 public class KitchenDAOImpl implements KitchenDAO {
-	EntityManagerFactory emf = Persistence.createEntityManagerFactory("CaterMeTonight");
-	EntityManager em = emf.createEntityManager();
+	
+	@PersistenceContext
+	private EntityManager em;
+	
+	@Autowired
+	private MenuDAO mDao;
 
 	public static void main(String[] args) {
 		KitchenDAOImpl kImp = new KitchenDAOImpl();
 		kImp.listOfKitchen();
 	}
-	
-	//DONE
+
+	// DONE
 	@Override
 	public Kitchen createKitchen(Kitchen kitchen) {
-		
-		if (kitchen != null) {
-			em.getTransaction().begin();
-				em.persist(kitchen);
-				em.flush();
-//				System.out.println(kitchen);
-			em.getTransaction().commit();
-		}
-		else {
-			System.out.println("Please enter something here");
-		}
+
+			em.persist(kitchen);
+			em.flush();
+			// System.out.println(kitchen);
 		return kitchen;
 	}
 
-	//DONE
+	// DONE
 	@Override
 	public List<Kitchen> listOfKitchen() {
-		List<Kitchen> kitchens = new ArrayList<>();		
-		String query ="SELECT k FROM Kitchen k";
+		List<Kitchen> kitchens = new ArrayList<>();
+		String query = "SELECT k FROM Kitchen k";
 		kitchens = em.createQuery(query, Kitchen.class).getResultList();
 		return kitchens;
-		
+
 	}
-	
-	//DONE
+
+	// DONE
 	@Override
 	public Kitchen updateKitchen(int id, Kitchen kitchen) {
-		em.getTransaction().begin();
 		Kitchen managed = em.find(Kitchen.class, id);
 		managed.setName(kitchen.getName());
 		managed.setDescription(kitchen.getDescription());
+		managed.setPicture(kitchen.getPicture());
 		em.flush();
-		em.getTransaction().commit();
-	return kitchen;
+		return kitchen;
 	}
 
-	//not DONE -- need a way to remove all the menu-item
+	// not DONE -- need a way to remove all the menu-item
 	@Override
 	public boolean removeKitchenAndMenuItems(int id) {
-		em.getTransaction().begin();
 		Kitchen managed = em.find(Kitchen.class, id);
-			em.remove(managed);
+		mDao.removeMenuItemByKitchen(id);
+		em.remove(managed);
 		em.flush();
-		em.getTransaction().commit();
-		return em.contains(managed);
+		return !em.contains(managed);
 	}
 
 }

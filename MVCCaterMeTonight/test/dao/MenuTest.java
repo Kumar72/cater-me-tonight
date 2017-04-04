@@ -18,22 +18,19 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
+import data.KitchenDAO;
+import data.KitchenDAOImpl;
 import data.MenuDAO;
 import data.MenuDAOImpl;
 import entities.Course;
+import entities.Kitchen;
 import entities.MenuItem;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/WEB-INF/Test-context.xml" })
+@ContextConfiguration(locations = { "../WEB-INF/Test-context.xml" })
 @WebAppConfiguration
 @Transactional
 public class MenuTest {
-
-	@Test
-	public void test() {
-		boolean pass = true;
-		assertEquals(pass, true);
-	}
 
 	@Autowired
 	WebApplicationContext wac;
@@ -46,8 +43,22 @@ public class MenuTest {
 
 	@Before
 	public void setUp() throws Exception {
-		dao = new MenuDAOImpl();
-		dao.setEntityManager(em);
+		dao = (MenuDAO)wac.getBean("menuDAO");
+
+	}
+	
+	@After
+	public void tearDown() {
+		dao = null;
+		wac = null;
+		// em = null;
+	}
+	
+
+	@Test
+	public void test() {
+		boolean pass = true;
+		assertEquals(pass, true);
 	}
 
 	@Test
@@ -73,13 +84,63 @@ public class MenuTest {
 		List<MenuItem> m = dao.getAllMenuItemsFromDrinks(1);
 		assertEquals("Cinnamental", m.get(0).getName());
 	}
-	
-	@After
-	public void tearDown() {
-		dao = null;
-		wac = null;
-		// em = null;
-	}
 
+
+	@Test
+	public void test_create_an_item() {
+		MenuItem menu = new MenuItem();
+		menu.setName("TestName");
+		menu.setDescription("Test Description");
+		menu.setPrice(99.99);
+		menu.setPicture("pic");
+		menu.setKitchen(em.find(Kitchen.class, 1));
+		Course c = em.find(Course.class, 1);
+		System.out.println(c);
+		menu.setCourse(c);
+		MenuItem test = dao.createMenuItem(menu);
+		assertEquals("TestName", test.getName());
+		assertEquals("Test Description", test.getDescription());
+		assertEquals("pic", test.getPicture());
+		assertEquals("French", test.getKitchen().getName());
+		
+		dao.removeMenuItem(test.getId());	
+	}
+	
+	@Test
+	public void test_edit_a_menu_item() {
+		MenuItem menu = new MenuItem();
+		menu.setName("TestName");
+		menu.setDescription("Test Description");
+		menu.setPrice(99.99);
+		menu.setPicture("pic");
+		menu.setKitchen(em.find(Kitchen.class, 1));
+		menu.setCourse(em.find(Course.class, 1));
+		dao.createMenuItem(menu);
+		menu.setName("FINAL TEST");
+		menu.setDescription("TESTING DESC");
+		MenuItem test = dao.updateMenuItem(menu.getId(), menu);
+		assertEquals("FINAL TEST", test.getName());
+		dao.removeMenuItem(test.getId());
+
+	}
+	
+	@Test
+	public void test_delete_a_menu_item() {
+		MenuItem menu = new MenuItem();
+		menu.setName("TestName");
+		menu.setDescription("Test Description");
+		menu.setPrice(99.99);
+		menu.setPicture("pic");
+		menu.setKitchen(em.find(Kitchen.class, 1));
+		menu.setCourse(em.find(Course.class, 1));
+		dao.createMenuItem(menu);
+		assertEquals(false, dao.removeMenuItem(menu.getId()));
+	}
+	
+	@Test
+	public void test_delete_many_menu_item_by_kitchen_id() {
+		
+	}
+	
 	
 }

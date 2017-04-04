@@ -266,8 +266,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `catermetonight`;
-INSERT INTO `menu_item` (`id`, `name`, `description`, `price`, `picture_url`, `kitchen_id`, `course_id`) VALUES (1, 'Soup du Jour', DEFAULT, 7, NULL, 1, 1);
-INSERT INTO `menu_item` (`id`, `name`, `description`, `price`, `picture_url`, `kitchen_id`, `course_id`) VALUES (2, 'Grand Marnier Beignets', DEFAULT, 5, NULL, 1, 1);
+INSERT INTO `menu_item` (`id`, `name`, `description`, `price`, `picture_url`, `kitchen_id`, `course_id`) VALUES (1, 'Soup du Jour', 'A soup offered by a restaurant on a particular day.', 7, 'http://www.wildfowlmag.com/files/2015/03/duck_soup_du_jour_f.jpg', 1, 1);
+INSERT INTO `menu_item` (`id`, `name`, `description`, `price`, `picture_url`, `kitchen_id`, `course_id`) VALUES (2, 'Grand Marnier Beignets', 'Pastries made from deep-fried dough with fruit or vegetable filling.', 5, 'http://www.zencancook.com/wp-content/uploads/2009/12/quince-beignet-8.jpg', 1, 1);
 INSERT INTO `menu_item` (`id`, `name`, `description`, `price`, `picture_url`, `kitchen_id`, `course_id`) VALUES (3, 'Samosa', DEFAULT, 4.99, NULL,  2, 1);
 INSERT INTO `menu_item` (`id`, `name`, `description`, `price`, `picture_url`, `kitchen_id`, `course_id`) VALUES (4, 'Tawa Chicken', DEFAULT, 9.99, NULL, 2, 2);
 INSERT INTO `menu_item` (`id`, `name`, `description`, `price`, `picture_url`, `kitchen_id`, `course_id`) VALUES (5, 'Chicken Quesadilla', DEFAULT, 9.29, NULL, 3, 1);
