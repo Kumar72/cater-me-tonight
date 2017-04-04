@@ -27,8 +27,8 @@ public class KitchenController {
 		ModelAndView mv = new ModelAndView();
 		if (action.equalsIgnoreCase("all")){
 //			System.out.println("################TEST################");
-			mv.setViewName("menu");
-			mv.addObject("selectedMenu", menuDao.(id));
+			mv.setViewName("kitchen");
+			mv.addObject("selectedMenu", menuDao.getAllItemsFromKitchen(id));
 		}
 		else if (action.equalsIgnoreCase("appetizer")){
 			mv.setViewName("menu");
@@ -45,9 +45,6 @@ public class KitchenController {
 		else if(action.equalsIgnoreCase("drink")) {
 			mv.setViewName("menu");
 			mv.addObject("selectedMenu", menuDao.getAllMenuItemsFromDrinks(id));
-		}
-		else if(action.equalsIgnoreCase("edit")) {
-			
 		}
 	 return mv;
 	 }

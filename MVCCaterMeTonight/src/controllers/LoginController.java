@@ -57,7 +57,7 @@ public class LoginController {
 			}
 			else{
 				model.addAttribute("kitchen", new Kitchen());
-				return "kitchen";
+				return "admin";
 			}
 		} else {
 			return "invalidusernameorpassword";
