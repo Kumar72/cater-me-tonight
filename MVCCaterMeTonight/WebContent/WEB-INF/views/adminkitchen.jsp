@@ -5,15 +5,16 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cater Me Tonight</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cater Me Tonight</title>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/Navigation-Clean1.css">
-<link href="https://fonts.googleapis.com/css?family=Forum" rel="stylesheet">
-    <link rel="stylesheet" href="css/master.css">
-   
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/Navigation-Clean1.css">
+<link href="https://fonts.googleapis.com/css?family=Forum"
+	rel="stylesheet">
+<link rel="stylesheet" href="css/master.css">
+
 </head>
 
 <body>
@@ -21,8 +22,8 @@
 		<nav class="navbar navbar-default navigation-clean">
 			<div class="container">
 				<div class="navbar-header">
-					<a class="navbar-brand navbar-link" href="Home.do"><img src="images/logo.png">
-					</a>
+					<a class="navbar-brand navbar-link" href="Home.do"><img
+						src="images/logo.png"> </a>
 					<button class="navbar-toggle collapsed" data-toggle="collapse"
 						data-target="#navcol-1">
 						<span class="sr-only">Toggle navigation</span><span
@@ -50,11 +51,15 @@
 	<container>
 	<div class="row padding-top">
 		<div class="col-md-offset-3 col-md-6 clear-area">
-		<h1><a href="">Link this back to kitchen</a></h1>
-		<c:forEach var="menu" items="${selectedMenu}">
-				<a href="${menu.picture}">Insert Picture Here</a>
+			<h1>
+				<a href="">Link this back to kitchen</a>
+			</h1>
+			<c:forEach var="menu" items="${selectedMenu}">
 				<tr>
+					<img style="width: 25%" src="${menu.picture}" />
+					<td></td>
 					<td>${menu.name}</td>
+					<td></td>
 					<td>${menu.price}</td>
 					<td><button value="UpdateKitchen.do?action=menuId=${menu.id}">EDIT</button>
 					<td><button value="RemoveKitchen.do?action=menuId=${menu.id}">DELETE</button>
@@ -63,12 +68,12 @@
 				<input value="${kitchen.description}">${kitchen.description}DESCRIPTION</input>
 				<br>
 			</c:forEach>
-		<!-- <form action="ViewMenuOptions.do" method="GET">
+			<!-- <form action="ViewMenuOptions.do" method="GET">
 			<label for="kitchenId">Kitchen: </label>
 		</form> -->
-			
+
 		</div>
-    </div>
+	</div>
 	</container>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>

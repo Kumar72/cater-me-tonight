@@ -27,23 +27,23 @@ public class KitchenController {
 		ModelAndView mv = new ModelAndView();
 		if (action.equalsIgnoreCase("all")){
 //			System.out.println("################TEST################");
-			mv.setViewName("kitchen");
+			mv.setViewName("adminkitchen");
 			mv.addObject("selectedMenu", menuDao.getAllItemsFromKitchen(id));
 		}
 		else if (action.equalsIgnoreCase("appetizer")){
-			mv.setViewName("kitchen");
+			mv.setViewName("adminkitchen");
 			mv.addObject("selectedMenu", menuDao.getAllMenuItemsFromAppetizers(id));
 		}
 		else if(action.equalsIgnoreCase("entree")) {
-			mv.setViewName("kitchen");
+			mv.setViewName("adminkitchen");
 			mv.addObject("selectedMenu", menuDao.getAllMenuItemsFromEntrees(id));
 		}
 		else if(action.equalsIgnoreCase("dessert")) {
-			mv.setViewName("kitchen");
+			mv.setViewName("adminkitchen");
 			mv.addObject("selectedMenu", menuDao.getAllMenuItemsFromDesserts(id));
 		}
 		else if(action.equalsIgnoreCase("drink")) {
-			mv.setViewName("kitchen");
+			mv.setViewName("adminkitchen");
 			mv.addObject("selectedMenu", menuDao.getAllMenuItemsFromDrinks(id));
 		}
 	 return mv;
