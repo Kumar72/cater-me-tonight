@@ -32,7 +32,8 @@
 			</div>
 			<div class="collapse navbar-collapse" id="navcol-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li class="active" role="presentation"><a href="#">About</a></li>
+					<li class="active" role="presentation"><a href="About.do">About</a></li>
+						<li role="presentation"><a href="Logout.do">Logout</a></li>
 
 				</ul>
 			</div>

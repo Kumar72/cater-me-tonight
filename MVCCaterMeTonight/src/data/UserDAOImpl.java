@@ -46,8 +46,7 @@ public class UserDAOImpl implements UserDAO {
 						+ "WHERE user.username = :username "
 						+ "AND user.password = :password ";
 		try {
-			System.out.println(user.getUsername());
-			System.out.println(user.getPassword());
+			
 			returnedUser = em.createQuery(queryString, User.class)
 					.setParameter("username", user.getUsername())
 					.setParameter("password", user.getPassword())					
