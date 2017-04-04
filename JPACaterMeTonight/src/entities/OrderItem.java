@@ -25,11 +25,11 @@ public class OrderItem {
 	
 	@ManyToOne
 	@JoinColumn(name="menu_item_id")
-	private MenuItem menu;
+	private MenuItem menuItem;
 	
 	@ManyToOne
 	@JoinColumn(name="placed_order_id")
-	private PlacedOrder order;
+	private PlacedOrder placedOrder;
 	
 	
 	//GETTERS and SETTERS below (no setter for 'id')
@@ -48,19 +48,20 @@ public class OrderItem {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public MenuItem getMenu() {
-		return menu;
-	}
-	public void setMenu(MenuItem menu) {
-		this.menu = menu;
-	}
-	public PlacedOrder getOrder() {
-		return order;
-	}
-	public void setOrder(PlacedOrder order) {
-		this.order = order;
-	}
 	
+	
+	public MenuItem getMenuItem() {
+		return menuItem;
+	}
+	public void setMenuItem(MenuItem menuItem) {
+		this.menuItem = menuItem;
+	}
+	public PlacedOrder getPlacedOrder() {
+		return placedOrder;
+	}
+	public void setPlacedOrder(PlacedOrder placedOrder) {
+		this.placedOrder = placedOrder;
+	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

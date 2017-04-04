@@ -16,6 +16,17 @@ import pojos.ShoppingCart;
 @Repository
 public class MenuDAOImpl implements MenuDAO {
 	
+	public ShoppingCart getShoppingCart() {
+		return shoppingCart;
+	}
+
+	public void setShoppingCart(ShoppingCart shoppingCart) {
+		this.shoppingCart = shoppingCart;
+	}
+
+	private ShoppingCart shoppingCart = new ShoppingCart();
+			
+	
 	@PersistenceContext
 	private EntityManager em;
 	
@@ -93,13 +104,18 @@ public class MenuDAOImpl implements MenuDAO {
 	}
 
 	@Override
-	public List<MenuItem> addMenuItemsToCart(int menuId) {
-		System.out.println("*****************I'm in the add items to cart DAOimpl method with item id: "+menuId+"****************");
-		ShoppingCart shoppingCart = new ShoppingCart();
-		String query = "SELECT m FROM MenuItem m WHERE m.id = :id";
-		List<MenuItem> cart = em.createQuery(query, MenuItem.class).setParameter("id", menuId).getResultList();
-		shoppingCart.setMenuItemsAddedToCart(cart);
-		return cart;
+	public MenuItem display(int menuItemId) {
+		return em.find(MenuItem.class, menuItemId);
 	}
+
+//	@Override
+//	public ShoppingCart addMenuItemsToCart(int menuId) {
+//		System.out.println("*****************I'm in the add items to cart DAOimpl method with item id: "+menuId+"****************");
+//		String query = "SELECT m FROM MenuItem m WHERE m.id = :id";
+//		shoppingCart= em.createQuery(query, MenuItem.class).setParameter("id", menuId).getSingleResult();
+//		shoppingCart.setMenuItemsAddedToCart(cart);
+//		return shoppingCart;
+//		System.out.println();
+//	}
 
 }

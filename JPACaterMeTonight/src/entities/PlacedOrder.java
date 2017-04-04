@@ -46,7 +46,7 @@ public class PlacedOrder {
 	@JoinColumn(name="creditcard_id")
 	private Creditcard creditCard;
 	
-	@OneToMany(mappedBy="order")
+	@OneToMany(mappedBy="placedOrder")
 	private List<OrderItem> orderItem;
 	
 	@ManyToOne
