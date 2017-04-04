@@ -58,7 +58,15 @@
 										${appItem.price}, <img style="width: 25%" src="${appItem.picture}" />
 									</li>
 								</ul>
+								<c:choose>
+									<c:when test="${not empty shoppingCart.orderItemsAddedToCart[appItem.id]}">
+									Quantity<input type="number" name="quantity" min="0" value="${shoppingCart.orderItemsAddedToCart[appItem.id].quantity}"> 
+									</c:when>
+									<c:otherwise>
 									Quantity<input type="number" name="quantity" min="0" value="0"> 
+									
+									</c:otherwise>
+								</c:choose>
 									<input type="submit" value="Add to order"/>
 									<br>
 								</form>
