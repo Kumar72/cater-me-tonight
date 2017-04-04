@@ -72,7 +72,7 @@ public class KitchenController {
 		 public ModelAndView removeKitchen(@RequestParam("kitchenId")int id) {
 			ModelAndView mv = new ModelAndView();
 			mv.setViewName("admin");
-			mv.addObject("kitchens", kitchenDao.removeKitchenAndCuisine(id));
+			mv.addObject("kitchens", kitchenDao.removeKitchenAndMenuItems(id));
 		 return mv;
 		 }
 }

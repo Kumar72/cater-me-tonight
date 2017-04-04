@@ -1,4 +1,4 @@
-package entitytest;
+package entity;
 
 import static org.junit.Assert.assertEquals;
 

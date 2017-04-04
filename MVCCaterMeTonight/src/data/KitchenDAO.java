@@ -11,7 +11,7 @@ public interface KitchenDAO {
 	public Kitchen createKitchen(Kitchen kitchen);
 //	public Kitchen createKitchenAndCuisine(Kitchen kitchen, FoodItem food);
 	public Kitchen updateKitchen(int id, Kitchen kitchen);
-	public boolean removeKitchenAndCuisine(int id);
+	public boolean removeKitchenAndMenuItems(int id);
 	
 	
 	//client privileges

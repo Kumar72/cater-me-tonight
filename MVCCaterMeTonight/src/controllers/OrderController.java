@@ -27,7 +27,7 @@ public class OrderController {
 		mv.setViewName("newcustomerorder");
 		return mv;
 	}
-	
+	// display the entire order
 //	@RequestMapping(path ="GetOrder.do", method = RequestMethod.GET)
 	
 		

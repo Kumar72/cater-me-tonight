@@ -44,35 +44,7 @@ public class MenuController {
 		mv.setViewName("menu");
 
 		return mv;
-	}
-//	@RequestMapping(path = "ViewEntreeMenuOptions.do", method = RequestMethod.GET)
-//	public ModelAndView viewEntreeMenuOptions(PlacedOrder placedOrder, @RequestParam("kitchenId") int id) {
-//		ModelAndView mv = new ModelAndView();
-//		mv.addObject("placedOrder", placedOrder);
-//		mv.addObject("entreeItems", menuDAO.getAllMenuItemsFromEntrees(id));
-//		mv.setViewName("menu");
-//		
-//		return mv;
-//	}
-//	@RequestMapping(path = "ViewDessertMenuOptions.do", method = RequestMethod.GET)
-//	public ModelAndView viewDessertMenuOptions(PlacedOrder placedOrder, @RequestParam("kitchenId") int id) {
-//		ModelAndView mv = new ModelAndView();
-//		mv.addObject("placedOrder", placedOrder);
-//		mv.addObject("dessertItems", menuDAO.getAllMenuItemsFromDesserts(id));
-//		mv.setViewName("menu");
-//		
-//		return mv;
-//	}
-//	@RequestMapping(path = "ViewDrinkMenuOptions.do", method = RequestMethod.GET)
-//	public ModelAndView viewDrinkMenuOptions(PlacedOrder placedOrder, @RequestParam("kitchenId") int id) {
-//		ModelAndView mv = new ModelAndView();
-//		mv.addObject("placedOrder", placedOrder);
-//		mv.addObject("drinkItems", menuDAO.getAllMenuItemsFromDrinks(id));
-//		mv.setViewName("menu");
-//		
-//		return mv;
-//	}
-//	
+	}	
 
 
 }

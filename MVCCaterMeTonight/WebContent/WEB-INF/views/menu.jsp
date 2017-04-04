@@ -40,66 +40,83 @@
 		</nav>
 	</div>
 	<container>
-	<div class="menuItems">
-	<c:if test="${appetizerItems !=null }">
-		<div class="well" id="appetizerMenuItems">
-			<h2>Appetizers</h3>
-			<c:forEach items="${appetizerItems}" var="appItem">
-				<ul>
-					<li>${appItem.name},<%-- ${appItem.description}, --%>
-						${appItem.price}
-					</li>
-					<input type="number" min="0" value="0" />   <button>Add ${appetizerItem.name}</button>
-					<br>
-				</ul>
-			</c:forEach>
-		</div>
-</c:if>
-	<c:if test="${entreeItems !=null }">
-		<div class="well" id="entreeMenuItems">
-			<h2>Entreés</h3>
-			<c:forEach items="${entreeItems}" var="entreeItem">
-				<ul>
-					<li>${entreeItem.name},<%-- ${entreeItem.description}, --%>
-						${entreeItem.price}
-					</li>
-					<input type="number" min="0" value="0" />   <button>Add ${entreeItem.name} To Order</button>
-					<br>
-				</ul>
-			</c:forEach>
-		</div>
-</c:if>
-	<c:if test="${dessertItems !=null }">
-		<div class="well" id="dessertMenuItems">
-			<h2>Desserts</h3>
-			<c:forEach items="${dessertItems}" var="dessertItem">
-				<ul>
-					<li>${dessertItem.name},<%-- ${dessertItem.description}, --%>
-						${dessertItem.price}
-					</li>
-					<input type="number" min="0" value="0" />   <button>Add ${dessertItem.name} To Order</button>
-					<br>
-				</ul>
-			</c:forEach>
-		</div>
-</c:if>
+	<div class="row padding-top">
+		<div class="col-md-offset-3 col-md-6 clear-area">
+			<div class="menuItems">
+				<c:if test="${appetizerItems !=null }">
+					<div id="appetizerMenuItems">
+						<h2>
+							Appetizers
+							</h3>
+							<c:forEach items="${appetizerItems}" var="appItem">
+								<ul>
+									<li>${appItem.name},<%-- ${appItem.description}, --%>
+										${appItem.price}
+									</li>
+									<input type="number" min="0" value="0" />
+									<button>Add ${appetizerItem.name}</button>
+									<br>
+								</ul>
+							</c:forEach>
+					</div>
+				</c:if>
+				<c:if test="${entreeItems !=null }">
+					<div id="entreeMenuItems">
+						<h2>
+							Entreés
+							</h3>
+							<c:forEach items="${entreeItems}" var="entreeItem">
+								<ul>
+									<li>${entreeItem.name},<%-- ${entreeItem.description}, --%>
+										${entreeItem.price}
+									</li>
+									<input type="number" min="0" value="0" />
+									<button>Add ${entreeItem.name} To Order</button>
+									<br>
+								</ul>
+							</c:forEach>
+					</div>
+				</c:if>
+				<c:if test="${dessertItems !=null }">
+					<div id="dessertMenuItems">
+						<h2>
+							Desserts
+							</h3>
+							<c:forEach items="${dessertItems}" var="dessertItem">
+								<ul>
+									<li>${dessertItem.name},<%-- ${dessertItem.description}, --%>
+										${dessertItem.price}
+									</li>
+									<input type="number" min="0" value="0" />
+									<button>Add ${dessertItem.name} To Order</button>
+									<br>
+								</ul>
+							</c:forEach>
+					</div>
+				</c:if>
 
-	<c:if test="${drinkItems !=null }">
-		<div class="well" id="drinkMenuItems">
-			<h2>Drinks</h3>
-			<c:forEach items="${drinkItems}" var="drinkItem">
-				<ul>
-					<li>${drinkItem.name},<%-- ${drinkItem.description},  --%>
-						${drinkItem.price}
-					</li>
-					<input type="number" min="0" value="0" /> <button>Add ${drinkItem.name} To Order</button>
-					<br>
-				</ul>
-			</c:forEach>
+				<c:if test="${drinkItems !=null }">
+					<div id="drinkMenuItems">
+						<h2>
+							Drinks
+							</h3>
+							<c:forEach items="${drinkItems}" var="drinkItem">
+								<ul>
+									<li>${drinkItem.name},<%-- ${drinkItem.description},  --%>
+										${drinkItem.price}
+									</li>
+									<input type="number" min="0" value="0" />
+									<button>Add ${drinkItem.name} To Order</button>
+									<br>
+								</ul>
+							</c:forEach>
+					</div>
+				</c:if>
+			</div>
+			<!--closing div tag for menuItems  -->
 		</div>
-</c:if>
 	</div>
-	<!--closing div tag for menuItems  --> </container>
+	</container>
 </body>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>

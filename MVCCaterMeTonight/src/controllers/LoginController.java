@@ -64,49 +64,4 @@ public class LoginController {
 		}
 
 	}
-//	@RequestMapping(path = "ViewMenuOptions.do", method = RequestMethod.GET)
-//	public String viewMenuOptions(PlacedOrder placedOrder, Model model) {
-//		model.addAttribute("placedOrder", placedOrder);
-//		return "menu";
-//	}
-	//
-	// @RequestMapping(path = "GetFilms.do", method = RequestMethod.GET)
-	// public String index(Model model) {
-	// model.addAttribute("films", filmDAO.index());
-	// return "film/index.jsp";
-	// }
-	//
-	// @RequestMapping(path = "NewFilm.do", method = RequestMethod.GET)
-	// public String newFilm(Model model) {
-	// model.addAttribute("languages", languageDAO.index());
-	// return "film/new.jsp";
-	// }
-	//
-	// @RequestMapping(path = "CreateFilm.do", method = RequestMethod.POST)
-	// public String create(Model model, Film film, int languageId) {
-	// film.setLanguage(languageDAO.show(languageId));
-	// model.addAttribute("film", filmDAO.create(film));
-	// return "film/show.jsp";
-	// }
-	//
-	// @RequestMapping(path = "EditFilm.do", method = RequestMethod.GET)
-	// public String edit(Model model, @RequestParam("id") int id) {
-	// model.addAttribute("film", filmDAO.show(id));
-	// model.addAttribute("languages", languageDAO.index());
-	// return "film/edit.jsp";
-	// }
-	//
-	// @RequestMapping(path = "UpdateFilm.do", method = RequestMethod.POST)
-	// public String update(Model model, Film film, int languageId, int fid) {
-	// film.setLanguage(languageDAO.show(languageId));
-	// model.addAttribute("film", filmDAO.update(fid, film));
-	// return "film/show.jsp";
-	// }
-	//
-	// @RequestMapping(path = "DestroyFilm.do", method = RequestMethod.POST)
-	// public String destroy(Model model, @RequestParam("fid") int fid) {
-	// filmDAO.destroy(fid);
-	// model.addAttribute("films", filmDAO.index());
-	// return "film/index.jsp";
-	// }
 }

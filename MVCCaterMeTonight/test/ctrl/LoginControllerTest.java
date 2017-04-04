@@ -108,7 +108,7 @@ public class LoginControllerTest {
       ModelMap map = mv.getModelMap();
       
       // Check the values with JUnit tests
-      assertEquals("emenu", mv.getViewName());
+      assertEquals("menu", mv.getViewName());
 //      assertEquals("Crank72", user.getUsername());
     } catch (Exception e) {
       fail(e.toString());
