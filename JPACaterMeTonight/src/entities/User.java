@@ -42,10 +42,10 @@ public class User {
 	
 	
 	@OneToMany(mappedBy="user")
-	private List <PlacedOrder> placedOrder;
+	private List <PlacedOrder> placedOrders;
 	
 	@OneToMany(mappedBy="user")
-	private List<Address> address;
+	private List<Address> addresses;
 	
 	@OneToMany(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinColumn(name="user")
@@ -105,17 +105,17 @@ public class User {
 	public void setPictureUrl(String pictureUrl) {
 		this.pictureUrl = pictureUrl;
 	}
-	public List<PlacedOrder> getPlacedOrder() {
-		return placedOrder;
+	public List<PlacedOrder> getPlacedOrders() {
+		return placedOrders;
 	}
-	public void setPlacedOrder(List<PlacedOrder> placedOrder) {
-		this.placedOrder = placedOrder;
+	public void setPlacedOrders(List<PlacedOrder> placedOrder) {
+		this.placedOrders = placedOrder;
 	}
-	public List<Address> getAddress() {
-		return address;
+	public List<Address> getAddresses() {
+		return addresses;
 	}
-	public void setAddress(List<Address> address) {
-		this.address = address;
+	public void setAddresses(List<Address> address) {
+		this.addresses = address;
 	}
 	public List<Creditcard> getCreditcard() {
 		return creditcard;

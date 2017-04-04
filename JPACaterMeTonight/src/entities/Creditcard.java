@@ -27,7 +27,7 @@ public class Creditcard {
 	private String expirationDate;
 
 	@Column(name="creditcard_number")
-	private double ccNum;
+	private double creditcardNumber;
 		
 	@Column(name="security_code")
 	private int ccv;
@@ -62,10 +62,10 @@ public class Creditcard {
 		this.expirationDate = expirationDate;
 	}
 	public double getCcNum() {
-		return ccNum;
+		return creditcardNumber;
 	}
 	public void setCcNum(double ccNum) {
-		this.ccNum = ccNum;
+		this.creditcardNumber = ccNum;
 	}
 	public int getCcv() {
 		return ccv;

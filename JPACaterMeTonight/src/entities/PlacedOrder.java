@@ -31,8 +31,6 @@ public class PlacedOrder {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateCreated;
 	
-	@Column(name="number_of_people")
-	private int numberOfPeople;
 	
 	private boolean appetizer, entree, dessert, drink;
 	
@@ -95,12 +93,7 @@ public class PlacedOrder {
 	public void setOrderItem(List<OrderItem> orderItem) {
 		this.orderItem = orderItem;
 	}	
-	public int getNumberOfPeople() {
-		return numberOfPeople;
-	}
-	public void setNumberOfPeople(int numberOfPeople) {
-		this.numberOfPeople = numberOfPeople;
-	}
+	
 	public boolean isAppetizer() {
 		return appetizer;
 	}
@@ -146,17 +139,6 @@ public class PlacedOrder {
 				+ drink + "]";
 	}
 
-//	@Override
-//	public String toString() {
-//		StringBuilder builder = new StringBuilder();
-//		builder.append("PlacedOrder [dateCreated=");
-//		builder.append(dateCreated);
-//		builder.append("Number of People=");
-//		builder.append(numberOfPeople);
-//		builder.append("]");
-//		return builder.toString();
-//	}
-		
-	
+
 	
 }

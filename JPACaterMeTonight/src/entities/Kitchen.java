@@ -15,13 +15,14 @@ import javax.persistence.Table;
 public class Kitchen {
 	//Total fields:4 	
 	
-	@OneToMany(mappedBy="kitchen")
-	private List<MenuItem> menuItems;
-
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
+	@OneToMany(mappedBy="kitchen")
+	private List<MenuItem> menuItems;
+
 	private String name;
 	private String description;
 	@Column(name="picture_url")

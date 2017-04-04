@@ -35,9 +35,6 @@ public class MenuItem {
 	@JoinColumn(name="course_id")
 	private Course course;
 	
-//	@OneToMany(mappedBy="menu")		//We don't need this to be bidirectional
-//	private List<OrderItem> order;
-
 	public int getId() {
 		return id;
 	}
