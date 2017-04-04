@@ -45,6 +45,15 @@ public class MenuController {
 
 		return mv;
 	}	
+	
+	@RequestMapping(path = "AddMenuItemsToCart.do", method = RequestMethod.GET)
+	public ModelAndView addItemsToCart(@RequestParam("kitchenId") int id) {
+		System.out.println("*****************I'm in the add items to cart controller method with item id: "+id+"****************");
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("menuItems", menuDAO.addMenuItemsToCart(id));
+		return mv;
+		
+	}
 
 
 }

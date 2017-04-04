@@ -1,5 +1,7 @@
 package controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,11 +46,25 @@ public class LoginController {
 		mv.setViewName("index");
 		return mv;
 	}
+	
+	@RequestMapping(value = "About.do")
+	public ModelAndView about() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("about");
+		return mv;
+	}
+	@RequestMapping(value = "Logout.do")
+	public ModelAndView logout(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		session.setAttribute("user", null);
+		mv.setViewName("index");
+		return mv;
+	}
 
 	@RequestMapping(path = "Login.do", method = RequestMethod.GET)
-	public String login(User user, Model model) {
+	public String login(HttpSession session, User user, Model model) {
 		user = userDAO.getUserByUsernameAndPassword(user);
-		model.addAttribute("user", user);
+		session.setAttribute("user", user);
 		if (user != null) {
 			model.addAttribute("kitchens", kitchenDAO.listOfKitchen());
 			if(!user.getStatus().equals("admin")) {

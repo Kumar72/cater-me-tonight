@@ -13,4 +13,6 @@ public interface MenuDAO {
 	public List<MenuItem> getAllMenuItemsFromDesserts(int id);
 	public List<MenuItem> getAllMenuItemsFromDrinks(int id);
 	public void setEntityManager(EntityManager emInj);
+	
+	public List <MenuItem> addMenuItemsToCart(int id);
 }
