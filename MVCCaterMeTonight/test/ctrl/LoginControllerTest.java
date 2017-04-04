@@ -90,6 +90,27 @@ public class LoginControllerTest {
 	}
 
 	@Test
+	public void test_login_enter_invalid_username_and_password_returns_invalidusernameorpassword_view() {
+		try {
+			// Use MockMVC to create a request to the test servlet and get a
+			// response
+			MvcResult response = mockMvc
+					.perform(get("/Login.do").param("username", "student1").param("password", "student"))
+					.andExpect(status().isOk()).andReturn();
+			// Extract the returned ModelAndView from the response
+			ModelAndView mv = response.getModelAndView();
+			// Extract the Model from the ModelAndView
+			ModelMap map = mv.getModelMap();
+			// Cast the Object value paired to the "film" key to a Film object
+			User user = (User) map.get("user");
+			// Check the values with JUnit tests
+			assertEquals("invalidusernameorpassword", mv.getViewName());
+//			assertEquals(null, user);
+		} catch (Exception e) {
+			fail(e.toString());
+		}
+	}
+	@Test
   public void test_logout_returns_index_view_and_null_user(){
     try {
     	MockHttpSession mockSession = new MockHttpSession();

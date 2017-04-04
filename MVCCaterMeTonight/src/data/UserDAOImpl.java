@@ -52,7 +52,7 @@ public class UserDAOImpl implements UserDAO {
 					.setParameter("password", user.getPassword())					
 					.getSingleResult();
 		} catch (Exception e) {
-			System.out.println(e);
+//			System.out.println(e);
 	
 		}
 		return returnedUser;
