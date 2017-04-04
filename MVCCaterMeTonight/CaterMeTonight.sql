@@ -152,9 +152,8 @@ CREATE TABLE IF NOT EXISTS `placed_order` (
   `delivery_address_id` INT NOT NULL,
   `creditcard_id` INT NOT NULL,
   `kitchen_id` INT NOT NULL,
-  `number_of_people` INT NOT NULL DEFAULT 25,
   `appetizer` TINYINT(1) NULL,
-  `entre` TINYINT(1) NULL,
+  `entree` TINYINT(1) NULL,
   `dessert` TINYINT(1) NULL,
   `drink` TINYINT(1) NULL,
   PRIMARY KEY (`id`),
@@ -330,7 +329,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `catermetonight`;
-INSERT INTO `placed_order` (`id`, `date_created`, `user_id`, `delivery_address_id`, `creditcard_id`, `kitchen_id`, `number_of_people`, `appetizer`, `entre`, `dessert`, `drink`) VALUES (1, '2017-4-2', 1, 4, 1, 1, 30, 0, 0, 0, 0);
+INSERT INTO `placed_order` (`id`, `date_created`, `user_id`, `delivery_address_id`, `creditcard_id`, `kitchen_id`, `appetizer`, `entree`, `dessert`, `drink`) VALUES (1, '2017-4-2', 1, 4, 1, 1, 0, 0, 0, 0);
 
 COMMIT;
 
