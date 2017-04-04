@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import entities.Course;
 import entities.MenuItem;
+import pojos.ShoppingCart;
 
 @Transactional
 @Repository
@@ -89,6 +90,16 @@ public class MenuDAOImpl implements MenuDAO {
 			System.out.println(menuItem);
 		}
 		return menuItems;		
+	}
+
+	@Override
+	public List<MenuItem> addMenuItemsToCart(int menuId) {
+		System.out.println("*****************I'm in the add items to cart DAOimpl method with item id: "+menuId+"****************");
+		ShoppingCart shoppingCart = new ShoppingCart();
+		String query = "SELECT m FROM MenuItem m WHERE m.id = :id";
+		List<MenuItem> cart = em.createQuery(query, MenuItem.class).setParameter("id", menuId).getResultList();
+		shoppingCart.setMenuItemsAddedToCart(cart);
+		return cart;
 	}
 
 }
