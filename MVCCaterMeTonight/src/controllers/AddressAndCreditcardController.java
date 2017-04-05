@@ -33,6 +33,7 @@ public class AddressAndCreditcardController {
 		ModelAndView mv = new ModelAndView();
 		System.out.println((User)session.getAttribute("user"));
 		mv.addObject("creditcards", creditcardDAO.getSavedCreditcardsForUser(((User)session.getAttribute("user")).getId()));
+		mv.addObject("addresses", addressDAO.getSavedAddressesForUser(((User)session.getAttribute("user")).getId()));
 		mv.setViewName("paymentanddelivery");
 		return mv;
 	}
