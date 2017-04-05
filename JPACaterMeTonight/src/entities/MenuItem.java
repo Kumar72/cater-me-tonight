@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="menu_item")
 public class MenuItem {
-	//Total fields:7 	2fk(Kitchen, Course)
+	//Total fields:8 	2fk(Kitchen, Course)
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -22,6 +22,7 @@ public class MenuItem {
 	private String name;	
 	private String description;
 	private Double price;
+	private boolean status;
 
 	@Column(name="picture_url")
 	private String picture;
@@ -76,6 +77,12 @@ public class MenuItem {
 	}
 	public void setCourse(Course course) {
 		this.course = course;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	
 	@Override

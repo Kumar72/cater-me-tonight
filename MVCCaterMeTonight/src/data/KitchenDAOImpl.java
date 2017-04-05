@@ -62,9 +62,9 @@ public class KitchenDAOImpl implements KitchenDAO {
 
 	// not DONE -- need a way to remove all the menu-item
 	@Override
-	public boolean removeKitchenAndMenuItems(int id) {
+	public boolean activateKitchenAndMenuItems(int id) {
 		Kitchen managed = em.find(Kitchen.class, id);
-		mDao.removeMenuItemByKitchen(id);		//Some problem here
+//		mDao.removeMenuItemByKitchen(id);		//Some problem here
 		em.remove(managed);
 		em.flush();
 		return !em.contains(managed);

@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="kitchen")
 public class Kitchen {
-	//Total fields:4 	
+	//Total fields: 5 	
 	
 	
 	@Id
@@ -27,6 +27,7 @@ public class Kitchen {
 	private String description;
 	@Column(name="picture_url")
 	private String picture;
+	private boolean status;
 	
 	//Setters and Getters
 	public int getId() {
@@ -51,7 +52,13 @@ public class Kitchen {
 	public void setPicture(String picture) {
 		this.picture = picture;
 	}
-
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+	
 	@Override
 	public String toString() {
 		return "Kitchen [name=" + name + ", description=" + description + ", picture=" + picture + "]";
