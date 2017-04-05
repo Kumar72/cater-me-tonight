@@ -84,7 +84,7 @@ public class MappingTest {
 	 public void test_orderitem_mapping() {
 		 orderItem = em.find(OrderItem.class, 1);
 //		 System.out.println(orderItem);
-		 assertEquals(21, orderItem.getQuantity());
+		 assertEquals(2, orderItem.getQuantity());
 	 }
 	 @Test
 	 public void test_placedorder_mapping() {
