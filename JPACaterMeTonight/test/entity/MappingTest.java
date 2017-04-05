@@ -100,7 +100,7 @@ public class MappingTest {
 	 @Test
 	 public void test_placed_order_for_boolean_type() {
 		 placedOrder = em.find(PlacedOrder.class, 1);
-		 assertEquals(false, placedOrder.isAppetizer());
+		 assertEquals(true, placedOrder.isAppetizer());
 	 }
 	 
 }

@@ -322,8 +322,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `catermetonight`;
-INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `creditcard_number`, `security_code`, `user_id`, `billing_address_id`) VALUES (1, 'Chandan K Thakur', '2017-20-01', '1232122222233456', 321, 1, 1);
-INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `creditcard_number`, `security_code`, `user_id`, `billing_address_id`) VALUES (2, 'Chandan K Thakur', '2018-20-01', '1123457689076567', 123, 1, 2);
+INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `creditcard_number`, `security_code`, `user_id`, `billing_address_id`) VALUES (1, 'Chandan K Thakur', '2017-01-21', '1232122222233456', 321, 1, 1);
+INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `creditcard_number`, `security_code`, `user_id`, `billing_address_id`) VALUES (2, 'Chandan K Thakur', '2018-03-21', '1123457689076567', 123, 1, 2);
 
 COMMIT;
 
