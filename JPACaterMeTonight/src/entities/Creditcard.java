@@ -32,7 +32,7 @@ public class Creditcard {
 	private Date expirationDate;
 
 	@Column(name="creditcard_number")
-	private double creditcardNumber;
+	private String creditcardNumber;
 		
 	@Column(name="security_code")
 	private int securityCode;
@@ -65,11 +65,11 @@ public class Creditcard {
 		this.expirationDate = expirationDate;
 	}
 
-	public double getCreditcardNumber() {
+	public String getCreditcardNumber() {
 		return creditcardNumber;
 	}
 
-	public void setCreditcardNumber(double creditcardNumber) {
+	public void setCreditcardNumber(String creditcardNumber) {
 		this.creditcardNumber = creditcardNumber;
 	}
 

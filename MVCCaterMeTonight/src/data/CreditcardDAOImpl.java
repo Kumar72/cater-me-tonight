@@ -40,21 +40,30 @@ public class CreditcardDAOImpl implements CreditcardDAO {
 		Creditcard managedCreditcard = em.find(Creditcard.class, id);
 		managedCreditcard.setCreditcardNumber(creditcard.getCreditcardNumber());
 		managedCreditcard.setExpirationDate(creditcard.getExpirationDate());
-		
-		
+		managedCreditcard.setFullName(creditcard.getFullName());
+		managedCreditcard.setSecurityCode(creditcard.getSecurityCode());
+		managedCreditcard.setBillingAddress(creditcard.getBillingAddress());
+		managedCreditcard.setUser(creditcard.getUser());		
 		return managedCreditcard;
 	}
 
 	@Override
 	public boolean destroy(int id) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean flag = false;
+		try {			
+			em.remove(em.find(Creditcard.class, id));
+			flag = true;
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return flag;
 	}
 
 	@Override
 	public Creditcard create(Creditcard creditcard) {
-		// TODO Auto-generated method stub
-		return null;
+		em.persist(creditcard);
+		em.flush();
+		return creditcard;
 	}
 	
 
