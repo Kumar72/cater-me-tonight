@@ -4,12 +4,17 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaDelete;
+import javax.persistence.criteria.Root;
+import javax.persistence.metamodel.EntityType;
+import javax.persistence.metamodel.Metamodel;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import entities.Course;
+import entities.Kitchen;
 import entities.MenuItem;
 import pojos.ShoppingCart;
 
@@ -128,11 +133,31 @@ public class MenuDAOImpl implements MenuDAO {
 	}
 
 	public boolean removeMenuItemByKitchen(int kitchenId) {
-		String query = "DELETE from MenuItem m WHERE m.kitchen = :id";
-		List<MenuItem> managed = em.createQuery(query, MenuItem.class).getResultList();
-		em.remove(managed);
-		em.flush();
-		return em.contains(managed);
+//		String query = "DELETE from MenuItem m WHERE m.kitchen = :id";
+//		List<MenuItem> managed = em.createQuery(query, MenuItem.class).getResultList();
+//		for (MenuItem menuItem : managed) {
+//			em.remove(menuItem);
+//		}
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaDelete<MenuItem> delete = cb.createCriteriaDelete(MenuItem.class);
+		EntityType<MenuItem> menu =  (em.getMetamodel()).entity(MenuItem.class);
+		Root<MenuItem> e = delete.from(MenuItem.class);
+		
+		delete.where(cb.equal(e.get(menu.getSingularAttribute("kitchen")), kitchenId));
+		
+		int result = em.createQuery(delete).executeUpdate();
+		System.out.println(result);
+//		
+//		MenuItem managed = em.createQuery(deleteQuery);
+//		MenuItem m = new MenuItem();
+//		m.setKitchen(em.find(Kitchen.class, kitchenId));
+////		List<MenuItem> menu = em.find(MenuItem.class, m.getKitchen());
+//		em.remove(managed);
+		
+		if(result == 1)
+			return true;
+		else 
+			return false;
 	}
 
 	@Override

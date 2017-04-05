@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `menu_item` (
   `course_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_item_course_idx` (`course_id` ASC),
-  CONSTRAINT `fk_item_kitchen1`
+  CONSTRAINT `fk_item_kitchen`
     FOREIGN KEY (`kitchen_id`)
     REFERENCES `kitchen` (`id`)
     ON DELETE NO ACTION
@@ -198,12 +198,12 @@ CREATE TABLE IF NOT EXISTS `order_item` (
   PRIMARY KEY (`id`),
   INDEX `fk_order_item_place_order1_idx` (`placed_order_id` ASC),
   INDEX `fk_order_item_menu_item1_idx` (`menu_item_id` ASC),
-  CONSTRAINT `fk_order_item_place_order1`
+  CONSTRAINT `fk_order_item_place_order`
     FOREIGN KEY (`placed_order_id`)
     REFERENCES `placed_order` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_order_item_menu_item1`
+  CONSTRAINT `fk_order_item_menu_item`
     FOREIGN KEY (`menu_item_id`)
     REFERENCES `menu_item` (`id`)
     ON DELETE NO ACTION
@@ -320,27 +320,6 @@ START TRANSACTION;
 USE `catermetonight`;
 INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `creditcard_number`, `security_code`, `user_id`, `billing_address_id`) VALUES (1, 'Chandan K Thakur', '2017-20', '1232122222233456', 321, 1, 1);
 INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `creditcard_number`, `security_code`, `user_id`, `billing_address_id`) VALUES (2, 'Chandan K Thakur', '2018-20', '1123457689076567', 123, 1, 2);
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `placed_order`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `catermetonight`;
-INSERT INTO `placed_order` (`id`, `date_created`, `user_id`, `delivery_address_id`, `creditcard_id`, `kitchen_id`, `appetizer`, `entree`, `dessert`, `drink`) VALUES (1, '2017-4-2', 1, 4, 1, 1, 0, 0, 0, 0);
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `order_item`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `catermetonight`;
-INSERT INTO `order_item` (`id`, `comment`, `quantity`, `placed_order_id`, `menu_item_id`) VALUES (1, 'Order 1', 21, 1, 1);
-INSERT INTO `order_item` (`id`, `comment`, `quantity`, `placed_order_id`, `menu_item_id`) VALUES (2, 'Order 2', 2, 1, 2);
 
 COMMIT;
 

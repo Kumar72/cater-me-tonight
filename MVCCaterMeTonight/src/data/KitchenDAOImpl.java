@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import entities.Course;
 import entities.Kitchen;
+import entities.MenuItem;
 
 @Transactional
 @Repository
@@ -62,10 +64,18 @@ public class KitchenDAOImpl implements KitchenDAO {
 	@Override
 	public boolean removeKitchenAndMenuItems(int id) {
 		Kitchen managed = em.find(Kitchen.class, id);
-//		mDao.removeMenuItemByKitchen(id);		//Some problem here
+		mDao.removeMenuItemByKitchen(id);		//Some problem here
 		em.remove(managed);
 		em.flush();
 		return !em.contains(managed);
+	}
+
+	@Override
+	public Kitchen getKitchenById(int id) {
+		String query = "SELECT k from Kitchen k where k.id = :id";
+		Kitchen kitchen = em.createQuery(query, Kitchen.class).setParameter("id", id)
+				.getSingleResult();
+		return kitchen;
 	}
 
 }
