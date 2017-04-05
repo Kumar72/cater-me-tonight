@@ -1,7 +1,6 @@
 package entities;
 
-import java.util.List;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,8 +30,18 @@ public class OrderItem {
 	@JoinColumn(name="placed_order_id")
 	private PlacedOrder placedOrder;
 	
+	@Column(name="total")
+	private double totalForOrderItem;
+	
 	
 	//GETTERS and SETTERS below (no setter for 'id')
+	public double getTotalForOrderItem() {
+//		totalForOrderItem = menuItem.getPrice()*quantity;
+		return totalForOrderItem;
+	}
+	public void setTotalForOrderItem(double totalForOrderItem) {
+		this.totalForOrderItem = totalForOrderItem;
+	}
 	public int getId() {
 		return id;
 	}

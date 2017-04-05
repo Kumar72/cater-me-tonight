@@ -85,7 +85,7 @@ public class Address {
 		this.user = user;
 	}
 	
-	//To Stirng (doesnot include id and user)
+	//To String (does not include id and user)
 	@Override
 	public String toString() {
 		return "Address [streetAddress=" + streetAddress + ", streetAddress2=" + streetAddress2 + ", postalCode="
