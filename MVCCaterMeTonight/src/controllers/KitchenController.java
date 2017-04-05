@@ -86,7 +86,7 @@ public class KitchenController {
 	@RequestMapping(path = "RemoveKitchen.do", method = RequestMethod.GET)
 	public ModelAndView removeKitchen(@RequestParam("kitchenId") int id) {
 		ModelAndView mv = new ModelAndView();
-		kitchenDao.removeKitchenAndMenuItems(id);
+		kitchenDao.activateKitchenAndMenuItems(id);
 		mv.addObject("kitchens", kitchenDao.listOfKitchen());
 		mv.setViewName("admin");
 		return mv;

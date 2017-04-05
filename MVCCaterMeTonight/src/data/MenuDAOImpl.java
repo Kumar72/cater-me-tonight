@@ -132,36 +132,12 @@ public class MenuDAOImpl implements MenuDAO {
 	return menuItem;
 	}
 
-	public boolean removeMenuItemByKitchen(int kitchenId) {
-//		String query = "DELETE from MenuItem m WHERE m.kitchen = :id";
-//		List<MenuItem> managed = em.createQuery(query, MenuItem.class).getResultList();
-//		for (MenuItem menuItem : managed) {
-//			em.remove(menuItem);
-//		}
-		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaDelete<MenuItem> delete = cb.createCriteriaDelete(MenuItem.class);
-		EntityType<MenuItem> menu =  (em.getMetamodel()).entity(MenuItem.class);
-		Root<MenuItem> e = delete.from(MenuItem.class);
-		
-		delete.where(cb.equal(e.get(menu.getSingularAttribute("kitchen")), kitchenId));
-		
-		int result = em.createQuery(delete).executeUpdate();
-		System.out.println(result);
-//		
-//		MenuItem managed = em.createQuery(deleteQuery);
-//		MenuItem m = new MenuItem();
-//		m.setKitchen(em.find(Kitchen.class, kitchenId));
-////		List<MenuItem> menu = em.find(MenuItem.class, m.getKitchen());
-//		em.remove(managed);
-		
-		if(result == 1)
-			return true;
-		else 
+	public boolean activateMenuItemByKitchen(int kitchenId) {	
 			return false;
 	}
 
 	@Override
-	public boolean removeMenuItem(int id) {
+	public boolean activateMenuItem(int id) {
 		MenuItem managed = em.find(MenuItem.class, id);
 		em.remove(managed);
 		em.flush();
