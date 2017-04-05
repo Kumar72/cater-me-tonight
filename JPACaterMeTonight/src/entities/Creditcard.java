@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="creditcard")
@@ -24,7 +28,8 @@ public class Creditcard {
 	
 
 	@Column(name="expiration_date")
-	private String expirationDate;
+	@Temporal(TemporalType.DATE)
+	private Date expirationDate;
 
 	@Column(name="creditcard_number")
 	private double creditcardNumber;
@@ -43,6 +48,7 @@ public class Creditcard {
 	private Address billingAddress;
 
 	//GETTERS and SETTERS below (no setter for 'id')
+
 	public String getFullName() {
 		return fullName;
 	}
@@ -51,11 +57,11 @@ public class Creditcard {
 		this.fullName = fullName;
 	}
 
-	public String getExpirationDate() {
+	public Date getExpirationDate() {
 		return expirationDate;
 	}
 
-	public void setExpirationDate(String expirationDate) {
+	public void setExpirationDate(Date expirationDate) {
 		this.expirationDate = expirationDate;
 	}
 
@@ -95,9 +101,6 @@ public class Creditcard {
 		return id;
 	}
 
-	
-	
-	
 	
 
 }
