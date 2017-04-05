@@ -44,7 +44,7 @@
 	</div>
 	<div class="container">
 	<div class="row padding-top">
-		<div class="col-md-offset-3 col-md-6 clear-area">
+		<div class="col-md-offset-2 col-md-6 clear-area">
 			<div class="menuItems">
 				<c:if test="${appetizerItems !=null }">
 					<div id="appetizerMenuItems">
@@ -168,9 +168,13 @@
 		<div class="col-md-3 clear-area">
 			<h2>Items in shopping cart</h2>
 			<c:forEach var="item" items="${shoppingCart.orderItemsAddedToCart}">
-			${item.value.menuItem.name}, ${item.value.quantity} <br>
+			${item.value.menuItem.name}, ${item.value.quantity} $${item.value.totalForOrderItem}<br>
 			</c:forEach>
-
+			<hr>
+			Cart Total $${shoppingCart.runningTotalOfOrderItems()}
+			<form action="PaymentAndDelivery.do">
+			<input type="submit" value="Proceed to payment and delivery" />
+			</form>
 		</div>
 	</div>
 	</div>

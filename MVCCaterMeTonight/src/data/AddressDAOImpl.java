@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import entities.Address;
+import entities.Creditcard;
 import entities.Kitchen;
 
 @Transactional
@@ -59,6 +60,20 @@ public class AddressDAOImpl implements AddressDAO {
 		List<Address> addresses = new ArrayList<>();
 		String query = "SELECT a FROM Address a";
 		addresses = em.createQuery(query, Address.class).getResultList();
+		return addresses;
+	}
+
+	@Override
+	public List<Address> getSavedAddressesForUser(int id) {
+		List<Address> addresses = null;
+		String queryString = "SELECT address " 
+				+ "FROM Address address";
+		try {
+			addresses = em.createQuery(queryString, Address.class)
+					.getResultList();
+		} catch (Exception e) {
+			System.out.println(e);
+		} 
 		return addresses;
 	}
 
