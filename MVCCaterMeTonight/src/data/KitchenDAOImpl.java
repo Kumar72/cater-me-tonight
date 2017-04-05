@@ -5,14 +5,16 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaUpdate;
+import javax.persistence.criteria.Root;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import entities.Course;
 import entities.Kitchen;
-import entities.MenuItem;
 
 @Transactional
 @Repository
@@ -60,22 +62,19 @@ public class KitchenDAOImpl implements KitchenDAO {
 		return kitchen;
 	}
 
-	// not DONE -- need a way to remove all the menu-item
-	@Override
-	public boolean activateKitchenAndMenuItems(int id) {
-		Kitchen managed = em.find(Kitchen.class, id);
-//		mDao.removeMenuItemByKitchen(id);		//Some problem here
-		em.remove(managed);
-		em.flush();
-		return !em.contains(managed);
-	}
-
+	
 	@Override
 	public Kitchen getKitchenById(int id) {
 		String query = "SELECT k from Kitchen k where k.id = :id";
 		Kitchen kitchen = em.createQuery(query, Kitchen.class).setParameter("id", id)
 				.getSingleResult();
 		return kitchen;
+	}
+
+	@Override
+	public Kitchen activateAndDeactiveKitchen(int id, Kitchen kitchen) {
+		
+		return null;
 	}
 
 }

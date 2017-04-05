@@ -197,6 +197,7 @@ CREATE TABLE IF NOT EXISTS `order_item` (
   `quantity` INT NOT NULL,
   `placed_order_id` INT NOT NULL,
   `menu_item_id` INT NOT NULL,
+  `total` DECIMAL(5,2) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_order_item_place_order1_idx` (`placed_order_id` ASC),
   INDEX `fk_order_item_menu_item1_idx` (`menu_item_id` ASC),
@@ -344,11 +345,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `catermetonight`;
-INSERT INTO `order_item` (`id`, `comment`, `quantity`, `placed_order_id`, `menu_item_id`) VALUES (1, 'First Item', 21, 1, 1);
-INSERT INTO `order_item` (`id`, `comment`, `quantity`, `placed_order_id`, `menu_item_id`) VALUES (2, 'Second Item', 31, 2, 2);
-INSERT INTO `order_item` (`id`, `comment`, `quantity`, `placed_order_id`, `menu_item_id`) VALUES (3, 'Third Item', 45, 1, 3);
-INSERT INTO `order_item` (`id`, `comment`, `quantity`, `placed_order_id`, `menu_item_id`) VALUES (4, 'Fourth Item', 3, 1, 4);
-INSERT INTO `order_item` (`id`, `comment`, `quantity`, `placed_order_id`, `menu_item_id`) VALUES (5, 'Fifth Item', 32, 2, 6);
+INSERT INTO `order_item` (`id`, `comment`, `quantity`, `placed_order_id`, `menu_item_id`, `total`) VALUES (1, 'First Item', 2, 1, 1, 14);
+INSERT INTO `order_item` (`id`, `comment`, `quantity`, `placed_order_id`, `menu_item_id`, `total`) VALUES (2, 'Second Item', 3, 2, 2, 15);
+INSERT INTO `order_item` (`id`, `comment`, `quantity`, `placed_order_id`, `menu_item_id`, `total`) VALUES (3, 'Third Item', 2, 1, 3, 9.98);
+INSERT INTO `order_item` (`id`, `comment`, `quantity`, `placed_order_id`, `menu_item_id`, `total`) VALUES (4, 'Fourth Item', 3, 1, 4, 29.97);
+INSERT INTO `order_item` (`id`, `comment`, `quantity`, `placed_order_id`, `menu_item_id`, `total`) VALUES (5, 'Fifth Item', 3, 2, 6, 20.97);
 
 COMMIT;
 
