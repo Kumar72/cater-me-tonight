@@ -14,4 +14,6 @@ public Creditcard show(int id);
 	public boolean destroy(int id);
 
 	public Creditcard create(Creditcard creditcard);
+	
+	public List <Creditcard> getSavedCreditcardsForUser(int id);
 }

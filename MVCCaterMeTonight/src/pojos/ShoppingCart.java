@@ -12,6 +12,15 @@ import entities.OrderItem;
 public class ShoppingCart {
 	
 	private Map<Integer, OrderItem> orderItemsAddedToCart = new HashMap<>();
+	
+	public double runningTotalOfOrderItems(){
+		double total = 0;
+		for (OrderItem orderItem : orderItemsAddedToCart.values()) {
+			total = total+orderItem.getTotalForOrderItem();
+		}
+		
+		return total;
+	}
 
 	public OrderItem addOrUpdateOrderItem(OrderItem orderItem){
 		return orderItemsAddedToCart.put(orderItem.getMenuItem().getId(), orderItem);

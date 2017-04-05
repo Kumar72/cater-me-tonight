@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import data.MenuDAO;
-import data.UserDAO;
 import entities.MenuItem;
 import entities.OrderItem;
 import entities.PlacedOrder;
@@ -70,6 +69,7 @@ public class MenuController {
 		MenuItem menuItem = menuDAO.display(menuItemId);
 		orderItem.setMenuItem(menuItem);
 		orderItem.setQuantity(quantity);
+		orderItem.setTotalForOrderItem(menuItem.getPrice()*quantity);
 		shoppingCart.addOrUpdateOrderItem(orderItem);
 
 		System.out.println(shoppingCart);

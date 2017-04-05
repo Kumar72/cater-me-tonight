@@ -11,5 +11,6 @@ public interface AddressDAO {
 	public Address makeANewAddress(Address address);
 	public Address updateAddress(Address address, int id);
 	public boolean removeAnAddress(int id);
+	public List <Address> getSavedAddressesForUser(int id);
 	
 }

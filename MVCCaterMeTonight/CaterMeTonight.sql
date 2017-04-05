@@ -313,7 +313,7 @@ USE `catermetonight`;
 INSERT INTO `address` (`id`, `address`, `address2`, `postal_code`, `city`, `state`, `country`, `user_id`) VALUES (1, '7400 E. Orchard Rd', NULL, '80301', 'Denver', 'CO', 'US', 1);
 INSERT INTO `address` (`id`, `address`, `address2`, `postal_code`, `city`, `state`, `country`, `user_id`) VALUES (2, '7300 E. Orchard Rd', NULL, '80301', 'Denver', 'CO', 'US', 2);
 INSERT INTO `address` (`id`, `address`, `address2`, `postal_code`, `city`, `state`, `country`, `user_id`) VALUES (3, '1st St Merlin Dr. ', NULL, '76706', 'Waco', 'TX', 'US', 3);
-INSERT INTO `address` (`id`, `address`, `address2`, `postal_code`, `city`, `state`, `country`, `user_id`) VALUES (4, 'Main St', NULL, '80301', 'Boulder', 'CO', 'US', 1);
+INSERT INTO `address` (`id`, `address`, `address2`, `postal_code`, `city`, `state`, `country`, `user_id`) VALUES (4, 'Main St', NULL, '80301', 'Boulder', 'CO', 'US', 3);
 
 COMMIT;
 
@@ -325,6 +325,8 @@ START TRANSACTION;
 USE `catermetonight`;
 INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `creditcard_number`, `security_code`, `user_id`, `billing_address_id`) VALUES (1, 'Chandan K Thakur', '2017-01-21', '1232122222233456', 321, 1, 1);
 INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `creditcard_number`, `security_code`, `user_id`, `billing_address_id`) VALUES (2, 'Chandan K Thakur', '2018-03-21', '1123457689076567', 123, 1, 2);
+INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `creditcard_number`, `security_code`, `user_id`, `billing_address_id`) VALUES (3, 'Student Studentson', '2018-06-25', '1111222233334444', 123, 3, 3);
+INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `creditcard_number`, `security_code`, `user_id`, `billing_address_id`) VALUES (4, 'Student Studentson', '2019-6-25', '1122334455667788', 123, 3, 4);
 
 COMMIT;
 

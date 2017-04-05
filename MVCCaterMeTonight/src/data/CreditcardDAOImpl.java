@@ -65,6 +65,23 @@ public class CreditcardDAOImpl implements CreditcardDAO {
 		em.flush();
 		return creditcard;
 	}
+
+	@Override
+	public List<Creditcard> getSavedCreditcardsForUser(int id) {
+		List<Creditcard> creditcards = null;
+		String queryString = "SELECT creditcard " 
+				+ "FROM Creditcard creditcard WHERE user.id = :id";
+		
+		try {
+			
+			creditcards = em.createQuery(queryString, Creditcard.class).setParameter("id", id)
+					.getResultList();
+		} catch (Exception e) {
+			System.out.println(e);
+		} 
+		return creditcards;
+			
+	}
 	
 
 }
