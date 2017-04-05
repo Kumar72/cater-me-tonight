@@ -13,6 +13,7 @@
     <bean id="userOrderDAO" class="data.UserOrderDAOImpl" />
     <bean id="placedOrderDAO" class="data.PlacedOrderDAOImpl"/>
     <bean id="menuDAO" class="data.MenuDAOImpl"/>
+    <bean id="addressDAO" class="data.AddressDAOImpl"/>
     
  	
  	
