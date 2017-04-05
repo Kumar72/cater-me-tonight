@@ -67,7 +67,7 @@ public class MappingTest {
 	 @Test
 	 public void test_creditcard_mapping() {
 		 creditCard = em.find(Creditcard.class, 1);
-//		 assertEquals("Chandan K Thakur", creditCard.getFullName());
+		 assertEquals("Chandan K Thakur", creditCard.getFullName());
 	 }
 	 @Test
 	 public void test_kitchen_mapping() {

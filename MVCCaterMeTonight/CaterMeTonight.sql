@@ -121,7 +121,7 @@ DROP TABLE IF EXISTS `creditcard` ;
 CREATE TABLE IF NOT EXISTS `creditcard` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `full_name` VARCHAR(75) NOT NULL,
-  `expiration_date` VARCHAR(45) NOT NULL,
+  `expiration_date` DATETIME NOT NULL,
   `creditcard_number` VARCHAR(16) NOT NULL,
   `security_code` INT NOT NULL,
   `user_id` INT NOT NULL,
@@ -322,8 +322,33 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `catermetonight`;
-INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `creditcard_number`, `security_code`, `user_id`, `billing_address_id`) VALUES (1, 'Chandan K Thakur', '2017-20', '1232122222233456', 321, 1, 1);
-INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `creditcard_number`, `security_code`, `user_id`, `billing_address_id`) VALUES (2, 'Chandan K Thakur', '2018-20', '1123457689076567', 123, 1, 2);
+INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `creditcard_number`, `security_code`, `user_id`, `billing_address_id`) VALUES (1, 'Chandan K Thakur', '2017-20-01', '1232122222233456', 321, 1, 1);
+INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `creditcard_number`, `security_code`, `user_id`, `billing_address_id`) VALUES (2, 'Chandan K Thakur', '2018-20-01', '1123457689076567', 123, 1, 2);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `placed_order`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `catermetonight`;
+INSERT INTO `placed_order` (`id`, `date_created`, `user_id`, `delivery_address_id`, `creditcard_id`, `kitchen_id`, `appetizer`, `entree`, `dessert`, `drink`) VALUES (1, '2017-4-5', 1, 1, 1, 1, true, true, false, false);
+INSERT INTO `placed_order` (`id`, `date_created`, `user_id`, `delivery_address_id`, `creditcard_id`, `kitchen_id`, `appetizer`, `entree`, `dessert`, `drink`) VALUES (2, '2017-4-5', 2, 2, 2, 3, true, true, true, false);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `order_item`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `catermetonight`;
+INSERT INTO `order_item` (`id`, `comment`, `quantity`, `placed_order_id`, `menu_item_id`) VALUES (1, 'First Item', 21, 1, 1);
+INSERT INTO `order_item` (`id`, `comment`, `quantity`, `placed_order_id`, `menu_item_id`) VALUES (2, 'Second Item', 31, 2, 2);
+INSERT INTO `order_item` (`id`, `comment`, `quantity`, `placed_order_id`, `menu_item_id`) VALUES (3, 'Third Item', 45, 1, 3);
+INSERT INTO `order_item` (`id`, `comment`, `quantity`, `placed_order_id`, `menu_item_id`) VALUES (4, 'Fourth Item', 3, 1, 4);
+INSERT INTO `order_item` (`id`, `comment`, `quantity`, `placed_order_id`, `menu_item_id`) VALUES (5, 'Fifth Item', 32, 2, 6);
 
 COMMIT;
 
