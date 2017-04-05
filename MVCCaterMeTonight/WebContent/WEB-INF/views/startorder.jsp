@@ -49,7 +49,7 @@
 			</div>
 		</nav>
 	</div>
-	<container>
+	<div class="container">
 	<div class="row padding-top">
 		<div class="col-md-offset-3 col-md-6 clear-area">
 		<h1>Start Your Order</h1>
@@ -72,7 +72,7 @@
 			
 		</div>
     </div>
-	</container>
+	</div>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>

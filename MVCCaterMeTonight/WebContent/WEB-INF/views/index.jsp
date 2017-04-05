@@ -50,7 +50,7 @@
 			</div>
 		</nav>
 	</div>
-	<container>
+	<div class="container">
 	<div class="row padding-top">
 		<div class="col-md-offset-1 col-md-3">
             <div class="form-login">
@@ -84,7 +84,7 @@
 				from all over the world.</h3>
 		</div>
     </div>
-	</container>
+	</div>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
