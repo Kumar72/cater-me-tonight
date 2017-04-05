@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="css/Navigation-Clean1.css">
 <link href="https://fonts.googleapis.com/css?family=Forum" rel="stylesheet">
     <link rel="stylesheet" href="css/master.css">
+        <link rel="icon" href="images/favicon.ico">
+    
    
 </head>
 
