@@ -30,7 +30,7 @@ public class Creditcard {
 	private double creditcardNumber;
 		
 	@Column(name="security_code")
-	private int ccv;
+	private int securityCode;
 
 	
 	
@@ -40,51 +40,64 @@ public class Creditcard {
 	
 	@OneToOne
 	@JoinColumn(name="billing_address_id")
-	private Address billingAddressId;
+	private Address billingAddress;
 
-	
-	
 	//GETTERS and SETTERS below (no setter for 'id')
-	
-	public int getId() {
-		return id;
-	}
 	public String getFullName() {
 		return fullName;
 	}
+
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
+
 	public String getExpirationDate() {
 		return expirationDate;
 	}
+
 	public void setExpirationDate(String expirationDate) {
 		this.expirationDate = expirationDate;
 	}
-	public double getCcNum() {
+
+	public double getCreditcardNumber() {
 		return creditcardNumber;
 	}
-	public void setCcNum(double ccNum) {
-		this.creditcardNumber = ccNum;
+
+	public void setCreditcardNumber(double creditcardNumber) {
+		this.creditcardNumber = creditcardNumber;
 	}
-	public int getCcv() {
-		return ccv;
+
+	public int getSecurityCode() {
+		return securityCode;
 	}
-	public void setCcv(int ccv) {
-		this.ccv = ccv;
+
+	public void setSecurityCode(int securityCode) {
+		this.securityCode = securityCode;
 	}
+
 	public User getUser() {
 		return user;
 	}
+
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public Address getBillingAddressId() {
-		return billingAddressId;
+
+	public Address getBillingAddress() {
+		return billingAddress;
 	}
-	public void setBillingAddressId(Address billingAddressId) {
-		this.billingAddressId = billingAddressId;
+
+	public void setBillingAddress(Address billingAddress) {
+		this.billingAddress = billingAddress;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	
+	
+	
 	
 
 }
