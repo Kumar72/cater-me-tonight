@@ -47,14 +47,14 @@
 					</button>
 				</div>
 				<ul class="nav nav-tabs">
-					<li class="nav-item"><a class="nav-link active" href="admin.jsp">Kitchen</a>
-					</li>
+					<li class="nav-item"><a class="nav-link active"
+						href="admin.jsp">Kitchen</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Appetizer</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Entree</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Dessert</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Drink</a></li>
 					<li role="presentation"><a href="About.do">About</a></li>
-						<li role="presentation"><a href="Logout.do">Logout</a></li>
+					<li role="presentation"><a href="Logout.do">Logout</a></li>
 				</ul>
 				<%-- <div class="collapse navbar-collapse" id="navcol-1">
 					<ul class="nav navbar-nav navbar-right">
@@ -78,43 +78,25 @@
 	<container>
 	<div class="row padding-top">
 		<div class="col-md-offset-3 col-md-6 clear-area">
-			<h1>Admin Kitchen</h1>
-			<form action="CreateKitchen.do" method="GET">
-				<button>Create New Kitchen</button>
-			</form>
+			<h1>Create Kitchen</h1>
 			<label for="kitchenId"></label><br>
-			<c:forEach var="kitchen" items="${kitchens}">
-				<div class="btn-group">
-					<button size=25% type="button"
-						class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">
-						${kitchen.name}</button>
-
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
-						<a class="dropdown-item"
-							href="KitchenController.do?action=All&kitchenId=${kitchen.id}">All</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item"
-							href="KitchenController.do?action=Appetizer&kitchenId=${kitchen.id}">Appetizer</a>
-						<a class="dropdown-item"
-							href="KitchenController.do?action=Entree&kitchenId=${kitchen.id}">Entree</a>
-						<a class="dropdown-item"
-							href="KitchenController.do?action=Dessert&kitchenId=${kitchen.id}">Dessert</a>
-						<a class="dropdown-item"
-							href="KitchenController.do?action=Drink&kitchenId=${kitchen.id}">Drink</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item"
-							href="AddItem.do?kitchenId=${kitchen.id}" method="POST">Add</a>
-						<a class="dropdown-item"
-							href="UpdateKitchen.do?kitchenId=${kitchen.id}" method="POST">Edit</a>
-						<a class="dropdown-item"
-							href="RemoveKitchen.do?kitchenId=${kitchen.id}">Remove</a>
-
-					</div>
-				</div>
-			</c:forEach>
-
+			
+					<form action="CreateKitchen.do" method="POST">
+						<hr>
+						<fieldset>
+	
+							Kitchen Name: <input type="text" name="name"
+							required /> 
+							<p class="align-vertical-top"> 
+							Description: <textarea name="description" row="5" cols="75"
+							required ></textarea>
+							</p> 
+							Picture URL: <input type="text" name="picture">
+							<br>
+						</fieldset>
+						<input type="submit" value="Create Kitchen" />
+					</form>
+					
 		</div>
 	</div>
 	</container>

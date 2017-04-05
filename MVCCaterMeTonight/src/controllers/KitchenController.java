@@ -53,8 +53,18 @@ public class KitchenController {
 			method = RequestMethod.POST)
 		 public ModelAndView createNewKitchen(Kitchen kitchen) {
 			ModelAndView mv = new ModelAndView();
-			mv.setViewName("kitchen");
-			mv.addObject("kitchens", kitchenDao.createKitchen(kitchen));
+			kitchenDao.createKitchen(kitchen);
+			mv.addObject("kitchen", new Kitchen());
+			mv.addObject("kitchens", kitchenDao.listOfKitchen());
+			mv.setViewName("admin");
+		 return mv;
+		 }
+	
+	@RequestMapping(path = "CreateKitchen.do",
+			method = RequestMethod.GET)
+		 public ModelAndView createNewKitchenPathFromAdmin() {
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("createkitchen");
 		 return mv;
 		 }
 	
@@ -68,11 +78,15 @@ public class KitchenController {
 		 }
 	
 	@RequestMapping(path = "RemoveKitchen.do",
-			method = RequestMethod.POST)
+			method = RequestMethod.GET)
 		 public ModelAndView removeKitchen(@RequestParam("kitchenId")int id) {
 			ModelAndView mv = new ModelAndView();
+			kitchenDao.removeKitchenAndMenuItems(id);
+			mv.addObject("kitchen", new Kitchen());
+			mv.addObject("kitchens", kitchenDao.listOfKitchen());
 			mv.setViewName("admin");
-			mv.addObject("kitchens", kitchenDao.removeKitchenAndMenuItems(id));
 		 return mv;
 		 }
+	
+	
 }

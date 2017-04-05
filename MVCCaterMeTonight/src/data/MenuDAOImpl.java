@@ -5,17 +5,20 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import entities.Course;
-import entities.Kitchen;
 import entities.MenuItem;
 import pojos.ShoppingCart;
 
 @Transactional
 @Repository
 public class MenuDAOImpl implements MenuDAO {
+	
+	@PersistenceContext
+	private EntityManager em;
 	
 	public ShoppingCart getShoppingCart() {
 		return shoppingCart;
@@ -29,8 +32,7 @@ public class MenuDAOImpl implements MenuDAO {
 			
 	
 
-	@PersistenceContext
-	private EntityManager em;
+	
 
 	@Override
 	public List<MenuItem> getAllMenuItemsFromAppetizers(int id) {
@@ -107,25 +109,6 @@ public class MenuDAOImpl implements MenuDAO {
 	public MenuItem display(int menuItemId) {
 		return em.find(MenuItem.class, menuItemId);
 	}
-
-//	@Override
-//	public ShoppingCart addMenuItemsToCart(int menuId) {
-//		System.out.println("*****************I'm in the add items to cart DAOimpl method with item id: "+menuId+"****************");
-//		String query = "SELECT m FROM MenuItem m WHERE m.id = :id";
-//		shoppingCart= em.createQuery(query, MenuItem.class).setParameter("id", menuId).getSingleResult();
-//		shoppingCart.setMenuItemsAddedToCart(cart);
-//		return shoppingCart;
-//		System.out.println();
-//	}
-//	public List<MenuItem> addMenuItemsToCart(int menuId) {
-//		System.out.println("*****************I'm in the add items to cart DAOimpl method with item id: " + menuId
-//				+ "****************");
-//		ShoppingCart shoppingCart = new ShoppingCart();
-//		String query = "SELECT m FROM MenuItem m WHERE m.id = :id";
-//		List<MenuItem> cart = em.createQuery(query, MenuItem.class).setParameter("id", menuId).getResultList();
-//		shoppingCart.setMenuItemsAddedToCart(cart);
-//		return cart;
-//	}
 
 	@Override
 	public MenuItem createMenuItem(MenuItem menuItem) {

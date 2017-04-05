@@ -62,7 +62,7 @@ public class KitchenDAOImpl implements KitchenDAO {
 	@Override
 	public boolean removeKitchenAndMenuItems(int id) {
 		Kitchen managed = em.find(Kitchen.class, id);
-		mDao.removeMenuItemByKitchen(id);
+//		mDao.removeMenuItemByKitchen(id);		//Some problem here
 		em.remove(managed);
 		em.flush();
 		return !em.contains(managed);
