@@ -103,7 +103,7 @@ public class MenuTest {
 		assertEquals("pic", test.getPicture());
 		assertEquals("French", test.getKitchen().getName());
 		
-		dao.removeMenuItem(test.getId());	
+//		dao.removeMenuItem(test.getId());	
 	}
 	
 	@Test
@@ -120,7 +120,7 @@ public class MenuTest {
 		menu.setDescription("TESTING DESC");
 		MenuItem test = dao.updateMenuItem(menu.getId(), menu);
 		assertEquals("FINAL TEST", test.getName());
-		dao.removeMenuItem(test.getId());
+//		dao.removeMenuItem(test.getId());
 
 	}
 	
@@ -135,7 +135,7 @@ public class MenuTest {
 		menu.setCourse(em.find(Course.class, 1));
 		dao.createMenuItem(menu);
 		System.out.println("***"+dao.createMenuItem(menu));
-		assertEquals(false, dao.removeMenuItem(menu.getId()));
+//		assertEquals(false, dao.removeMenuItem(menu.getId()));
 	}
 	
 	@Test
