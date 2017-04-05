@@ -59,14 +59,14 @@ public class CreditcardTest {
   
   @Test
   public void test_show_returns_creditcard(){
-	  int actualId = 3;
-	  String expectedNumber = "1111222233334444";
+	  int actualId = 2;
+	  String expectedNumber = "1123457689076567";
 	  assertEquals(expectedNumber, dao.show(actualId).getCreditcardNumber());
   }
   
   @Test
-  public void test_index_returns_3_creditcards(){
-	  int expectedOutcome = 3;
+  public void test_index_returns_2_creditcards(){
+	  int expectedOutcome = 2;
 	  assertEquals(expectedOutcome, dao.index().size());
   }
   
