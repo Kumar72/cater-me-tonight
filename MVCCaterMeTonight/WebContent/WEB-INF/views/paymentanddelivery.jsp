@@ -62,7 +62,7 @@
 					
 					<h4>Or add new card</h4> <br>
 					<label for="creditcardNumber">CreditCard Number</label>
-					<input type="text" name ="creditcardNumber"><br>
+					<input type="text" name="creditcardNumber"><br>
 					
 					<label for="fullName">Name on CreditCard</label>
 					<input type="text" name="fullName"><br>
@@ -74,12 +74,26 @@
 					<label for="securityCode">CSV</label>
 					<input type="text" name="securityCode"><br>
 					
+					<select name="addressId">
 					<c:forEach var="address" items="${addresses}">
-							<option value="${address.id}">${address.addresId}</option>
+							Select a saved Address<option value="${address.id}">${address.address}</option>
 						</c:forEach>
 					</select><br>
+					
+					
 					<h4>Or add a new delivery address</h4> <br>
 					
+					<label for="streetAddress">Street Address</label>
+					<input type="text" name="streetAddress"><br>
+					
+					<label for="postalCode">ZipCode</label>
+					<input type="text" name="postalCode"><br>
+					
+					<label for="city">City</label>
+					<input type="text" name="city"><br>
+					
+					<label for="state">State</label>
+					<input type="text" name="state"><br>
 					
 
 				</form>
