@@ -66,7 +66,7 @@ public class CreditcardTest {
   
   @Test
   public void test_index_returns_2_creditcards(){
-	  int expectedOutcome = 2;
+	  int expectedOutcome = 4;
 	  assertEquals(expectedOutcome, dao.index().size());
   }
   
