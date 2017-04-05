@@ -52,46 +52,22 @@
 	</div>
 	<div class="container">
 		<div class="row padding-top">
-			<div class="col-md-offset-3 col-md-6">
+			<div class="col-md-offset-3 col-md-6 clear-area">
 				<form action="FinalizeAndSubmitOrder.do">
-					<div class="row padding-top clear-area">
-
-						Select a saved Credit Card: <select name="creditcardId">
-							<c:forEach var="creditcard" items="${creditcards}">
-								<option value="${creditcard.id}">${creditcard.creditcardNumber}</option>
-							</c:forEach>
-						</select><br>
-
-						<h4>Or add new card</h4>
-						<br> <label for="creditcardNumber">CreditCard Number</label>
-						<input type="text" name="creditcardNumber"><br> <label
-							for="fullName">Name on CreditCard</label> <input type="text"
-							name="fullName"><br> <label>Expiration Date
-							(Year)</label> <input type="number" name="expirationYear"> <input
-							type="number" name="expirationMonth"><br> <label
-							for="securityCode">CSV</label> <input type="text"
-							name="securityCode"><br>
-					
-					</div>
-
-					<div class="row padding-top clear-area">
-
-						Select a saved Address: <select name="addressId"><
-							<c:forEach var="address" items="${addresses}">
-							<option value="${address.id}">${address.streetAddress}</option>
-							</c:forEach>
-						</select><br>
-
-
-						<h4>Or add a new delivery address</h4>
-						<br> <label for="streetAddress">Street Address</label> <input
-							type="text" name="streetAddress"><br> <label
-							for="postalCode">ZipCode</label> <input type="text"
-							name="postalCode"><br> <label for="city">City</label>
-						<input type="text" name="city"><br> <label
-							for="state">State</label> <input type="text" name="state"><br>
-
-					<input type="submit" value="Submit Order">
+					<h2>Items in shopping cart</h2>
+			<c:forEach var="item" items="${shoppingCart.orderItemsAddedToCart}">
+			${item.value.menuItem.name}, ${item.value.quantity} $${item.value.totalForOrderItem}<br>
+			</c:forEach>
+			<hr>
+			Cart Total: $${shoppingCart.runningTotalOfOrderItems()}
+			
+				<h2>CreditCard chosen</h2>
+				${creditcard.toString()}
+											
+				<h2>Address chosen</h2>
+				${address.toString()}
+				
+						<input type="submit" value="Submit Order">
 					</div>
 				</form>
 			</div>

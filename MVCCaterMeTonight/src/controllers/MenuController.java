@@ -20,7 +20,7 @@ public class MenuController {
 	@Autowired
 	private MenuDAO menuDAO;
 	
-	ShoppingCart shoppingCart;
+	ShoppingCart myShoppingCart;
 	
 	public void setMenuDAO(MenuDAO dao) {
 		menuDAO = dao;
@@ -28,7 +28,7 @@ public class MenuController {
 	
 	@RequestMapping(path = "ViewMenuOptions.do", method = RequestMethod.GET)
 	public ModelAndView viewMenuOptions(HttpSession session, PlacedOrder placedOrder, int kitchenId) {
-		shoppingCart = new ShoppingCart();
+		myShoppingCart = new ShoppingCart();
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("placedOrder", placedOrder);
 
@@ -53,7 +53,7 @@ public class MenuController {
 		}
 		
 		
-		session.setAttribute("shoppingCart", shoppingCart);
+		session.setAttribute("shoppingCart", myShoppingCart);
 		session.setAttribute("placedOrder", placedOrder);
 		session.setAttribute("kitchenId", kitchenId);
 		
@@ -70,9 +70,8 @@ public class MenuController {
 		orderItem.setMenuItem(menuItem);
 		orderItem.setQuantity(quantity);
 		orderItem.setTotalForOrderItem(menuItem.getPrice()*quantity);
-		shoppingCart.addOrUpdateOrderItem(orderItem);
+		myShoppingCart.addOrUpdateOrderItem(orderItem);
 
-		System.out.println(shoppingCart);
 		mv.setViewName("menu");
 		
 		return mv;

@@ -34,6 +34,12 @@ public class ShoppingCart {
 		this.orderItemsAddedToCart = orderItemsAddedToCart;
 	}
 
+	@Override
+	public String toString() {
+		return "ShoppingCart [orderItemsAddedToCart=" + orderItemsAddedToCart + "]";
+	}
+
+	
 	
 	
 }
