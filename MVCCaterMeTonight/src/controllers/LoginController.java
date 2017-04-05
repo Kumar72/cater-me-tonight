@@ -56,6 +56,14 @@ public class LoginController {
 	@RequestMapping(value = "Logout.do")
 	public ModelAndView logout(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		System.out.println("******");
+		session.setAttribute("shoppingCart", null);
+		session.setAttribute("placedOrder", null);
+		session.setAttribute("kitchenId", null);
+		session.setAttribute("appetizerItems", null);
+		session.setAttribute("entreeItems", null);
+		session.setAttribute("dessertItems", null);
+		session.setAttribute("drinkItems", null);
 		session.setAttribute("user", null);
 		mv.setViewName("index");
 		return mv;

@@ -119,9 +119,9 @@
 								</ul>
 								<c:choose>
 									<c:when
-										test="${not empty shoppingCart.orderItemsAddedToCart[appItem.id]}">
+										test="${not empty shoppingCart.orderItemsAddedToCart[dessertItem.id]}">
 									Quantity<input type="number" name="quantity" min="0"
-											value="${shoppingCart.orderItemsAddedToCart[appItem.id].quantity}">
+											value="${shoppingCart.orderItemsAddedToCart[dessertItem.id].quantity}">
 									</c:when>
 									<c:otherwise>
 									Quantity<input type="number" name="quantity" min="0" value="0">
@@ -148,9 +148,9 @@
 								</ul>
 								<c:choose>
 									<c:when
-										test="${not empty shoppingCart.orderItemsAddedToCart[appItem.id]}">
+										test="${not empty shoppingCart.orderItemsAddedToCart[drinkItem.id]}">
 									Quantity<input type="number" name="quantity" min="0"
-											value="${shoppingCart.orderItemsAddedToCart[appItem.id].quantity}">
+											value="${shoppingCart.orderItemsAddedToCart[drinkItem.id].quantity}">
 									</c:when>
 									<c:otherwise>
 									Quantity<input type="number" name="quantity" min="0" value="0">
