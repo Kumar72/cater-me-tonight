@@ -14,6 +14,8 @@
 <link href="https://fonts.googleapis.com/css?family=Forum"
 	rel="stylesheet">
 <link rel="stylesheet" href="css/master.css">
+    <link rel="icon" href="images/favicon.ico">
+
 </head>
 
 <body>
@@ -40,7 +42,7 @@
 		</div>
 		</nav>
 	</div>
-	<container>
+	<div class="container">
 	<div class="row padding-top">
 		<div class="col-md-offset-3 col-md-6 clear-area">
 			<div class="menuItems">
@@ -171,7 +173,7 @@
 
 		</div>
 	</div>
-	</container>
+	</div>
 </body>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>

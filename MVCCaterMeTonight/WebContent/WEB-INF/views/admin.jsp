@@ -29,6 +29,8 @@
 <link href="https://fonts.googleapis.com/css?family=Forum"
 	rel="stylesheet">
 <link rel="stylesheet" href="css/master.css">
+    <link rel="icon" href="images/favicon.ico">
+
 
 </head>
 
@@ -75,11 +77,13 @@
 	</div>
 
 
-	<container>
+	<div class="container">
 	<div class="row padding-top">
 		<div class="col-md-offset-3 col-md-6 clear-area">
 			<h1>Admin Kitchen</h1>
-			<button value="CreateKitchen.do">Create New Kitchen</button>
+			<form action="CreateKitchen.do" method="GET">
+				<button>Create New Kitchen</button>
+			</form>
 			<label for="kitchenId"></label><br>
 			<c:forEach var="kitchen" items="${kitchens}">
 				<div class="btn-group">
@@ -102,10 +106,12 @@
 						<a class="dropdown-item"
 							href="KitchenController.do?action=Drink&kitchenId=${kitchen.id}">Drink</a>
 						<div class="dropdown-divider"></div>
+						<%-- <a class="dropdown-item"
+							href="AddItem.do?kitchenId=${kitchen.id}" method="POST">Add</a> --%>
 						<a class="dropdown-item"
-							href="UpdateKitchen.do?kitchenId=${kitchen.id}" method="POST">Edit</a>
+							href="UpdateKitchen.do?kitchenId=${kitchen.id}">Edit</a>
 						<a class="dropdown-item"
-							href="RemoveKitchen.do?kitchenId=${kitchen.id }">Remove</a>
+							href="RemoveKitchen.do?kitchenId=${kitchen.id}">Remove</a>
 
 					</div>
 				</div>
@@ -113,7 +119,7 @@
 
 		</div>
 	</div>
-	</container>
+	</div>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>

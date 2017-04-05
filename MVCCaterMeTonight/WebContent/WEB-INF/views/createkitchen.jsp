@@ -80,23 +80,23 @@
 	<div class="container">
 	<div class="row padding-top">
 		<div class="col-md-offset-3 col-md-6 clear-area">
-			<h1>Update Kitchen</h1>
+			<h1>Create Kitchen</h1>
 			<label for="kitchenId"></label><br>
 			
-					<form action="UpdateKitchen.do" method="POST">
+					<form action="CreateKitchen.do" method="POST">
 						<hr>
 						<fieldset>
-							<input type="hidden" name="id" value="${kitchen.id}"/>
-							Kitchen Name: <input type="text" name="name" placeholder="${kitchen.name}"
+	
+							Kitchen Name: <input type="text" name="name"
 							required /> 
 							<p class="align-vertical-top"> 
-							Description: <textarea name="description" placeholder="${kitchen.description}"row="5" cols="75"
+							Description: <textarea name="description" row="5" cols="75"
 							required ></textarea>
 							</p> 
-							Picture URL: <input type="text" name="picture" placeholder="${kitchen.picture}">
+							Picture URL: <input type="text" name="picture">
 							<br>
 						</fieldset>
-						<input type="submit" value="Update Kitchen" />
+						<input type="submit" value="Create Kitchen" />
 					</form>
 					
 		</div>

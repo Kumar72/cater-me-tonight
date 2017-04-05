@@ -113,3 +113,7 @@ h4 {
 #entreeMenuItems{
 	background-color: : black;
 }
+
+.align-vertical-top *{
+	 vertical-align: top;
+}

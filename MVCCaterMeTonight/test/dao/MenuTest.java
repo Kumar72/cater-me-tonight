@@ -134,6 +134,7 @@ public class MenuTest {
 		menu.setKitchen(em.find(Kitchen.class, 1));
 		menu.setCourse(em.find(Course.class, 1));
 		dao.createMenuItem(menu);
+		System.out.println("***"+dao.createMenuItem(menu));
 		assertEquals(false, dao.removeMenuItem(menu.getId()));
 	}
 	
