@@ -132,16 +132,21 @@ public class MenuDAOImpl implements MenuDAO {
 	return menuItem;
 	}
 
-	public boolean activateMenuItemByKitchen(int kitchenId) {	
+	public boolean activateAndDeactivateMenuItemByKitchen(int kitchenId) {	
 			return false;
 	}
 
 	@Override
-	public boolean activateMenuItem(int id) {
+	public MenuItem activateAndDeactivateMenuItem(int id) {
 		MenuItem managed = em.find(MenuItem.class, id);
-		em.remove(managed);
+		if(managed.isStatus()) {
+			managed.setStatus(false);			
+		}
+		else {
+			managed.setStatus(true);
+		}
 		em.flush();
-		return em.contains(managed);
+		return managed;
 	}
 
 	@Override

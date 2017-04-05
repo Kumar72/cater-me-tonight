@@ -45,18 +45,23 @@ public class KitchenController {
 		ModelAndView mv = new ModelAndView();
 		if (action.equalsIgnoreCase("all")) {
 			mv.setViewName("adminkitchen");
+			mv.addObject("kitchenname", kitchenDao.getKitchenById(id));
 			mv.addObject("selectedMenu", menuDao.getAllItemsFromKitchen(id));
 		} else if (action.equalsIgnoreCase("appetizer")) {
 			mv.setViewName("adminkitchen");
+			mv.addObject("kitchenname", kitchenDao.getKitchenById(id));
 			mv.addObject("selectedMenu", menuDao.getAllMenuItemsFromAppetizers(id));
 		} else if (action.equalsIgnoreCase("entree")) {
 			mv.setViewName("adminkitchen");
+			mv.addObject("kitchenname", kitchenDao.getKitchenById(id));
 			mv.addObject("selectedMenu", menuDao.getAllMenuItemsFromEntrees(id));
 		} else if (action.equalsIgnoreCase("dessert")) {
 			mv.setViewName("adminkitchen");
+			mv.addObject("kitchenname", kitchenDao.getKitchenById(id));
 			mv.addObject("selectedMenu", menuDao.getAllMenuItemsFromDesserts(id));
 		} else if (action.equalsIgnoreCase("drink")) {
 			mv.setViewName("adminkitchen");
+			mv.addObject("kitchenname", kitchenDao.getKitchenById(id));
 			mv.addObject("selectedMenu", menuDao.getAllMenuItemsFromDrinks(id));
 		}
 		return mv;
@@ -81,13 +86,20 @@ public class KitchenController {
 		return mv;
 	}
 
-	// ################### DELETE KITCHEN #######################
+	// ################### ACTIVATE/ DEACTIVATE KITCHEN #######################
 
 	@RequestMapping(path = "RemoveKitchen.do", method = RequestMethod.GET)
 	public ModelAndView removeKitchen(@RequestParam("kitchenId") int id) {
 		ModelAndView mv = new ModelAndView();
-		kitchenDao.activateKitchenAndMenuItems(id);
+		kitchenDao.activateAndDeactivateKitchen(id);
 		mv.addObject("kitchens", kitchenDao.listOfKitchen());
+		mv.setViewName("admin");
+		return mv;
+	}
+	@RequestMapping(path = "RemoveMenuItem.do", method = RequestMethod.GET)
+	public ModelAndView removeMenuItem(@RequestParam("menuId") int id) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("selectedMenu", kitchenDao.listOfKitchen());
 		mv.setViewName("admin");
 		return mv;
 	}

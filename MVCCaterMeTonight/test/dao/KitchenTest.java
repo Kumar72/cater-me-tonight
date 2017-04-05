@@ -70,7 +70,7 @@ public class KitchenTest {
 		assertEquals("Test Description", test.getDescription());
 		assertEquals("pic", test.getPicture());
 		
-		dao.activateKitchenAndMenuItems(test.getId());
+		dao.removeKitchenAndMenuItems(test.getId());
 		
 	}
 	
@@ -93,7 +93,7 @@ public class KitchenTest {
 		
 		assertEquals("TEST", test.getName());
 		
-		dao.activateKitchenAndMenuItems(test.getId());
+		dao.removeKitchenAndMenuItems(test.getId());
 	}
 	
 	@Test
@@ -103,6 +103,6 @@ public class KitchenTest {
 		kitchen.setDescription("TEST DESC");
 		kitchen.setPicture("TEST");
 		dao.createKitchen(kitchen);
-		assertEquals(true, dao.activateKitchenAndMenuItems(kitchen.getId()));	
+		assertEquals(true, dao.removeKitchenAndMenuItems(kitchen.getId()));	
 	}
 }

@@ -54,9 +54,12 @@
 	<div class="row padding-top">
 		<div class="col-md-offset-3 col-md-6 clear-area">
 			<h1>
-		
+				${kitchenname.name}
 			</h1>
-				
+			<p>
+				${kitchenname.description}
+			</p>
+			<hr><hr>	
 			<c:forEach var="menu" items="${selectedMenu}">
 				<tbody>
 				<tr>
@@ -65,7 +68,16 @@
 					<td>${menu.name}</td>
 					<td>${menu.price}</td>
 					<td><button value="UpdateKitchen.do?action=menuId=${menu.id}">EDIT</button>
-					<td><button value="RemoveKitchen.do?action=menuId=${menu.id}">DELETE</button>
+					<td><button value="RemoveMenuItem.do?action=menuId=${menu.id}">
+						 <c:choose>
+									<c:when test="${kitchen.status}">
+       									Available
+    								</c:when>
+    								<c:otherwise>
+        								Not Available
+    								</c:otherwise>
+    					  </c:choose>
+						</button>
 				</tr>
 				<p>${menu.description}</p>
 				</tbody>
