@@ -59,7 +59,7 @@
 					<div class="row padding-top clear-area">
 						<h2>Your Order Is On The Way!</h2>
 						<img alt="Happy Cook!"
-							src="http://www.ghosttowngames.com/wp-content/uploads/2015/03/overcooked_aboutphilicon-300x300.png">
+							src="http://www.ghosttowngames.com/wp-content/uploads/2015/03/overcooked_aboutphilicon-300x300.png"><br>
 						<input type="hidden" name="username"
 							value="${user.username}"> <input
 							type="hidden" name="password"

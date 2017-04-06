@@ -7,7 +7,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Payment And Delivery</title>
+<title>Cater Me Tonight</title>
 
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/Navigation-Clean1.css">
@@ -50,34 +50,8 @@
 			</div>
 		</nav>
 	</div>
-	<div class="container">
-		<div class="row padding-top">
-			<div class="col-md-offset-3 col-md-6 clear-area">
-				<form action="SubmitOrder.do">
-					<h2>Items in shopping cart</h2>
-			<c:forEach var="item" items="${shoppingCart.orderItemsAddedToCart}">
-			${item.value.menuItem.name}, ${item.value.quantity} $${item.value.totalForOrderItem}<br>
-			</c:forEach>
-			<hr>
-			Cart Total: $${shoppingCart.runningTotalOfOrderItems()}
-			
-				<h2>CreditCard chosen</h2>
-				<em>Name on card:</em> <strong>${ creditcard.fullName}</strong><br>
-				<em>Credit Card number:</em> <strong>${ creditcard.creditcardNumber}</strong>
-											
-				<h2>Address chosen</h2>
-				<em>Delivery address:</em><strong>${ address.streetAddress}</strong> <br>
-				<em>Delivery Zip Code:</em><strong>${ address.postalCode}</strong> <br>
-				<em>Delivery City:</em> <strong>${ address.city}</strong><br>
-				<em>Delivery State:</em> <strong>${ address.state}</strong><br>
-				
-						<input type="submit" value="Submit Order">
-					</div>
-				</form>
-			</div>
-
-		</div>
-	</div>
+	<h1>Cater Me Tonight</h1>
+	<h3></h3>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>

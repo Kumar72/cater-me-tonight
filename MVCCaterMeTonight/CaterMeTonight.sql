@@ -355,4 +355,3 @@ INSERT INTO `order_item` (`id`, `comment`, `quantity`, `placed_order_id`, `menu_
 INSERT INTO `order_item` (`id`, `comment`, `quantity`, `placed_order_id`, `menu_item_id`, `total`) VALUES (5, 'Fifth Item', 3, 2, 6, 20.97);
 
 COMMIT;
-
