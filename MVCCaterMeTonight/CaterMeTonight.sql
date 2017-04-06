@@ -121,11 +121,12 @@ DROP TABLE IF EXISTS `creditcard` ;
 CREATE TABLE IF NOT EXISTS `creditcard` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `full_name` VARCHAR(75) NOT NULL,
-  `expiration_date` DATETIME NOT NULL,
   `creditcard_number` VARCHAR(16) NOT NULL,
   `security_code` INT NOT NULL,
   `user_id` INT NOT NULL,
   `billing_address_id` INT NOT NULL,
+  `expiration_month` VARCHAR(2) NOT NULL,
+  `expiration_year` VARCHAR(4) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_creditcard_user1_idx` (`user_id` ASC),
   INDEX `fk_creditcard_address1_idx` (`billing_address_id` ASC),
@@ -323,10 +324,10 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `catermetonight`;
-INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `creditcard_number`, `security_code`, `user_id`, `billing_address_id`) VALUES (1, 'Chandan K Thakur', '2017-01-21', '1232122222233456', 321, 1, 1);
-INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `creditcard_number`, `security_code`, `user_id`, `billing_address_id`) VALUES (2, 'Chandan K Thakur', '2018-03-21', '1123457689076567', 123, 1, 2);
-INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `creditcard_number`, `security_code`, `user_id`, `billing_address_id`) VALUES (3, 'Student Studentson', '2018-06-25', '1111222233334444', 123, 3, 3);
-INSERT INTO `creditcard` (`id`, `full_name`, `expiration_date`, `creditcard_number`, `security_code`, `user_id`, `billing_address_id`) VALUES (4, 'Student Studentson', '2019-6-25', '1122334455667788', 123, 3, 4);
+INSERT INTO `creditcard` (`id`, `full_name`, `creditcard_number`, `security_code`, `user_id`, `billing_address_id`, `expiration_month`, `expiration_year`) VALUES (1, 'Chandan K Thakur', '1232122222233456', 321, 1, 1, '02', '2019');
+INSERT INTO `creditcard` (`id`, `full_name`, `creditcard_number`, `security_code`, `user_id`, `billing_address_id`, `expiration_month`, `expiration_year`) VALUES (2, 'Chandan K Thakur', '1123457689076567', 123, 1, 2, '07', '2020');
+INSERT INTO `creditcard` (`id`, `full_name`, `creditcard_number`, `security_code`, `user_id`, `billing_address_id`, `expiration_month`, `expiration_year`) VALUES (3, 'Student Studentson', '1111222233334444', 123, 3, 3, '09', '2021');
+INSERT INTO `creditcard` (`id`, `full_name`, `creditcard_number`, `security_code`, `user_id`, `billing_address_id`, `expiration_month`, `expiration_year`) VALUES (4, 'Student Studentson', '1122334455667788', 123, 3, 4, '01', '2022');
 
 COMMIT;
 

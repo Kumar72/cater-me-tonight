@@ -59,7 +59,7 @@
 					<div class="row padding-top clear-area">
 
 						Select a saved Credit Card: <select name="creditcardId">
-						<option disabled selected value> --select a credit card-- </option>
+						<option disabled selected value = "0"> --select a credit card-- </option>
 							<c:forEach var="creditcard" items="${creditcards}">
 								<option value="${creditcard.id}">${creditcard.creditcardNumber}</option>
 							</c:forEach>
@@ -82,8 +82,7 @@
 					<div class="row padding-top clear-area">
 
 						Select a saved Address: <select name="addressId"> 
-						<option disabled selected value> --select an address-- </option>
-						
+						<option disabled selected value = "0"> --select an address-- </option>
 							<c:forEach var="address" items="${addresses}">
 								<option value="${address.id}">${address.streetAddress}</option>
 							</c:forEach>
@@ -91,7 +90,8 @@
 
 
 						<h4>Or add a new delivery address</h4>
-						<br> <label for="streetAddress">Street Address</label> <input
+						<br> <label for="streetAddress">Street Address</label> 
+						<input
 							type="text" name="streetAddress"><br> <label
 							for="postalCode">ZipCode</label> <input type="text"
 							name="postalCode"><br> <label for="city">City</label>

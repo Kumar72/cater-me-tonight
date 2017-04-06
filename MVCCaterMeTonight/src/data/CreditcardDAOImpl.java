@@ -39,7 +39,8 @@ public class CreditcardDAOImpl implements CreditcardDAO {
 	public Creditcard update(int id, Creditcard creditcard) {
 		Creditcard managedCreditcard = em.find(Creditcard.class, id);
 		managedCreditcard.setCreditcardNumber(creditcard.getCreditcardNumber());
-		managedCreditcard.setExpirationDate(creditcard.getExpirationDate());
+		managedCreditcard.setExpirationMonth(creditcard.getExpirationMonth());
+		managedCreditcard.setExpirationYear(creditcard.getExpirationYear());
 		managedCreditcard.setFullName(creditcard.getFullName());
 		managedCreditcard.setSecurityCode(creditcard.getSecurityCode());
 		managedCreditcard.setBillingAddress(creditcard.getBillingAddress());

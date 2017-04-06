@@ -27,17 +27,17 @@ public class Creditcard {
 	private String fullName;
 	
 
-	@Column(name="expiration_date")
-	@Temporal(TemporalType.DATE)
-	private Date expirationDate;
-
+	@Column(name="expiration_month")
+	private String expirationMonth;
+	
+	@Column(name="expiration_year")
+	private String expirationYear;
+	
 	@Column(name="creditcard_number")
 	private String creditcardNumber;
-		
+	
 	@Column(name="security_code")
 	private int securityCode;
-
-	
 	
 	@ManyToOne
 	@JoinColumn(name="user_id")
@@ -46,6 +46,23 @@ public class Creditcard {
 	@OneToOne
 	@JoinColumn(name="billing_address_id")
 	private Address billingAddress;
+
+	public String getExpirationMonth() {
+		return expirationMonth;
+	}
+
+	public void setExpirationMonth(String expirationMonth) {
+		this.expirationMonth = expirationMonth;
+	}
+
+	public String getExpirationYear() {
+		return expirationYear;
+	}
+
+	public void setExpirationYear(String expirationYear) {
+		this.expirationYear = expirationYear;
+	}
+
 
 	//GETTERS and SETTERS below (no setter for 'id')
 
@@ -57,13 +74,6 @@ public class Creditcard {
 		this.fullName = fullName;
 	}
 
-	public Date getExpirationDate() {
-		return expirationDate;
-	}
-
-	public void setExpirationDate(Date expirationDate) {
-		this.expirationDate = expirationDate;
-	}
 
 	public String getCreditcardNumber() {
 		return creditcardNumber;
@@ -99,6 +109,13 @@ public class Creditcard {
 
 	public int getId() {
 		return id;
+	}
+
+	@Override
+	public String toString() {
+		return "Creditcard [fullName=" + fullName + ", expirationMonth=" + expirationMonth + ", expirationYear="
+				+ expirationYear + ", creditcardNumber=" + creditcardNumber + ", securityCode=" + securityCode
+				+ ", user=" + user + ", billingAddress=" + billingAddress + "]";
 	}
 
 	

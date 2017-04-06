@@ -4,12 +4,8 @@ import static org.hamcrest.CoreMatchers.allOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.hasProperty;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
-import java.util.Date;
-
-import javax.enterprise.inject.New;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -70,10 +66,12 @@ public class CreditcardTest {
 	  assertEquals(expectedOutcome, dao.index().size());
   }
   
-  @Test
+  @SuppressWarnings("unchecked")
+@Test
   public void test_create_returns_creditcard(){
 	  String fullName = "Tim Brown";
-	  Date expirationDate = new Date(2020, 12, 1);
+	  String expirationMonth = "01";
+	  String expirationYear = "2019";
 	  String creditcardNumber = "1111222233334444";
 	  int securityCode = 333;
 	  User user = em.find(User.class, 1);
@@ -81,7 +79,8 @@ public class CreditcardTest {
 	  
 	  Creditcard creditcard = new Creditcard();
 	  creditcard.setFullName(fullName);
-	  creditcard.setExpirationDate(expirationDate);
+	  creditcard.setExpirationMonth(expirationMonth);
+	  creditcard.setExpirationYear(expirationYear);
 	  creditcard.setCreditcardNumber(creditcardNumber);
 	  creditcard.setSecurityCode(securityCode);
 	  creditcard.setUser(user);
@@ -91,7 +90,8 @@ public class CreditcardTest {
 	    assertThat(returnedCreditcard,
 	        allOf(
 	            hasProperty("fullName", is(fullName)),	           
-	            hasProperty("expirationDate", is(expirationDate)),
+	            hasProperty("expirationMonth", is(expirationMonth)),
+	            hasProperty("expirationYear", is(expirationYear)),
 	            hasProperty("creditcardNumber", is(creditcardNumber)),
 	            hasProperty("securityCode", is(securityCode)),
 	            hasProperty("user", is(user)),
@@ -101,11 +101,13 @@ public class CreditcardTest {
 	        )
 	      );
   }
-  @Test
+  @SuppressWarnings("unchecked")
+@Test
   public void test_update_returns_creditcard(){
 	  String fullName = "Tim Brown";
 	  @SuppressWarnings("deprecation")
-	Date expirationDate = new Date(2020, 12, 1);
+	  String expirationMonth = "02";
+	  String expirationYear = "2020";
 	  String creditcardNumber = "1111222233334444";
 	  int securityCode = 333;
 	  User user = em.find(User.class, 1);
@@ -113,7 +115,8 @@ public class CreditcardTest {
 	  
 	  Creditcard creditcard = new Creditcard();
 	  creditcard.setFullName(fullName);
-	  creditcard.setExpirationDate(expirationDate);
+	  creditcard.setExpirationMonth(expirationMonth);
+	  creditcard.setExpirationYear(expirationYear);
 	  creditcard.setCreditcardNumber(creditcardNumber);
 	  creditcard.setSecurityCode(securityCode);
 	  creditcard.setUser(user);
@@ -121,9 +124,11 @@ public class CreditcardTest {
 	  	  
 	  Creditcard returnedUpdatedCreditcard = dao.update(1, creditcard);
 	    assertThat(returnedUpdatedCreditcard,
-	        allOf(
+	        
+	    		allOf(
 	            hasProperty("fullName", is(fullName)),	           
-	            hasProperty("expirationDate", is(expirationDate)),
+	            hasProperty("expirationMonth", is(expirationMonth)),
+	            hasProperty("expirationYear", is(expirationYear)),
 	            hasProperty("creditcardNumber", is(creditcardNumber)),
 	            hasProperty("securityCode", is(securityCode)),
 	            hasProperty("user", is(user)),
