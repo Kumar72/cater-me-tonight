@@ -24,7 +24,7 @@
 		<nav class="navbar navbar-default navigation-clean">
 			<div class="container">
 				<div class="navbar-header">
-					<a class="navbar-brand navbar-link" href="Home.do"><img
+					<a class="navbar-brand navbar-link" href="#"><img
 						src="images/logo.png" width="125" height="50"> </a>
 					<button class="navbar-toggle collapsed" data-toggle="collapse"
 						data-target="#navcol-1">
@@ -62,10 +62,14 @@
 			Cart Total: $${shoppingCart.runningTotalOfOrderItems()}
 			
 				<h2>CreditCard chosen</h2>
-				${creditcard.toString()}
+				<em>Name on card:</em> <strong>${ creditcard.fullName}</strong><br>
+				<em>Credit Card number:</em> <strong>${ creditcard.creditcardNumber}</strong>
 											
 				<h2>Address chosen</h2>
-				${address.toString()}
+				<em>Delivery address:</em><strong>${ address.streetAddress}</strong> <br>
+				<em>Delivery Zip Code:</em><strong>${ address.postalCode}</strong> <br>
+				<em>Delivery City:</em> <strong>${ address.city}</strong><br>
+				<em>Delivery State:</em> <strong>${ address.state}</strong>
 				
 						<input type="submit" value="Submit Order">
 					</div>

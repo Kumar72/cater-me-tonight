@@ -23,7 +23,7 @@
 		<nav class="navbar navbar-default navigation-clean">
 			<div class="container">
 				<div class="navbar-header">
-					<a class="navbar-brand navbar-link" href="Home.do"><img src="images/logo.png">
+					<a class="navbar-brand navbar-link" href="#"><img src="images/logo.png">
 					</a>
 					<button class="navbar-toggle collapsed" data-toggle="collapse"
 						data-target="#navcol-1">
@@ -60,8 +60,9 @@
 				<option value="${kitchen.id}">${kitchen.name}</option>
 			</c:forEach>
 			</select><br>
-			<label for="numberOfPeople">Number of People in Your Party: </label>
-			<input type="number" min="1" name="numberOfPeople" value="1"/><br>
+			<!--removed users ability to add how many people will be in party, no use for it  -->
+			<!-- <label for="numberOfPeople">Number of People in Your Party: </label> 
+			<input type="number" min="1" name="numberOfPeople" value="1"/><br> -->
 			<label>Include Courses: </label><br>
 			<input type="checkbox" name="appetizer" checked/> Appetizer<br>
 			<input type="checkbox" name="entree" checked/> Entree<br>
