@@ -1,7 +1,5 @@
 package controllers;
 
-import java.util.Date;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import data.AddressDAO;
 import data.CreditcardDAO;
+import entities.Address;
 import entities.Creditcard;
 @Controller
 public class FinalizeOrderController {
@@ -36,22 +35,27 @@ public class FinalizeOrderController {
 	public ModelAndView selectAddressAndCreditcard(HttpSession session, 
 			@RequestParam(value="creditcardId", defaultValue="0") int creditcardId,
 			@RequestParam(value="addressId", defaultValue="0") int addressId, 
-			Creditcard creditcard){//Address address){ 
+			@RequestParam(value="creditcard", required=false) Creditcard creditcard,
+			@RequestParam(value="address", required=false) Address address){ 
 			
 		ModelAndView mv = new ModelAndView();
 		if(creditcardId != 0){
-			mv.addObject("creditcard", creditcardDAO.show(creditcardId));
+			Creditcard tempCard = creditcardDAO.show(creditcardId);
+			mv.addObject("creditcard", tempCard);
+			System.out.println(tempCard);
 		}
 		else {
-			System.out.println(creditcard);
 			mv.addObject("creditcard", creditcard);
+			System.out.println(creditcard);
 		}
 		if(addressId != 0){
-			mv.addObject("address", addressDAO.getAddress(addressId));
+			Address tempAddress = addressDAO.getAddress(addressId);
+			mv.addObject("address", tempAddress);
+			System.out.println(tempAddress);
 		}
 		else{
-			mv.addObject("address", addressDAO.getAddress(1));
-//			mv.addObject("address", address);
+			mv.addObject("address", address);
+			System.out.println(address);
 		}
 		
 		mv.addObject("shoppingCart", session.getAttribute("shoppingCart"));
