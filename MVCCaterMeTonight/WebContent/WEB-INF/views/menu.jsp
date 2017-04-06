@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -14,7 +14,7 @@
 <link href="https://fonts.googleapis.com/css?family=Forum"
 	rel="stylesheet">
 <link rel="stylesheet" href="css/master.css">
-    <link rel="icon" href="images/favicon.ico">
+<link rel="icon" href="images/favicon.ico">
 
 </head>
 
@@ -43,148 +43,172 @@
 		</nav>
 	</div>
 	<div class="container">
-	<div class="row padding-top">
-		<div class="col-md-offset-2 col-md-6 clear-area">
-			<div class="menuItems">
-				<c:if test="${appetizerItems !=null }">
-					<div id="appetizerMenuItems">
-						<h2>Appetizers</h2>
-						<c:forEach items="${appetizerItems}" var="appItem">
-							<form action="ItemsAddedToShoppingCart.do">
-								<input type="hidden" name="kitchenId" value="${kitchenId}">
-								<input type="hidden" name="menuItemId" value="${appItem.id}">
-								<ul>
-									<li>${appItem.name},${appItem.description},
-										${appItem.price}, <img style="width: 25%"
-										src="${appItem.picture}" />
-									</li>
-								</ul>
-								<c:choose>
-									<c:when
-										test="${not empty shoppingCart.orderItemsAddedToCart[appItem.id]}">
+		<div class="row padding-top">
+			<div class="col-md-offset-1 col-md-6 clear-area">
+				<div class="menuItems">
+					<c:if test="${appetizerItems !=null }">
+						<div id="appetizerMenuItems">
+							<h2>Appetizers</h2>
+							<c:forEach items="${appetizerItems}" var="appItem">
+								<form action="ItemsAddedToShoppingCart.do">
+									<input type="hidden" name="kitchenId" value="${kitchenId}">
+									<input type="hidden" name="menuItemId" value="${appItem.id}">
+									<ul>
+										<li>${appItem.name},${appItem.description},
+											${appItem.price}, <img style="width: 25%"
+											src="${appItem.picture}" />
+										</li>
+									</ul>
+									<c:choose>
+										<c:when
+											test="${not empty shoppingCart.orderItemsAddedToCart[appItem.id]}">
 									Quantity<input type="number" name="quantity" min="0"
-											value="${shoppingCart.orderItemsAddedToCart[appItem.id].quantity}">
-									</c:when>
-									<c:otherwise>
+												value="${shoppingCart.orderItemsAddedToCart[appItem.id].quantity}">
+										</c:when>
+										<c:otherwise>
 									Quantity<input type="number" name="quantity" min="0" value="0">
 
-									</c:otherwise>
-								</c:choose>
-								<input type="submit" value="Add to order" /> <br>
-							</form>
-						</c:forEach>
-					</div>
-				</c:if>
-				<c:if test="${entreeItems !=null }">
-					<div id="entreeMenuItems">
-						<h2>Entreés</h2>
-						<c:forEach items="${entreeItems}" var="entreeItem">
-							<form action="ItemsAddedToShoppingCart.do">
-								<input type="hidden" name="kitchenId" value="${kitchenId}">
-								<input type="hidden" name="menuItemId" value="${entreeItem.id}">
-								<ul>
-									<li>${entreeItem.name},${entreeItem.description},
-										${entreeItem.price}, <img style="width: 25%"
-										src="${entreeItem.picture}" />
-									</li>
-								</ul>
-								<c:choose>
-									<c:when
-										test="${not empty shoppingCart.orderItemsAddedToCart[entreeItem.id]}">
+										</c:otherwise>
+									</c:choose>
+									<input type="submit" value="Add to order" /> <br>
+								</form>
+							</c:forEach>
+						</div>
+					</c:if>
+					<c:if test="${entreeItems !=null }">
+						<div id="entreeMenuItems">
+							<h2>Entreés</h2>
+							<c:forEach items="${entreeItems}" var="entreeItem">
+								<form action="ItemsAddedToShoppingCart.do">
+									<input type="hidden" name="kitchenId" value="${kitchenId}">
+									<input type="hidden" name="menuItemId" value="${entreeItem.id}">
+									<ul>
+										<li>${entreeItem.name},${entreeItem.description},
+											${entreeItem.price}, <img style="width: 25%"
+											src="${entreeItem.picture}" />
+										</li>
+									</ul>
+									<c:choose>
+										<c:when
+											test="${not empty shoppingCart.orderItemsAddedToCart[entreeItem.id]}">
 									Quantity<input type="number" name="quantity" min="0"
-											value="${shoppingCart.orderItemsAddedToCart[entreeItem.id].quantity}">
-									</c:when>
-									<c:otherwise>
+												value="${shoppingCart.orderItemsAddedToCart[entreeItem.id].quantity}">
+										</c:when>
+										<c:otherwise>
 									Quantity<input type="number" name="quantity" min="0" value="0">
 
-									</c:otherwise>
-								</c:choose>
-								<input type="submit" value="Add to order" /> <br>
-							</form>
-						</c:forEach>
-					</div>
-				</c:if>
-				<c:if test="${dessertItems !=null }">
-					<div id="dessertMenuItems">
-						<h2>Desserts</h2>
-						<c:forEach items="${dessertItems}" var="dessertItem">
-							<form action="ItemsAddedToShoppingCart.do">
-								<input type="hidden" name="kitchenId" value="${kitchenId}">
-								<input type="hidden" name="menuItemId" value="${dessertItem.id}">
-								<ul>
-									<li>${dessertItem.name},${dessertItem.description},
-										${dessertItem.price}, <img style="width: 25%"
-										src="${dessertItem.picture}" />
-									</li>
-								</ul>
-								<c:choose>
-									<c:when
-										test="${not empty shoppingCart.orderItemsAddedToCart[dessertItem.id]}">
+										</c:otherwise>
+									</c:choose>
+									<input type="submit" value="Add to order" /> <br>
+								</form>
+							</c:forEach>
+						</div>
+					</c:if>
+					<c:if test="${dessertItems !=null }">
+						<div id="dessertMenuItems">
+							<h2>Desserts</h2>
+							<c:forEach items="${dessertItems}" var="dessertItem">
+								<form action="ItemsAddedToShoppingCart.do">
+									<input type="hidden" name="kitchenId" value="${kitchenId}">
+									<input type="hidden" name="menuItemId"
+										value="${dessertItem.id}">
+									<ul>
+										<li>${dessertItem.name},${dessertItem.description},
+											${dessertItem.price}, <img style="width: 25%"
+											src="${dessertItem.picture}" />
+										</li>
+									</ul>
+									<c:choose>
+										<c:when
+											test="${not empty shoppingCart.orderItemsAddedToCart[dessertItem.id]}">
 									Quantity<input type="number" name="quantity" min="0"
-											value="${shoppingCart.orderItemsAddedToCart[dessertItem.id].quantity}">
-									</c:when>
-									<c:otherwise>
+												value="${shoppingCart.orderItemsAddedToCart[dessertItem.id].quantity}">
+										</c:when>
+										<c:otherwise>
 									Quantity<input type="number" name="quantity" min="0" value="0">
 
-									</c:otherwise>
-								</c:choose>
-								<input type="submit" value="Add to order" /> <br>
-							</form>
-						</c:forEach>
-					</div>
-				</c:if>
-				<c:if test="${drinkItems !=null }">
-					<div id="drinkMenuItems">
-						<h2>Drinks</h2>
-						<c:forEach items="${drinkItems}" var="drinkItem">
-							<form action="ItemsAddedToShoppingCart.do">
-								<input type="hidden" name="kitchenId" value="${kitchenId}">
-								<input type="hidden" name="menuItemId" value="${drinkItem.id}">
+										</c:otherwise>
+									</c:choose>
+									<input type="submit" value="Add to order" /> <br>
+								</form>
+							</c:forEach>
+						</div>
+					</c:if>
+					<c:if test="${drinkItems !=null }">
+						<div id="drinkMenuItems">
+							<h2>Drinks</h2>
+							<c:forEach items="${drinkItems}" var="drinkItem">
+								<form action="ItemsAddedToShoppingCart.do">
+									<input type="hidden" name="kitchenId" value="${kitchenId}">
+									<input type="hidden" name="menuItemId" value="${drinkItem.id}">
 
-								<ul>
-									<li>${drinkItem.name},<%-- ${drinkItem.description},  --%>
-										${drinkItem.price}
-									</li>
-								</ul>
-								<c:choose>
-									<c:when
-										test="${not empty shoppingCart.orderItemsAddedToCart[drinkItem.id]}">
+									<ul>
+										<li>${drinkItem.name},<%-- ${drinkItem.description},  --%>
+											${drinkItem.price}
+										</li>
+									</ul>
+									<c:choose>
+										<c:when
+											test="${not empty shoppingCart.orderItemsAddedToCart[drinkItem.id]}">
 									Quantity<input type="number" name="quantity" min="0"
-											value="${shoppingCart.orderItemsAddedToCart[drinkItem.id].quantity}">
-									</c:when>
-									<c:otherwise>
+												value="${shoppingCart.orderItemsAddedToCart[drinkItem.id].quantity}">
+										</c:when>
+										<c:otherwise>
 									Quantity<input type="number" name="quantity" min="0" value="0">
 
-									</c:otherwise>
-								</c:choose>
-								<input type="submit" value="Add to order" /> <br>
-							</form>
-						</c:forEach>
-					</div>
-				</c:if>
+										</c:otherwise>
+									</c:choose>
+									<input type="submit" value="Add to order" /> <br>
+								</form>
+							</c:forEach>
+						</div>
+					</c:if>
+				</div>
+				<!--closing div tag for menuItems  -->
 			</div>
-			<!--closing div tag for menuItems  -->
+			<div class="shopping-cart col-md-4 clear-area ">
+				<table class="table table-bordered">
+					<caption><h3>Shopping Cart</h3></caption>
+					<thead>
+						<tr>
+							<th>Item</th>
+							<th>Quantity</th>
+							<th>Total</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="item"
+							items="${shoppingCart.orderItemsAddedToCart}">
+							<tr>
+								<td>${item.value.menuItem.name}</td>
+								<td>${item.value.quantity}</td>
+								<td><fmt:formatNumber
+										value="${item.value.totalForOrderItem}" type="currency" /></td>
+								<td><form action="RemoveItemsFromCart.do" method="GET">
+										<input type="hidden" name="menuItemId"
+											value="${item.value.menuItem.id}" /> <input type="submit"
+											value="Remove Item" />
+									</form></td>
+							</tr>
+						</c:forEach>
+						
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="3">Cart Total</td>
+							<td><fmt:formatNumber
+									value="${shoppingCart.runningTotalOfOrderItems()}"
+									type="currency" /></td>
+						</tr>
+						</tfoot>
+				</table>
+
+				<form action="PaymentAndDelivery.do">
+					<input type="submit" value="Proceed to payment and delivery" />
+				</form>
+			</div>
 		</div>
-		<div class="col-md-3 clear-area">
-			<h2>Items in shopping cart</h2>
-			<c:forEach var="item" items="${shoppingCart.orderItemsAddedToCart}">
-			${item.value.menuItem.name}, ${item.value.quantity} 
-			<fmt:formatNumber value="${item.value.totalForOrderItem}" 
-            type="currency"/> 
-            <form action="RemoveItemsFromCart.do" method="GET">
-            <input type="hidden" name="menuItemId" value="${item.value.menuItem.id}"/>
-            <input type="submit" value="Remove Item"/>
-            </form>
-            <br>
-			</c:forEach>
-			<hr>
-			Cart Total <fmt:formatNumber value="${shoppingCart.runningTotalOfOrderItems()}" 
-            type="currency"/><br>
-			<form action="PaymentAndDelivery.do">
-			<input type="submit" value="Proceed to payment and delivery" />
-			</form>
-		</div>
-	</div>
 	</div>
 </body>
 <script src="assets/js/jquery.min.js"></script>

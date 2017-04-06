@@ -23,15 +23,15 @@ body {
 	height: 80%;
 } */
 
-th {
+th, td {
 	text-align: center;
 }
 
-.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+/* .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
   background-color: lightgreen;
   cursor: pointer;
   cursor: hand;
-}
+} */
 
 .horizontal {
 	display: inline-block;
@@ -116,4 +116,12 @@ h4 {
 
 .align-vertical-top *{
 	 vertical-align: top;
+}
+
+.shopping-cart {
+	margin-left: 35px;
+}
+
+tfoot {
+	font-weight: bold;
 }
