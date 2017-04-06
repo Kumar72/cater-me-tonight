@@ -30,17 +30,19 @@
 <link href="https://fonts.googleapis.com/css?family=Forum"
 	rel="stylesheet">
 <link rel="stylesheet" href="css/master.css">
+<link rel="stylesheet" href="css/navBar.css">
 <link rel="icon" href="images/favicon.ico">
 
 
 </head>
 
 <body>
+
 	<div>
 		<nav class="navbar navbar-default navigation-clean">
 			<div class="container">
 				<div class="navbar-header">
-					<a class="navbar-brand navbar-link" href="Home.do"><img
+					<a class="navbar-brand navbar-link" href="#"><img
 						src="images/logo.png"> </a>
 					<button class="navbar-toggle collapsed" data-toggle="collapse"
 						data-target="#navcol-1">
@@ -49,13 +51,13 @@
 							class="icon-bar"></span>
 					</button>
 				</div>
-				<ul class="nav nav-tabs">
+				<ul class="nav navbar-right nav-tabs">
 					<li class="nav-item"><a class="nav-link active"
 						href="KitchenPage.do">Kitchen</a></li>
-					<li class="Appetizer.do"><a class="nav-link" href="#">Appetizer</a></li>
+					<!-- <li class="nav-item"><a class="nav-link" href="#">Appetizer</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Entree</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Dessert</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Drink</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Drink</a></li> -->
 					<li role="presentation"><a href="About.do">About</a></li>
 					<li role="presentation"><a href="Logout.do">Logout</a></li>
 				</ul>
@@ -76,6 +78,7 @@
 			</div>
 		</nav>
 	</div>
+
 
 
 	<div class="container">

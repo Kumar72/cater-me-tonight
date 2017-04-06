@@ -30,12 +30,14 @@
 <link href="https://fonts.googleapis.com/css?family=Forum"
 	rel="stylesheet">
 <link rel="stylesheet" href="css/master.css">
+<link rel="stylesheet" href="css/navBar.css">
 <link rel="icon" href="images/favicon.ico">
 
 
 </head>
 
 <body>
+
 	<div>
 		<nav class="navbar navbar-default navigation-clean">
 			<div class="container">
@@ -49,13 +51,13 @@
 							class="icon-bar"></span>
 					</button>
 				</div>
-				<ul class="nav nav-tabs">
+				<ul class="nav navbar-right nav-tabs">
 					<li class="nav-item"><a class="nav-link active"
 						href="KitchenPage.do">Kitchen</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Appetizer</a></li>
+					<!-- <li class="nav-item"><a class="nav-link" href="#">Appetizer</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Entree</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Dessert</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Drink</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Drink</a></li> -->
 					<li role="presentation"><a href="About.do">About</a></li>
 					<li role="presentation"><a href="Logout.do">Logout</a></li>
 				</ul>
@@ -76,6 +78,7 @@
 			</div>
 		</nav>
 	</div>
+
 	
 	
 	<div class="container">
@@ -95,13 +98,13 @@
 				</form>
 			<hr>	
 			<c:forEach var="menu" items="${selectedMenu}">
-				<tbody>
-				<tr>
+				<tbody width="100%">
+				<tr width="25%">
 					<img style="width: 25%" src="${menu.picture}" />
-					<td></td>
-					<td>${menu.name}</td>
-					<td>${menu.price}</td>
-					<td><div class="btn-group">
+					
+					<td width="25">${menu.name}</td>
+					<td width="25">${menu.price}</td>
+					<td width="25"><div class="btn-group">
 						<button size=25% type="button"
 							class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
 							aria-haspopup="true" aria-expanded="false">

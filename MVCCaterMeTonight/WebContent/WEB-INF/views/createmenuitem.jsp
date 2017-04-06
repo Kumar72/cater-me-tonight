@@ -30,12 +30,14 @@
 <link href="https://fonts.googleapis.com/css?family=Forum"
 	rel="stylesheet">
 <link rel="stylesheet" href="css/master.css">
+<link rel="stylesheet" href="css/navBar.css">
 <link rel="icon" href="images/favicon.ico">
 
 
 </head>
 
 <body>
+
 	<div>
 		<nav class="navbar navbar-default navigation-clean">
 			<div class="container">
@@ -49,7 +51,7 @@
 							class="icon-bar"></span>
 					</button>
 				</div>
-				<ul class="nav nav-tabs">
+				<ul class="nav navbar-right nav-tabs">
 					<li class="nav-item"><a class="nav-link active"
 						href="KitchenPage.do">Kitchen</a></li>
 					<!-- <li class="nav-item"><a class="nav-link" href="#">Appetizer</a></li>

@@ -1,138 +1,138 @@
-package ctrl;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.nullValue;
-import static org.junit.Assert.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import java.util.List;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mock.web.MockHttpSession;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.servlet.ModelAndView;
-
-import controllers.LoginController;
-import controllers.MenuController;
-import data.MenuDAO;
-import data.PlacedOrderDAO;
-import data.UserDAO;
-import entities.User;
-
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "../WEB-INF/Test-context.xml" })
-@WebAppConfiguration
-@Transactional // you will need this if you are using DAO methods with
-				// transactions
-public class MenuControllerTest {
-	@Autowired
-	private WebApplicationContext wac;
-
-	private MockMvc mockMvc;
-
-	@Autowired
-	private MenuController controller;
-
-	private MenuDAO menuDAO;
-
-	@Before
-	public void setUp() throws Exception {
-		menuDAO = (MenuDAO) wac.getBean("menuDAO");
-
-		// dao = wac.getBean(FilmDAOImpl.class);
-		controller.setMenuDAO(menuDAO);
-		this.mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
-	}
-
-	@After
-	public void tearDown() throws Exception {
-		controller = null;
-		mockMvc = null;
-		wac = null;
-	}
-
-	@Test
-	public void test_login_enter_valid_username_and_password_returns_select_view() {
-		try {
-			// Use MockMVC to create a request to the test servlet and get a
-			// response
-			MvcResult response = mockMvc
-					.perform(get("/Login.do").param("username", "student").param("password", "student"))
-					.andExpect(status().isOk()).andReturn();
-			// Extract the returned ModelAndView from the response
-			ModelAndView mv = response.getModelAndView();
-			// Extract the Model from the ModelAndView
-			ModelMap map = mv.getModelMap();
-			// Cast the Object value paired to the "film" key to a Film object
-			User user = (User) map.get("user");
-			// Check the values with JUnit tests
-			assertEquals("startorder", mv.getViewName());
-			assertEquals("student", user.getUsername());
-		} catch (Exception e) {
-			fail(e.toString());
-		}
-	}
-
-	@Test
-  public void test_logout_returns_index_view_and_null_user(){
-    try {
-    	MockHttpSession mockSession = new MockHttpSession();
-    	// Login first
-    	mockMvc.perform(get("/Login.do")
-    			.param("username", "student")
-    			.param("password", "student")
-    			.session(mockSession));
-    	
-    	// Now logout		 
-    	MvcResult response = mockMvc.perform(get("/Logout.do").session(mockSession)) 
-    		  		.andExpect(request().sessionAttribute("user",is(nullValue())))
-                            .andExpect(status().isOk())
-                            .andReturn();
-      // Extract the returned ModelAndView from the response
-      ModelAndView mv = response.getModelAndView();
-      // Extract the Model from the ModelAndView
-      assertEquals("index", mv.getViewName());
-
-    } catch (Exception e) {
-      fail(e.toString());
-    }
-  }
-
-	@Test
-	public void test_viewMenuOptions_enter_kitchen_num_of_people_courses_and_returns_menu_view_and_placedOrder_object() {
-		try {
-			// Use MockMVC to create a request to the test servlet and get a
-			// response
-			MvcResult response = mockMvc.perform(get("/ViewMenuOptions.do").param("kitchenId", "1")
-					.param("numberOfPeople", "10").param("appetizer", "true").param("entree", "true")
-					.param("dessert", "true").param("drink", "true")).andExpect(status().isOk()).andReturn();
-			// Extract the returned ModelAndView from the response
-			ModelAndView mv = response.getModelAndView();
-			// Extract the Model from the ModelAndView
-			ModelMap map = mv.getModelMap();
-
-			// Check the values with JUnit tests
-			assertEquals("menu", mv.getViewName());
-			// assertEquals("Crank72", user.getUsername());
-		} catch (Exception e) {
-			fail(e.toString());
-		}
-	}
+//package ctrl;
+//
+//import static org.hamcrest.CoreMatchers.is;
+//import static org.hamcrest.CoreMatchers.nullValue;
+//import static org.junit.Assert.*;
+//import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+//import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+//import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
+//import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+//
+//import java.util.List;
+//
+//import org.junit.After;
+//import org.junit.Before;
+//import org.junit.Test;
+//import org.junit.runner.RunWith;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.mock.web.MockHttpSession;
+//import org.springframework.test.context.ContextConfiguration;
+//import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+//import org.springframework.test.context.web.WebAppConfiguration;
+//import org.springframework.test.web.servlet.MockMvc;
+//import org.springframework.test.web.servlet.MvcResult;
+//import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+//import org.springframework.transaction.annotation.Transactional;
+//import org.springframework.ui.ModelMap;
+//import org.springframework.web.context.WebApplicationContext;
+//import org.springframework.web.servlet.ModelAndView;
+//
+//import controllers.LoginController;
+//import controllers.MenuController;
+//import data.MenuDAO;
+//import data.PlacedOrderDAO;
+//import data.UserDAO;
+//import entities.User;
+//
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(locations = { "../WEB-INF/Test-context.xml" })
+//@WebAppConfiguration
+//@Transactional // you will need this if you are using DAO methods with
+//				// transactions
+//public class MenuControllerTest {
+//	@Autowired
+//	private WebApplicationContext wac;
+//
+//	private MockMvc mockMvc;
+//
+//	@Autowired
+//	private MenuController controller;
+//
+//	private MenuDAO menuDAO;
+//
+//	@Before
+//	public void setUp() throws Exception {
+//		menuDAO = (MenuDAO) wac.getBean("menuDAO");
+//
+//		// dao = wac.getBean(FilmDAOImpl.class);
+//		controller.setMenuDAO(menuDAO);
+//		this.mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
+//	}
+//
+//	@After
+//	public void tearDown() throws Exception {
+//		controller = null;
+//		mockMvc = null;
+//		wac = null;
+//	}
+//
+//	@Test
+//	public void test_login_enter_valid_username_and_password_returns_select_view() {
+//		try {
+//			// Use MockMVC to create a request to the test servlet and get a
+//			// response
+//			MvcResult response = mockMvc
+//					.perform(get("/Login.do").param("username", "student").param("password", "student"))
+//					.andExpect(status().isOk()).andReturn();
+//			// Extract the returned ModelAndView from the response
+//			ModelAndView mv = response.getModelAndView();
+//			// Extract the Model from the ModelAndView
+//			ModelMap map = mv.getModelMap();
+//			// Cast the Object value paired to the "film" key to a Film object
+//			User user = (User) map.get("user");
+//			// Check the values with JUnit tests
+//			assertEquals("startorder", mv.getViewName());
+//			assertEquals("student", user.getUsername());
+//		} catch (Exception e) {
+//			fail(e.toString());
+//		}
+//	}
+//
+//	@Test
+//  public void test_logout_returns_index_view_and_null_user(){
+//    try {
+//    	MockHttpSession mockSession = new MockHttpSession();
+//    	// Login first
+//    	mockMvc.perform(get("/Login.do")
+//    			.param("username", "student")
+//    			.param("password", "student")
+//    			.session(mockSession));
+//    	
+//    	// Now logout		 
+//    	MvcResult response = mockMvc.perform(get("/Logout.do").session(mockSession)) 
+//    		  		.andExpect(request().sessionAttribute("user",is(nullValue())))
+//                            .andExpect(status().isOk())
+//                            .andReturn();
+//      // Extract the returned ModelAndView from the response
+//      ModelAndView mv = response.getModelAndView();
+//      // Extract the Model from the ModelAndView
+//      assertEquals("index", mv.getViewName());
+//
+//    } catch (Exception e) {
+//      fail(e.toString());
+//    }
+//  }
+//
+//	@Test
+//	public void test_viewMenuOptions_enter_kitchen_num_of_people_courses_and_returns_menu_view_and_placedOrder_object() {
+//		try {
+//			// Use MockMVC to create a request to the test servlet and get a
+//			// response
+//			MvcResult response = mockMvc.perform(get("/ViewMenuOptions.do").param("kitchenId", "1")
+//					.param("numberOfPeople", "10").param("appetizer", "true").param("entree", "true")
+//					.param("dessert", "true").param("drink", "true")).andExpect(status().isOk()).andReturn();
+//			// Extract the returned ModelAndView from the response
+//			ModelAndView mv = response.getModelAndView();
+//			// Extract the Model from the ModelAndView
+//			ModelMap map = mv.getModelMap();
+//
+//			// Check the values with JUnit tests
+//			assertEquals("menu", mv.getViewName());
+//			// assertEquals("Crank72", user.getUsername());
+//		} catch (Exception e) {
+//			fail(e.toString());
+//		}
+//	}
 	// @Test
 	// public void test_get_films_returns_films_and_index_view(){
 	// try {
@@ -274,4 +274,4 @@ public class MenuControllerTest {
 	// fail(e.toString());
 	// }
 	// }
-}
+//}
