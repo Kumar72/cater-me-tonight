@@ -23,7 +23,7 @@
 		<nav class="navbar navbar-default navigation-clean">
 			<div class="container">
 				<div class="navbar-header">
-					<a class="navbar-brand navbar-link" href="Home.do"><img src="images/logo.png" width="125" height="50">
+					<a class="navbar-brand navbar-link" href="#"><img src="images/logo.png" width="125" height="50">
 					</a>
 					<button class="navbar-toggle collapsed" data-toggle="collapse"
 						data-target="#navcol-1">
