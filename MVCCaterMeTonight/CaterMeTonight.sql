@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` VARCHAR(32) NOT NULL,
   `first_name` VARCHAR(45) NOT NULL,
   `last_name` VARCHAR(45) NOT NULL,
-  `status` VARCHAR(15) NULL DEFAULT 'client',
+  `status` VARCHAR(15) NOT NULL DEFAULT 'client',
   `phone` VARCHAR(20) NULL,
   `picture_url` VARCHAR(1000) NULL,
   PRIMARY KEY (`id`));
