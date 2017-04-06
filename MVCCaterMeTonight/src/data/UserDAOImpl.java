@@ -5,6 +5,7 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor;
 
 import entities.User;
 
@@ -22,8 +23,9 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User createNewUser(User user) {
-		// TODO Auto-generated method stub
-		return null;
+		em.persist(user);
+		em.flush();
+		return user;
 	}
 
 	@Override

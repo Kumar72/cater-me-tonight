@@ -53,6 +53,24 @@ public class LoginController {
 		mv.setViewName("about");
 		return mv;
 	}
+	
+	@RequestMapping(value = "AddUser.do")
+	public ModelAndView addUser() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("adduser");
+		return mv;
+	}
+	@RequestMapping(value = "CreateUser.do")
+	public ModelAndView createUser(User user, HttpSession session) {
+		user = userDAO.createNewUser(user);
+		session.setAttribute("user", user);
+
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("user", user);
+		mv.setViewName("confirmuseradded");
+		return mv;
+	}
+	
 	@RequestMapping(value = "Logout.do")
 	public ModelAndView logout(HttpSession session) {
 		ModelAndView mv = new ModelAndView();

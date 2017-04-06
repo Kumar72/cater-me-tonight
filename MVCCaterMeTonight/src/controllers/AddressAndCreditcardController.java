@@ -41,7 +41,6 @@ public class AddressAndCreditcardController {
 	public ModelAndView submitOrder(HttpSession session){
 		// Store in the database
 		ModelAndView mv = new ModelAndView();
-		System.out.println(session.getAttribute("user"));
 		mv.addObject("user", session.getAttribute("user"));
 		mv.setViewName("confirmation");
 		return mv;
