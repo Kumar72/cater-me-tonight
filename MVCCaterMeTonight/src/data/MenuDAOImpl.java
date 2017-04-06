@@ -5,10 +5,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaDelete;
+import javax.persistence.criteria.CriteriaUpdate;
 import javax.persistence.criteria.Root;
-import javax.persistence.metamodel.EntityType;
-import javax.persistence.metamodel.Metamodel;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -98,6 +96,21 @@ public class MenuDAOImpl implements MenuDAO {
 	}
 
 	@Override
+	public MenuItem display(int menuItemId) {
+		return em.find(MenuItem.class, menuItemId);
+	}
+	
+	
+	//DONE
+	@Override
+	public MenuItem createMenuItem(MenuItem menuItem) {
+		em.persist(menuItem);
+		em.flush();
+		return menuItem;
+	}
+	
+	//DONE
+	@Override
 	public List<MenuItem> getAllItemsFromKitchen(int id) {
 		String query = "SELECT m from MenuItem m where m.kitchen.id = :id";
 		List<MenuItem> menuItems = em.createQuery(query, MenuItem.class).setParameter("id", id).getResultList();
@@ -111,18 +124,6 @@ public class MenuDAOImpl implements MenuDAO {
 	}
 
 	@Override
-	public MenuItem display(int menuItemId) {
-		return em.find(MenuItem.class, menuItemId);
-	}
-
-	@Override
-	public MenuItem createMenuItem(MenuItem menuItem) {
-		em.persist(menuItem);
-		em.flush();
-		return menuItem;
-	}
-
-	@Override
 	public MenuItem updateMenuItem(int id, MenuItem menuItem) {
 		MenuItem managed = em.find(MenuItem.class, id);
 		managed.setName(menuItem.getName());
@@ -132,8 +133,15 @@ public class MenuDAOImpl implements MenuDAO {
 	return menuItem;
 	}
 
-	public boolean activateAndDeactivateMenuItemByKitchen(int kitchenId) {	
-			return false;
+	
+	public void activateAndDeactivateMenuItemByKitchen(int kitchenId) {
+		Kitchen k = em.find(Kitchen.class, kitchenId);
+		String query = "UPDATE MenuItem "
+				+ "SET status= :status "
+				+ "WHERE kitchen.id = :id";
+		em.createQuery(query).setParameter("id", kitchenId).setParameter("status", k.isStatus()).executeUpdate();
+		em.flush();
+			
 	}
 
 	@Override

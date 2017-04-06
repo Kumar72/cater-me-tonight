@@ -74,17 +74,14 @@ public class KitchenDAOImpl implements KitchenDAO {
 	@Override
 	public Kitchen activateAndDeactivateKitchen(int id) {
 		Kitchen managed = em.find(Kitchen.class, id);
-//		String q = "UPDATE Menu m SET m.status = :status "
-//				+ "WHERE m.Kitchen = :id";
 		
 		if(managed.isStatus()) {
-			managed.setStatus(false);
-//			em.createQuery(q).setParameter("status", false)
-//			.setParameter("id", id).executeUpdate();			
+			managed.setStatus(false);			
 		}
 		else {
 			managed.setStatus(true);
 		}
+		mDao.activateAndDeactivateMenuItemByKitchen(id);	
 		em.flush();
 		return managed;
 	}
