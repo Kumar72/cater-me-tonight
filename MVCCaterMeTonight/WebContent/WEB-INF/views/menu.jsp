@@ -74,7 +74,7 @@
 
 												</c:otherwise>
 											</c:choose>
-											<input type="submit" value="Add to order" />
+											<input type="submit" class="btn btn-primary btn-sm horizontal" value="Add to order" />
 										</div>
 									</div>
 
@@ -110,7 +110,7 @@
 
 												</c:otherwise>
 											</c:choose>
-											<input type="submit" value="Add to order" />
+											<input type="submit" class="btn btn-primary btn-sm horizontal" value="Add to order" />
 										</div>
 									</div>
 
@@ -146,7 +146,7 @@
 
 												</c:otherwise>
 											</c:choose>
-											<input type="submit" value="Add to order" />
+											<input type="submit" class="btn btn-primary btn-sm horizontal" value="Add to order" />
 										</div>
 									</div>
 
@@ -182,7 +182,7 @@
 
 												</c:otherwise>
 											</c:choose>
-											<input type="submit" value="Add to order" />
+											<input type="submit" class="btn btn-primary btn-sm horizontal" value="Add to order" />
 										</div>
 									</div>
 
@@ -218,7 +218,7 @@
 										value="${item.value.totalForOrderItem}" type="currency" /></td>
 								<td><form action="RemoveItemsFromCart.do" method="GET">
 										<input type="hidden" name="menuItemId"
-											value="${item.value.menuItem.id}" /> <input type="submit"
+											value="${item.value.menuItem.id}" /> <input type="submit" class="btn btn-primary btn-md"
 											value="Remove Item" />
 									</form></td>
 							</tr>
@@ -236,7 +236,7 @@
 				</table>
 
 				<form action="PaymentAndDelivery.do">
-					<input type="submit" value="Proceed to payment and delivery" />
+					<input type="submit" class="btn btn-primary btn-md" value="Proceed to Payment and Delivery" />
 				</form>
 			</div>
 		</div>

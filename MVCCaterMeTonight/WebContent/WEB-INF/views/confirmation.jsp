@@ -57,14 +57,14 @@
 			<div class="col-md-offset-3 col-md-6">
 				<form action="Login.do">
 					<div class="row padding-top clear-area">
-						<h2>Your Order Is On The Way!</h2>
-						<img alt="Happy Cook!"
+						<h2 class="text-centered">Your Order Is On The Way!</h2>
+						<img alt="Happy Cook!" class="centered"
 							src="http://www.ghosttowngames.com/wp-content/uploads/2015/03/overcooked_aboutphilicon-300x300.png"><br>
 						<input type="hidden" name="username"
 							value="${user.username}"> <input
 							type="hidden" name="password"
 							value="${user.password}"> <input
-							type="submit" value="Home">
+							type="submit" class="btn btn-primary btn-md" value="Home">
 
 					</div>
 				</form>

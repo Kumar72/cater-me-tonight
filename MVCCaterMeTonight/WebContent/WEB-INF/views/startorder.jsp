@@ -68,7 +68,7 @@
 			<input type="checkbox" name="entree" checked/> Entree<br>
 			<input type="checkbox" name="dessert" checked/> Dessert<br>
 			<input type="checkbox" name="drink" checked/> Drink<br>
-			<input type="submit" value="View Menu Options"/>
+			<input type="submit" class="btn btn-primary btn-md" value="View Menu Options"/>
 		</form>
 			
 		</div>
