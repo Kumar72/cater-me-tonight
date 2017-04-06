@@ -1,5 +1,7 @@
 package controllers;
 
+import java.text.DecimalFormat;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,6 +66,7 @@ public class MenuController {
 	}	
 	@RequestMapping(path = "ItemsAddedToShoppingCart.do", method = RequestMethod.GET)
 	public ModelAndView addItemsToShoppingCart(int menuItemId, int quantity) {
+		DecimalFormat df = new DecimalFormat(".##");
 		ModelAndView mv = new ModelAndView();
 		OrderItem orderItem = new OrderItem();
 		MenuItem menuItem = menuDAO.display(menuItemId);

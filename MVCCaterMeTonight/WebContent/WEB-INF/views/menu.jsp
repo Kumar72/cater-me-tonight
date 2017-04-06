@@ -1,7 +1,7 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -168,10 +168,12 @@
 		<div class="col-md-3 clear-area">
 			<h2>Items in shopping cart</h2>
 			<c:forEach var="item" items="${shoppingCart.orderItemsAddedToCart}">
-			${item.value.menuItem.name}, ${item.value.quantity} $${item.value.totalForOrderItem}<br>
+			${item.value.menuItem.name}, ${item.value.quantity} <fmt:formatNumber value="${item.value.totalForOrderItem}" 
+            type="currency"/><br>
 			</c:forEach>
 			<hr>
-			Cart Total $${shoppingCart.runningTotalOfOrderItems()}
+			Cart Total <fmt:formatNumber value="${shoppingCart.runningTotalOfOrderItems()}" 
+            type="currency"/><br>
 			<form action="PaymentAndDelivery.do">
 			<input type="submit" value="Proceed to payment and delivery" />
 			</form>
