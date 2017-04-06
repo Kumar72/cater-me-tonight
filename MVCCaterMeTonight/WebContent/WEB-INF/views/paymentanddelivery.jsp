@@ -55,7 +55,7 @@
 	<div class="container">
 		<div class="row padding-top">
 			<div class="col-md-offset-3 col-md-6">
-				<form action="SubmitOrder.do">
+				<form action="FinalizeOrder.do">
 					<div class="row padding-top clear-area">
 
 						Select a saved Credit Card: <select name="creditcardId">
@@ -67,12 +67,14 @@
 						<h4>Or add new card</h4>
 						<br> <label for="creditcardNumber">CreditCard Number</label>
 						<input type="text" name="creditcardNumber"><br> <label
-							for="fullName">Name on CreditCard</label> <input type="text"
-							name="fullName"><br> <label>Expiration Date
-							(Year)</label> <input type="number" name="expirationYear"> <input
-							type="number" name="expirationMonth"><br> <label
-							for="securityCode">CSV</label> <input type="text"
-							name="securityCode"><br>
+							for="fullName">Name on CreditCard</label> 
+							<input type="text" name="fullName"><br> 
+							<label>Expiration Date</label> 
+							<input type="number" name="expirationMonth">
+							<input type="number" name="expirationYear"><br>
+							<label for="securityCode">CSV</label>
+						    <input type="text" name="securityCode"><br>
+							
 
 					</div>
 
@@ -93,7 +95,7 @@
 						<input type="text" name="city"><br> <label
 							for="state">State</label> <input type="text" name="state"><br>
 
-						<input type="submit" value="Submit Order">
+						<input type="submit" value="Finalize Order">
 					</div>
 				</form>
 			</div>

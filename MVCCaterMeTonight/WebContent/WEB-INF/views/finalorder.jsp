@@ -53,7 +53,7 @@
 	<div class="container">
 		<div class="row padding-top">
 			<div class="col-md-offset-3 col-md-6 clear-area">
-				<form action="FinalizeAndSubmitOrder.do">
+				<form action="SubmitOrder.do">
 					<h2>Items in shopping cart</h2>
 			<c:forEach var="item" items="${shoppingCart.orderItemsAddedToCart}">
 			${item.value.menuItem.name}, ${item.value.quantity} $${item.value.totalForOrderItem}<br>
