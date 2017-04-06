@@ -54,7 +54,7 @@
 	<div class="row padding-top">
 		<div class="col-md-offset-3 col-md-6">
             <div class="form-login">
-            <h4>Welcome back.</h4>
+            <h4>Add User Form</h4>
             <form action="CreateUser.do" method="get">
             <input type="text" id="username" name="username" class="form-control input-sm chat-input" placeholder="username" />
             </br>
