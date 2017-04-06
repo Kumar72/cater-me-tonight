@@ -60,7 +60,7 @@
 						<h2>${user.username} is added! </h2>
 						<h3>Welcome to Cater Me Tonight!</h3>
 						<img alt="Welcome Cook!"
-							src="images/welcome.jpg">
+							src="images/welcome.jpg" width="400">
 						<input type="hidden" name="username"
 							value="${user.username}"> <input
 							type="hidden" name="password"
