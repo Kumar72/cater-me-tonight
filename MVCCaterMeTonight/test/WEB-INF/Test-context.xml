@@ -14,6 +14,7 @@
     <bean id="placedOrderDAO" class="data.PlacedOrderDAOImpl"/>
     <bean id="menuDAO" class="data.MenuDAOImpl"/>
     <bean id="addressDAO" class="data.AddressDAOImpl"/>
+    <bean id="courseDAO" class="data.CourseDAOImpl"/>
     
  	
  	

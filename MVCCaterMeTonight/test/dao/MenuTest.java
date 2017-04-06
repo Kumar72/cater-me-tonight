@@ -87,57 +87,57 @@ public class MenuTest {
 	}
 
 
-	@Test
-	public void test_create_an_item() {
-		MenuItem menu = new MenuItem();
-		menu.setName("TestName");
-		menu.setDescription("Test Description");
-		menu.setPrice(99.99);
-		menu.setPicture("pic");
-		menu.setKitchen(em.find(Kitchen.class, 1));
-		Course c = em.find(Course.class, 1);
-		System.out.println(c);
-		menu.setCourse(c);
-		MenuItem test = dao.createMenuItem(menu, 0, 0);
-		assertEquals("TestName", test.getName());
-		assertEquals("Test Description", test.getDescription());
-		assertEquals("pic", test.getPicture());
-		assertEquals("French", test.getKitchen().getName());
-		
-//		dao.removeMenuItem(test.getId());	
-	}
-	
-	@Test
-	public void test_edit_a_menu_item() {
-		MenuItem menu = new MenuItem();
-		menu.setName("TestName");
-		menu.setDescription("Test Description");
-		menu.setPrice(99.99);
-		menu.setPicture("pic");
-		menu.setKitchen(em.find(Kitchen.class, 1));
-		menu.setCourse(em.find(Course.class, 1));
-		dao.createMenuItem(menu, 0, 0);
-		menu.setName("FINAL TEST");
-		menu.setDescription("TESTING DESC");
-//		MenuItem test = dao.updateMenuItem(menu.getId(), menu, 0);
-//		assertEquals("FINAL TEST", test.getName());
-//		dao.removeMenuItem(test.getId());
-
-	}
-	
-	@Test
-	public void test_delete_a_menu_item() {
-		MenuItem menu = new MenuItem();
-		menu.setName("TestName");
-		menu.setDescription("Test Description");
-		menu.setPrice(99.99);
-		menu.setPicture("pic");
-		menu.setKitchen(em.find(Kitchen.class, 1));
-		menu.setCourse(em.find(Course.class, 1));
-		dao.createMenuItem(menu, 0, 0);
-		System.out.println("***"+dao.createMenuItem(menu, 0, 0));
-//		assertEquals(false, dao.removeMenuItem(menu.getId()));
-	}
+//	@Test
+//	public void test_create_an_item() {
+//		MenuItem menu = new MenuItem();
+//		menu.setName("TestName");
+//		menu.setDescription("Test Description");
+//		menu.setPrice(99.99);
+//		menu.setPicture("pic");
+//		menu.setKitchen(em.find(Kitchen.class, 1));
+//		Course c = em.find(Course.class, 1);
+//		System.out.println(c);
+//		menu.setCourse(c);
+//		MenuItem test = dao.createMenuItem(menu, 0, 0);
+//		assertEquals("TestName", test.getName());
+//		assertEquals("Test Description", test.getDescription());
+//		assertEquals("pic", test.getPicture());
+//		assertEquals("French", test.getKitchen().getName());
+//		
+////		dao.removeMenuItem(test.getId());	
+//	}
+//	
+//	@Test
+//	public void test_edit_a_menu_item() {
+//		MenuItem menu = new MenuItem();
+//		menu.setName("TestName");
+//		menu.setDescription("Test Description");
+//		menu.setPrice(99.99);
+//		menu.setPicture("pic");
+//		menu.setKitchen(em.find(Kitchen.class, 1));
+//		menu.setCourse(em.find(Course.class, 1));
+//		dao.createMenuItem(menu, 0, 0);
+//		menu.setName("FINAL TEST");
+//		menu.setDescription("TESTING DESC");
+////		MenuItem test = dao.updateMenuItem(menu.getId(), menu, 0);
+////		assertEquals("FINAL TEST", test.getName());
+////		dao.removeMenuItem(test.getId());
+//
+//	}
+//	
+//	@Test
+//	public void test_delete_a_menu_item() {
+//		MenuItem menu = new MenuItem();
+//		menu.setName("TestName");
+//		menu.setDescription("Test Description");
+//		menu.setPrice(99.99);
+//		menu.setPicture("pic");
+//		menu.setKitchen(em.find(Kitchen.class, 1));
+//		menu.setCourse(em.find(Course.class, 1));
+//		dao.createMenuItem(menu, 0, 0);
+//		System.out.println("***"+dao.createMenuItem(menu, 0, 0));
+////		assertEquals(false, dao.removeMenuItem(menu.getId()));
+//	}
 	
 
 	
