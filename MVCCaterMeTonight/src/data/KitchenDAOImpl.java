@@ -26,11 +26,6 @@ public class KitchenDAOImpl implements KitchenDAO {
 	@Autowired
 	private MenuDAO mDao;
 
-	public static void main(String[] args) {
-		KitchenDAOImpl kImp = new KitchenDAOImpl();
-		kImp.listOfKitchen();
-	}
-
 	// DONE
 	@Override
 	public Kitchen createKitchen(Kitchen kitchen) {

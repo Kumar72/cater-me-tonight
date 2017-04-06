@@ -34,6 +34,19 @@ public class MenuDAOImpl implements MenuDAO {
 	private ShoppingCart shoppingCart = new ShoppingCart();
 			
 	
+	//admin
+	@Override
+	public List<MenuItem> getAppetizers(int id) {
+		String query = "SELECT m from MenuItem m where m.course.name = :name";
+		List<MenuItem> menuItems = em.createQuery(query, MenuItem.class)
+				.setParameter("name", "Appetizer").getResultList();
+		Course c = em.find(Course.class, id);
+		c.getName();
+		for (MenuItem menuItem : menuItems) {
+			System.out.println(menuItem);
+		}
+		return menuItems;
+	}
 
 	
 
@@ -103,7 +116,13 @@ public class MenuDAOImpl implements MenuDAO {
 	
 	//DONE
 	@Override
-	public MenuItem createMenuItem(MenuItem menuItem) {
+	public MenuItem createMenuItem(MenuItem menuItem,int kid, int cid) {
+		Course c =em.find(Course.class, cid);
+		Kitchen k =em.find(Kitchen.class, kid);
+		
+		menuItem.setCourse(c);
+		menuItem.setKitchen(k);
+		
 		em.persist(menuItem);
 		em.flush();
 		return menuItem;
@@ -121,7 +140,10 @@ public class MenuDAOImpl implements MenuDAO {
 	}
 
 	@Override
-	public MenuItem updateMenuItem(int id, MenuItem menuItem) {
+	public MenuItem updateMenuItem(int id, MenuItem menuItem, int cid,int kid) {
+		Course c =em.find(Course.class, cid);
+		Kitchen k =em.find(Kitchen.class, kid);
+		menuItem.setCourse(c);
 		MenuItem managed = em.find(MenuItem.class, id);
 		managed.setName(menuItem.getName());
 		managed.setDescription(menuItem.getDescription());
@@ -158,6 +180,14 @@ public class MenuDAOImpl implements MenuDAO {
 	public void setEntityManager(EntityManager emInj) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public MenuItem getMenuItemById(int id) {	
+		String query = "SELECT m fROM MenuItem m where m.id = :id";
+		MenuItem menuItem = em.createQuery(query, MenuItem.class).setParameter("id", id)
+				.getSingleResult();
+		return menuItem;
 	}
 
 }

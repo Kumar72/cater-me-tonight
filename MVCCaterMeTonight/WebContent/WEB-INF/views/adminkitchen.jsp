@@ -50,7 +50,7 @@
 				</div>
 				<ul class="nav nav-tabs">
 					<li class="nav-item"><a class="nav-link active"
-						href="admin.jsp">Kitchen</a></li>
+						href="KitchenPage.do">Kitchen</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Appetizer</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Entree</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Dessert</a></li>
@@ -81,18 +81,18 @@
 	<div class="row padding-top">
 		<div class="col-md-offset-3 col-md-6 clear-area">
 			<h1>
-				${kitchenname.name}
+				${kitchenname.name} Menu
 			</h1>
 			<p>
 				${kitchenname.description}
 			</p>
 			<form action="CreateMenuItem.do" method="GET">
-					<button>Create A New Menu Item</button>
+					<input type="hidden" name="kid" value="${kitchenname.id}"/>
+					<input type="submit" value="Create A New Menu Item"/>
+					  
 					<hr>
 				</form>
 			<hr>	
-			
-			
 			<c:forEach var="menu" items="${selectedMenu}">
 				<tbody>
 				<tr>
@@ -109,18 +109,18 @@
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
 							<a class="dropdown-item"
-								href="UpdateMenu.do?action=menuId=${menu.id}">Edit</a>
+								href="UpdateMenuItem.do?menuId=${menu.id}">Edit</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item"
-								href="RemoveMenuItem.do?action=menuId=${menu.id}">
+								href="RemoveMenuItem.do?menuId=${menu.id}">
 
 									 <c:choose>
 									<c:when test="${menu.status}">
 										
-       									AVAILABLE
+       									Add
     								</c:when>
     								<c:otherwise>
-        								NOT AVAILABLE
+        								Remove
     								</c:otherwise>
     					  </c:choose>		
 								</a>

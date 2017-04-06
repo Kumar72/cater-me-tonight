@@ -50,7 +50,7 @@
 				</div>
 				<ul class="nav nav-tabs">
 					<li class="nav-item"><a class="nav-link active"
-						href="admin.jsp">Kitchen</a></li>
+						href="KitchenPage.do">Kitchen</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Appetizer</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Entree</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Dessert</a></li>

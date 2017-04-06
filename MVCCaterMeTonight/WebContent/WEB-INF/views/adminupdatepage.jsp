@@ -87,13 +87,13 @@
 						<hr>
 						<fieldset>
 							<input type="hidden" name="id" value="${kitchen.id}"/>
-							Kitchen Name: <input type="text" name="name" placeholder="${kitchen.name}"
+							Kitchen Name: <input type="text" name="name" value="${kitchen.name}"
 							required /> 
 							<p class="align-vertical-top"> 
-							Description: <textarea name="description" placeholder="${kitchen.description}"row="5" cols="75"
+							Description: <textarea name="description" value="${kitchen.description}"row="5" cols="75"
 							required ></textarea>
 							</p> 
-							Picture URL: <input type="text" name="picture" placeholder="${kitchen.picture}">
+							Picture URL: <input type="text" size="100" name="picture" value="${kitchen.picture}">
 							<br>
 						</fieldset>
 						<input type="submit" value="Update Kitchen" />

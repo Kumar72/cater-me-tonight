@@ -24,6 +24,7 @@
     <bean id="PlacedOrderDAO" class="data.PlacedOrderDAOImpl"/>
     <bean id="MenuDAO" class="data.MenuDAOImpl"/>
     <bean id="AddressDAO" class="data.AddressDAOImpl"/>
+    <bean id="CourseDAO" class="data.CourseDAOImpl"/>
     
 
 <bean id="myEntityManagerFactory" 

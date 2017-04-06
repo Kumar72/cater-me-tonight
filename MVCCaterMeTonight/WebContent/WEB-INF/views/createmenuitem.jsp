@@ -50,7 +50,7 @@
 				</div>
 				<ul class="nav nav-tabs">
 					<li class="nav-item"><a class="nav-link active"
-						href="admin.jsp">Kitchen</a></li>
+						href="KitchenPage.do">Kitchen</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Appetizer</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Entree</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Dessert</a></li>
@@ -80,11 +80,13 @@
 	<div class="container">
 	<div class="row padding-top">
 		<div class="col-md-offset-3 col-md-6 clear-area">
-			<h1>Create MenuItem</h1>
-			<label for="kitchenId"></label><br>
-			
+			<h1>
+				${kitchen.name}
+			</h1>
+			<p>
+				${kitchen.description}
+			</p>
 					<form action="CreateMenuItem.do" method="POST">
-						<hr>
 						<fieldset>
 							
 							Name: <input type="text" name="name"
@@ -93,9 +95,17 @@
 							Description: <textarea name="description" row="5" cols="75"
 							required ></textarea>
 							</p> 
-							Price: <input type="number" name="price"> 
+							Price: <input type="number" name="price" min="1" step="any">
+							<br> 
 							Picture URL: <input type="text" name="picture">
-							<input type="hidden" name="${kitchen.id}"> 
+							<input type="hidden" name="kitchenId" value="${kitchen.id}">	
+							<br>
+		<select name = "courseId">							
+			 <c:forEach var="course" items="${courses}">
+					<option value="${course.id}">${course.name}
+			</c:forEach>
+		</select>		
+							 
 							<br>
 						</fieldset>
 						<input type="submit" value="Create Menu Item" />

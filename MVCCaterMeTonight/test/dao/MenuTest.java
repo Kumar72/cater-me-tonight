@@ -97,7 +97,7 @@ public class MenuTest {
 		Course c = em.find(Course.class, 1);
 		System.out.println(c);
 		menu.setCourse(c);
-		MenuItem test = dao.createMenuItem(menu);
+		MenuItem test = dao.createMenuItem(menu, 0, 0);
 		assertEquals("TestName", test.getName());
 		assertEquals("Test Description", test.getDescription());
 		assertEquals("pic", test.getPicture());
@@ -115,10 +115,10 @@ public class MenuTest {
 		menu.setPicture("pic");
 		menu.setKitchen(em.find(Kitchen.class, 1));
 		menu.setCourse(em.find(Course.class, 1));
-		dao.createMenuItem(menu);
+		dao.createMenuItem(menu, 0, 0);
 		menu.setName("FINAL TEST");
 		menu.setDescription("TESTING DESC");
-		MenuItem test = dao.updateMenuItem(menu.getId(), menu);
+		MenuItem test = dao.updateMenuItem(menu.getId(), menu, 0);
 		assertEquals("FINAL TEST", test.getName());
 //		dao.removeMenuItem(test.getId());
 
@@ -133,8 +133,8 @@ public class MenuTest {
 		menu.setPicture("pic");
 		menu.setKitchen(em.find(Kitchen.class, 1));
 		menu.setCourse(em.find(Course.class, 1));
-		dao.createMenuItem(menu);
-		System.out.println("***"+dao.createMenuItem(menu));
+		dao.createMenuItem(menu, 0, 0);
+		System.out.println("***"+dao.createMenuItem(menu, 0, 0));
 //		assertEquals(false, dao.removeMenuItem(menu.getId()));
 	}
 	

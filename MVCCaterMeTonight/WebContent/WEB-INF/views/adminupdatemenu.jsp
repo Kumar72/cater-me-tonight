@@ -80,26 +80,33 @@
 	<div class="container">
 	<div class="row padding-top">
 		<div class="col-md-offset-3 col-md-6 clear-area">
-			<h1>Create Kitchen</h1>
+			<h1>Update ${item.name}</h1>
 			<label for="kitchenId"></label><br>
 			
-					<form action="CreateKitchen.do" method="POST">
+					<form action="UpdateMenuItem.do" method="POST">
 						<hr>
 						<fieldset>
-	
-							Kitchen Name: <input type="text" name="name"
-							required /> 
+							<input type="hidden" name="kitchenId" value="${item.kitchen.id}"/>
+							<input type="hidden" name="id" value="${item.id}"/>
+							Name: <input type="text" name="name" placeholder="${item.name}"
+							value="${item.name}" required/>
+							Price: <input type="number" name="price" min="1" step="any" value="${item.price}" placeholder="${item.price}"> 
 							<p class="align-vertical-top"> 
-							Description: <textarea name="description" row="5" cols="75"
-							required ></textarea>
-							</p> 
-							Picture URL: <input type="text" name="picture">
+							Description: <textarea name="description" placeholder="${item.description}"row="5" cols="75"
+							>${item.description}</textarea>
+							</p>
+							<br> 														
+		Course: 
+		<select name = "courseId">							
+			 <c:forEach var="course" items="${courses}">
+					<option value="${course.id}">${course.name}
+			</c:forEach>
+		</select>		
 							<br>
-						</fieldset>
-						<input type="submit" value="Create Kitchen" />
+							Picture URL: <input type="text" size="100" name="picture" value="${item.picture}">		
+							</fieldset>	
+						<input type="submit" value="Update Menu" />
 					</form>
-					
-					
 					
 		</div>
 	</div>
