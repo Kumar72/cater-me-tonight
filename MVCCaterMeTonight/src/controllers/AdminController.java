@@ -1,5 +1,7 @@
 package controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,7 +11,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import data.KitchenDAO;
 import data.MenuDAO;
+import data.UserDAO;
 import entities.Kitchen;
+import entities.User;
 
 @Controller
 public class AdminController {
@@ -18,7 +22,30 @@ public class AdminController {
 		private KitchenDAO kitchenDao;
 
 		@Autowired
+		private UserDAO userDAO;
+		
+		@Autowired
 		private MenuDAO menuDao;
+		
+		@RequestMapping(path="KitchenPage.do")
+		public ModelAndView goToKitchenPage(HttpSession session) {
+			User user = (User)session.getAttribute("user");
+			ModelAndView mv = new ModelAndView();
+			
+			if(!user.getStatus().equals("admin")) {
+			mv.addObject("kitchens", kitchenDao.listOfKitchen());
+			mv.addObject("kitchen", new Kitchen());
+			mv.setViewName("admin");
+			}
+			else{
+				mv.addObject("kitchens", kitchenDao.listOfKitchen());
+				mv.addObject("kitchen", new Kitchen());
+				mv.setViewName("admin");
+
+			}
+			return mv;
+		}
+		
 
 		// ################ CREATE KITCHEN #####################
 

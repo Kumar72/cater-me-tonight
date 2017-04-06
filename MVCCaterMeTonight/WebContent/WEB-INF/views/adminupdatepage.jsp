@@ -9,11 +9,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cater Me Tonight</title>
 
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/Navigation-Clean1.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
 	integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
 	crossorigin="anonymous">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
 	integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
 	crossorigin="anonymous"></script>
@@ -25,11 +26,11 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
 	integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
 	crossorigin="anonymous"></script>
-<link rel="stylesheet" href="css/Navigation-Clean1.css">
+
 <link href="https://fonts.googleapis.com/css?family=Forum"
 	rel="stylesheet">
 <link rel="stylesheet" href="css/master.css">
-    <link rel="icon" href="images/favicon.ico">
+<link rel="icon" href="images/favicon.ico">
 
 
 </head>
@@ -87,13 +88,13 @@
 						<hr>
 						<fieldset>
 							<input type="hidden" name="id" value="${kitchen.id}"/>
-							Kitchen Name: <input type="text" name="name" placeholder="${kitchen.name}"
+							Kitchen Name: <input type="text" name="name" value="${kitchen.name}"
 							required /> 
 							<p class="align-vertical-top"> 
-							Description: <textarea name="description" placeholder="${kitchen.description}"row="5" cols="75"
+							Description: <textarea name="description" value="${kitchen.description}"row="5" cols="75"
 							required ></textarea>
 							</p> 
-							Picture URL: <input type="text" name="picture" placeholder="${kitchen.picture}">
+							Picture URL: <input type="text" size="100" name="picture" value="${kitchen.picture}">
 							<br>
 						</fieldset>
 						<input type="submit" value="Update Kitchen" />

@@ -40,7 +40,7 @@
 		<nav class="navbar navbar-default navigation-clean">
 			<div class="container">
 				<div class="navbar-header">
-					<a class="navbar-brand navbar-link" href="#"><img
+					<a class="navbar-brand navbar-link" href="Home.do"><img
 						src="images/logo.png"> </a>
 					<button class="navbar-toggle collapsed" data-toggle="collapse"
 						data-target="#navcol-1">
@@ -76,64 +76,39 @@
 			</div>
 		</nav>
 	</div>
-	
-	
+
+
 	<div class="container">
 	<div class="row padding-top">
 		<div class="col-md-offset-3 col-md-6 clear-area">
-			<h1>
-				${kitchenname.name} Menu
-			</h1>
-			<p>
-				${kitchenname.description}
-			</p>
-			<form action="CreateMenuItem.do" method="GET">
-					<input type="hidden" name="kid" value="${kitchenname.id}"/>
-					<input type="submit" value="Create A New Menu Item"/>
-					  
-					<hr>
-				</form>
-			<hr>	
-			<c:forEach var="menu" items="${selectedMenu}">
-				<tbody>
-				<tr>
-					<img style="width: 25%" src="${menu.picture}" />
-					<td></td>
-					<td>${menu.name}</td>
-					<td>${menu.price}</td>
-					<td><div class="btn-group">
-						<button size=25% type="button"
-							class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false">
-							${kitchen.name}</button>
-
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
-							<a class="dropdown-item"
-								href="UpdateMenuItem.do?menuId=${menu.id}">Edit</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item"
-								href="RemoveMenuItem.do?menuId=${menu.id}">
-
-									 <c:choose>
-									<c:when test="${menu.status}">
-										
-       									Add
-    								</c:when>
-    								<c:otherwise>
-        								Remove
-    								</c:otherwise>
-    					  </c:choose>		
-								</a>
-					</div>
-					</div></td>
-				</tr>
-				<p>${menu.description}</p>
-				</tbody>
-				<br>
-				<p></p>
-				<br>
+			<h1>Update ${item.name}</h1>
+			<label for="kitchenId"></label><br>
+			
+					<form action="UpdateMenuItem.do" method="POST">
+						<hr>
+						<fieldset>
+							<input type="hidden" name="kitchenId" value="${item.kitchen.id}"/>
+							<input type="hidden" name="id" value="${item.id}"/>
+							Name: <input type="text" name="name" placeholder="${item.name}"
+							value="${item.name}" required/>
+							Price: <input type="number" name="price" min="1" step="any" value="${item.price}" placeholder="${item.price}"> 
+							<p class="align-vertical-top"> 
+							Description: <textarea name="description" placeholder="${item.description}"row="5" cols="75"
+							>${item.description}</textarea>
+							</p>
+							<br> 														
+		Course: 
+		<select name = "courseId">							
+			 <c:forEach var="course" items="${courses}">
+					<option value="${course.id}">${course.name}
 			</c:forEach>
+		</select>		
+							<br>
+							Picture URL: <input type="text" size="100" name="picture" value="${item.picture}">		
+							</fieldset>	
+						<input type="submit" value="Update Menu" />
+					</form>
+					
 		</div>
 	</div>
 	</div>

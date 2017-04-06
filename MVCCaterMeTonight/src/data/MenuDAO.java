@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import entities.Kitchen;
 import entities.MenuItem;
 import pojos.ShoppingCart;
 
@@ -22,9 +23,13 @@ public interface MenuDAO {
 //	public List <MenuItem> addMenuItemsToCart(int id);
 	
 	
-	public MenuItem createMenuItem(MenuItem menuItem);
-	public MenuItem updateMenuItem(int id, MenuItem menuItem);
+	public MenuItem getMenuItemById(int id);
+	public MenuItem createMenuItem(MenuItem menuItem,int kid, int cid);
+	public MenuItem updateMenuItem(int id, MenuItem menuItem, int cid, int kid);
 	public MenuItem activateAndDeactivateMenuItem(int id);
 	public void activateAndDeactivateMenuItemByKitchen(int kitchenId);
 	
+	
+	
+	public List<MenuItem> getAppetizers(int id);
 }

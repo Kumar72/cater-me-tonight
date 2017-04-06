@@ -40,7 +40,7 @@
 		<nav class="navbar navbar-default navigation-clean">
 			<div class="container">
 				<div class="navbar-header">
-					<a class="navbar-brand navbar-link" href="#"><img
+					<a class="navbar-brand navbar-link" href="Home.do"><img
 						src="images/logo.png"> </a>
 					<button class="navbar-toggle collapsed" data-toggle="collapse"
 						data-target="#navcol-1">
@@ -52,7 +52,7 @@
 				<ul class="nav nav-tabs">
 					<li class="nav-item"><a class="nav-link active"
 						href="KitchenPage.do">Kitchen</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Appetizer</a></li>
+					<li class="Appetizer.do"><a class="nav-link" href="#">Appetizer</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Entree</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Dessert</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Drink</a></li>
@@ -76,32 +76,19 @@
 			</div>
 		</nav>
 	</div>
-	
-	
+
+
 	<div class="container">
-	<div class="row padding-top">
-		<div class="col-md-offset-3 col-md-6 clear-area">
-			<h1>
-				${kitchenname.name} Menu
-			</h1>
-			<p>
-				${kitchenname.description}
-			</p>
-			<form action="CreateMenuItem.do" method="GET">
-					<input type="hidden" name="kid" value="${kitchenname.id}"/>
-					<input type="submit" value="Create A New Menu Item"/>
-					  
+		<div class="row padding-top">
+			<div class="col-md-offset-3 col-md-6 clear-area">
+				<h1>Appetizer</h1>
+				<form action="CreateKitchen.do" method="GET">
+					<button>Create New Kitchen</button>
 					<hr>
 				</form>
-			<hr>	
-			<c:forEach var="menu" items="${selectedMenu}">
-				<tbody>
-				<tr>
-					<img style="width: 25%" src="${menu.picture}" />
-					<td></td>
-					<td>${menu.name}</td>
-					<td>${menu.price}</td>
-					<td><div class="btn-group">
+				<label for="kitchenId"></label><br>
+				<c:forEach var="kitchen" items="${kitchens}">
+					<div class="btn-group">
 						<button size=25% type="button"
 							class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
 							aria-haspopup="true" aria-expanded="false">
@@ -110,32 +97,38 @@
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
 							<a class="dropdown-item"
-								href="UpdateMenuItem.do?menuId=${menu.id}">Edit</a>
+								href="KitchenController.do?action=All&kitchenId=${kitchen.id}">All</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item"
-								href="RemoveMenuItem.do?menuId=${menu.id}">
-
-									 <c:choose>
-									<c:when test="${menu.status}">
-										
-       									Add
+								href="KitchenController.do?action=Appetizer&kitchenId=${kitchen.id}">Appetizer</a>
+							<a class="dropdown-item"
+								href="KitchenController.do?action=Entree&kitchenId=${kitchen.id}">Entree</a>
+							<a class="dropdown-item"
+								href="KitchenController.do?action=Dessert&kitchenId=${kitchen.id}">Dessert</a>
+							<a class="dropdown-item"
+								href="KitchenController.do?action=Drink&kitchenId=${kitchen.id}">Drink</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item"
+								href="UpdateKitchen.do?kitchenId=${kitchen.id}">Update</a>
+						
+							<a class="dropdown-item" href="RemoveKitchen.do?kitchenId=${kitchen.id}"> 
+								<c:choose>
+									<c:when test="${kitchen.status}">
+       									Close
     								</c:when>
     								<c:otherwise>
-        								Remove
+        								Open
     								</c:otherwise>
-    					  </c:choose>		
-								</a>
+    							</c:choose>
+    								</a>
+    								
+
+						</div>
 					</div>
-					</div></td>
-				</tr>
-				<p>${menu.description}</p>
-				</tbody>
-				<br>
-				<p></p>
-				<br>
-			</c:forEach>
+				</c:forEach>
+
+			</div>
 		</div>
-	</div>
 	</div>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
