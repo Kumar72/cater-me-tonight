@@ -29,7 +29,7 @@
 <link href="https://fonts.googleapis.com/css?family=Forum"
 	rel="stylesheet">
 <link rel="stylesheet" href="css/master.css">
-<link rel="icon" href="images/favicon.ico">
+    <link rel="icon" href="images/favicon.ico">
 
 
 </head>
@@ -75,62 +75,32 @@
 			</div>
 		</nav>
 	</div>
-	
-	
+
+
 	<div class="container">
 	<div class="row padding-top">
 		<div class="col-md-offset-3 col-md-6 clear-area">
-			<h1>
-				${kitchenname.name}
-			</h1>
-			<p>
-				${kitchenname.description}
-			</p>
-			<form action="CreateMenuItem.do" method="GET">
-					<button>Create A New Menu Item</button>
-					<hr>
-				</form>
-			<hr>	
-			<c:forEach var="menu" items="${selectedMenu}">
-				<tbody>
-				<tr>
-					<img style="width: 25%" src="${menu.picture}" />
-					<td></td>
-					<td>${menu.name}</td>
-					<td>${menu.price}</td>
-					<td><div class="btn-group">
-						<button size=25% type="button"
-							class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false">
-							${kitchen.name}</button>
-
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
-							<a class="dropdown-item"
-								href="UpdateMenu.do?action=menuId=${menu.id}">Edit</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item"
-								href="RemoveMenuItem.do?action=menuId=${menu.id}">
-
-									 <c:choose>
-									<c:when test="${menu.status}">
-										
-       									AVAILABLE
-    								</c:when>
-    								<c:otherwise>
-        								NOT AVAILABLE
-    								</c:otherwise>
-    					  </c:choose>		
-								</a>
-					</div>
-					</div></td>
-				</tr>
-				<p>${menu.description}</p>
-				</tbody>
-				<br>
-				<p></p>
-				<br>
-			</c:forEach>
+			<h1>Create MenuItem</h1>
+			<label for="kitchenId"></label><br>
+			
+					<form action="CreateMenuItem.do" method="POST">
+						<hr>
+						<fieldset>
+							
+							Name: <input type="text" name="name"
+							required /> 
+							<p class="align-vertical-top"> 
+							Description: <textarea name="description" row="5" cols="75"
+							required ></textarea>
+							</p> 
+							Price: <input type="number" name="price"> 
+							Picture URL: <input type="text" name="picture">
+							<input type="hidden" name="${kitchen.id}"> 
+							<br>
+						</fieldset>
+						<input type="submit" value="Create Menu Item" />
+					</form>
+					
 		</div>
 	</div>
 	</div>

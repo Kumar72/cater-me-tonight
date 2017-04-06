@@ -113,10 +113,10 @@
 							<a class="dropdown-item" href="RemoveKitchen.do?kitchenId=${kitchen.id}"> 
 								<c:choose>
 									<c:when test="${kitchen.status}">
-       									Open
+       									Close
     								</c:when>
     								<c:otherwise>
-        								Close
+        								Open
     								</c:otherwise>
     							</c:choose>
     								</a>

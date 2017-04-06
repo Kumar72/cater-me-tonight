@@ -25,6 +25,6 @@ public interface MenuDAO {
 	public MenuItem createMenuItem(MenuItem menuItem);
 	public MenuItem updateMenuItem(int id, MenuItem menuItem);
 	public MenuItem activateAndDeactivateMenuItem(int id);
-	public boolean activateAndDeactivateMenuItemByKitchen(int kitchenId);
+	public void activateAndDeactivateMenuItemByKitchen(int kitchenId);
 	
 }
