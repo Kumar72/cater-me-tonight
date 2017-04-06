@@ -70,7 +70,7 @@
             </br>
             <input type="text" id="pictureUrl" name="pictureUrl" class="form-control input-sm chat-input" placeholder="picture URL" />
             </br>
-            
+            <input type="hidden" name="status" value="client"/>
             <div class="wrapper">
             <span class="group-btn"> 
             	<input type="submit" class="btn btn-primary btn-md" value="Add User">

@@ -63,6 +63,7 @@ public class LoginController {
 	@RequestMapping(value = "CreateUser.do")
 	public ModelAndView createUser(User user, HttpSession session) {
 		user = userDAO.createNewUser(user);
+		
 		session.setAttribute("user", user);
 
 		ModelAndView mv = new ModelAndView();
