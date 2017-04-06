@@ -7,7 +7,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thank You!</title>
+<title>Cater Me Tonight: About us</title>
 
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/Navigation-Clean1.css">
@@ -36,8 +36,6 @@
 				<div class="collapse navbar-collapse" id="navcol-1">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="active" role="presentation"><a href="#">About</a></li>
-						<li role="presentation"><a href="Logout.do">Logout</a></li>
-
 						<!-- <li role="presentation"><a href="#">B</a></li>
 						<li role="presentation"><a href="#">C</a></li>
 						<li class="dropdown"><a class="dropdown-toggle"
@@ -52,28 +50,47 @@
 			</div>
 		</nav>
 	</div>
-	<div class="container">
-		<div class="row padding-top">
-			<div class="col-md-offset-3 col-md-6">
-				<form action="Login.do">
-					<div class="row padding-top clear-area">
-						<h2 class="text-centered">Your Order Is On The Way!</h2>
-						<img alt="Happy Cook!" class="centered"
-							src="http://www.ghosttowngames.com/wp-content/uploads/2015/03/overcooked_aboutphilicon-300x300.png"><br>
-						<input type="hidden" name="username"
+	<div class="header"></div>
+	<div class="aboutUs">
+		<div class="container">
+			<div class="row padding-top">
+				<div class="col-md-offset-3 col-md-6 clear-area">
+				
+				<h3>About us</h3>
+					<div class="inner-clear-area">
+
+
+<img class="centered" src="images/logo.png" alt="Cater Me Tonight" width="220" height="88"/>
+
+						<form action="Login.do">
+							<p>We started this company with visions of one stop shop
+								catering for all of your events. Be it a wedding, corporate
+								event, family reunion, or even a small gathering with some close
+								friends. We wanted to make getting a lot food quickly less of a
+								pain, and more of a click-and-forget kind of experience. So we
+								got together and after some brain storming came up with the
+								revolutionary catering company you see now. "Cater Me Tonight"</p>
+							<p>Using, "Cater Me Tonight" getting food for your 120 person
+								wedding is as easy as logging in, selecting a cuisine, selecting
+								how many courses you want, and selecting the food! Your order is
+								sent to our kitchen, and our world class chefs will whip it up
+								lickety split and have it at your front door faster than you can
+								say, "What on earth did we do to cater our events before Cater
+								Me Tonight?"</p>
+								
+								<input type="hidden" name="username"
 							value="${user.username}"> <input
 							type="hidden" name="password"
 							value="${user.password}"> <input
-							type="submit" class="btn btn-primary btn-md" value="Home">
-
+							type="submit" value="Home">
 					</div>
-				</form>
+				</div>
 			</div>
-
 		</div>
-	</div>
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>

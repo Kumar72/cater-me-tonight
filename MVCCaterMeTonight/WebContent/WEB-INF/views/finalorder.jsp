@@ -69,9 +69,9 @@
 				<em>Delivery address:</em><strong>${ address.streetAddress}</strong> <br>
 				<em>Delivery Zip Code:</em><strong>${ address.postalCode}</strong> <br>
 				<em>Delivery City:</em> <strong>${ address.city}</strong><br>
-				<em>Delivery State:</em> <strong>${ address.state}</strong>
+				<em>Delivery State:</em> <strong>${ address.state}</strong><br>
 				
-						<input type="submit" value="Submit Order">
+						<input type="submit" class="btn btn-primary btn-md" value="Submit Order">
 					</div>
 				</form>
 			</div>

@@ -98,7 +98,7 @@
 						<input type="text" name="city"><br> <label
 							for="state">State</label> <input type="text" name="state"><br>
 
-						<input type="submit" value="Finalize Order">
+						<input type="submit" class="btn btn-primary btn-md" value="Finalize Order">
 					</div>
 				</form>
 			</div>
