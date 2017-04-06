@@ -85,18 +85,19 @@
 		<div class="col-md-offset-3 col-md-6 clear-area">
 			<h1>Create Kitchen</h1>
 			<label for="kitchenId"></label><br>
-			
+				<hr>
 					<form action="CreateKitchen.do" method="POST">
 						<hr>
 						<fieldset>
 	
-							Kitchen Name: <input type="text" name="name"
-							required /> 
+							Kitchen Name: <input type="text" name="name" size="75" required /> 
+							<br>
+							<br>
 							<p class="align-vertical-top"> 
-							Description: <textarea name="description" row="5" cols="75"
+							Description: <textarea name="description" size="75" row="5" cols="74"
 							required ></textarea>
 							</p> 
-							Picture URL: <input type="text" name="picture">
+							Picture URL: <input type="text" size="75" name="picture">
 							<br>
 						</fieldset>
 						<input type="submit" value="Create Kitchen" />

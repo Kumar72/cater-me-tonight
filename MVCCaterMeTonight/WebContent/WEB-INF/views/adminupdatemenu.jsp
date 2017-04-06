@@ -86,13 +86,15 @@
 		<div class="col-md-offset-3 col-md-6 clear-area">
 			<h1>Update ${item.name}</h1>
 			<label for="kitchenId"></label><br>
+			<hr>
 			
 					<form action="UpdateMenuItem.do" method="POST">
-						<hr>
+						
+						
 						<fieldset>
 							<input type="hidden" name="kitchenId" value="${item.kitchen.id}"/>
 							<input type="hidden" name="id" value="${item.id}"/>
-							Name: <input type="text" name="name" placeholder="${item.name}"
+							Name: <input type="text" name="name" size="75" placeholder="${item.name}"
 							value="${item.name}" required/>
 							Price: <input type="number" name="price" min="1" step="any" value="${item.price}" placeholder="${item.price}"> 
 							<p class="align-vertical-top"> 
@@ -107,7 +109,7 @@
 			</c:forEach>
 		</select>		
 							<br>
-							Picture URL: <input type="text" size="100" name="picture" value="${item.picture}">		
+							Picture URL: <input type="text" size="75" name="picture" value="${item.picture}">		
 							</fieldset>	
 						<input type="submit" value="Update Menu" />
 					</form>
