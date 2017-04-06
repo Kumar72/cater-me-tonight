@@ -7,7 +7,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Payment And Delivery</title>
+<title>Thank You!</title>
 
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/Navigation-Clean1.css">
@@ -55,45 +55,17 @@
 	<div class="container">
 		<div class="row padding-top">
 			<div class="col-md-offset-3 col-md-6">
-				<form action="SubmitOrder.do">
+				<form action="Login.do">
 					<div class="row padding-top clear-area">
+						<h2>Your Order Is On The Way!</h2>
+						<img alt="Happy Cook!"
+							src="http://www.ghosttowngames.com/wp-content/uploads/2015/03/overcooked_aboutphilicon-300x300.png">
+						<input type="hidden" name="username"
+							value="${user.username}"> <input
+							type="hidden" name="password"
+							value="${user.password}"> <input
+							type="submit" value="Home">
 
-						Select a saved Credit Card: <select name="creditcardId">
-							<c:forEach var="creditcard" items="${creditcards}">
-								<option value="${creditcard.id}">${creditcard.creditcardNumber}</option>
-							</c:forEach>
-						</select><br>
-
-						<h4>Or add new card</h4>
-						<br> <label for="creditcardNumber">CreditCard Number</label>
-						<input type="text" name="creditcardNumber"><br> <label
-							for="fullName">Name on CreditCard</label> <input type="text"
-							name="fullName"><br> <label>Expiration Date
-							(Year)</label> <input type="number" name="expirationYear"> <input
-							type="number" name="expirationMonth"><br> <label
-							for="securityCode">CSV</label> <input type="text"
-							name="securityCode"><br>
-
-					</div>
-
-					<div class="row padding-top clear-area">
-
-						Select a saved Address: <select name="addressId"><
-							<c:forEach var="address" items="${addresses}">
-								<option value="${address.id}">${address.streetAddress}</option>
-							</c:forEach>
-						</select><br>
-
-
-						<h4>Or add a new delivery address</h4>
-						<br> <label for="streetAddress">Street Address</label> <input
-							type="text" name="streetAddress"><br> <label
-							for="postalCode">ZipCode</label> <input type="text"
-							name="postalCode"><br> <label for="city">City</label>
-						<input type="text" name="city"><br> <label
-							for="state">State</label> <input type="text" name="state"><br>
-
-						<input type="submit" value="Submit Order">
 					</div>
 				</form>
 			</div>
