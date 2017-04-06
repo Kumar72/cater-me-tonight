@@ -80,6 +80,19 @@ public class MenuController {
 		return mv;
 	}	
 	
+	
+	@RequestMapping (path = "RemoveItemsFromCart.do", method = RequestMethod.GET)
+	public ModelAndView removeItemsFromShoppingCart(Integer menuItemId){
+		ModelAndView mv = new ModelAndView();
+		myShoppingCart.removeItemFromShoppingCart(menuItemId);
+		mv.setViewName("menu");
+		
+		return mv;
+	}
+	
+	
+	
+	
 //	@RequestMapping(path = "AddMenuItemsToCart.do", method = RequestMethod.GET)
 //	public ModelAndView addItemsToCart(@RequestParam("kitchenId") int id) {
 //		System.out.println("*****************I'm in the add items to cart controller method with item id: "+id+"****************");

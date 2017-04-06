@@ -21,6 +21,11 @@ public class ShoppingCart {
 		
 		return total;
 	}
+	
+	public OrderItem removeItemFromShoppingCart(Integer id){
+		return orderItemsAddedToCart.remove(id);
+		
+	}
 
 	public OrderItem addOrUpdateOrderItem(OrderItem orderItem){
 		return orderItemsAddedToCart.put(orderItem.getMenuItem().getId(), orderItem);

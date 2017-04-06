@@ -168,8 +168,14 @@
 		<div class="col-md-3 clear-area">
 			<h2>Items in shopping cart</h2>
 			<c:forEach var="item" items="${shoppingCart.orderItemsAddedToCart}">
-			${item.value.menuItem.name}, ${item.value.quantity} <fmt:formatNumber value="${item.value.totalForOrderItem}" 
-            type="currency"/><br>
+			${item.value.menuItem.name}, ${item.value.quantity} 
+			<fmt:formatNumber value="${item.value.totalForOrderItem}" 
+            type="currency"/> 
+            <form action="RemoveItemsFromCart.do" method="GET">
+            <input type="hidden" name="menuItemId" value="${item.value.menuItem.id}"/>
+            <input type="submit" value="Remove Item"/>
+            </form>
+            <br>
 			</c:forEach>
 			<hr>
 			Cart Total <fmt:formatNumber value="${shoppingCart.runningTotalOfOrderItems()}" 
