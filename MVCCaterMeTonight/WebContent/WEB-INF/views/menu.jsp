@@ -157,7 +157,7 @@
 					</c:if>
 					<c:if test="${drinkItems !=null }">
 						<div id="drinkMenuItems" class="inner-clear-area">
-							<h2>Desserts</h2>
+							<h2>Drinks</h2>
 							<c:forEach items="${drinkItems}" var="drinkItem">
 								<form action="ItemsAddedToShoppingCart.do">
 									<input type="hidden" name="kitchenId" value="${kitchenId}">
