@@ -28,7 +28,7 @@ public class FinalizeOrderController {
 		creditcardDAO = creditcarddao;
 	}
 	
-	@RequestMapping(value = "FinalizeAndSubmitOrder.do", method = RequestMethod.GET)
+	@RequestMapping(value = "FinalizeOrder.do", method = RequestMethod.GET)
 	public ModelAndView selectAddressAndCreditcard(HttpSession session, int creditcardId, int addressId){
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("creditcard", creditcardDAO.show(creditcardId));
@@ -38,6 +38,13 @@ public class FinalizeOrderController {
 		return mv;
 	}
 	
-	
+	@RequestMapping(value = "SubmitOrder.do", method = RequestMethod.GET)
+	public ModelAndView submitOrder(HttpSession session){
+		// Store in the database
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("user", session.getAttribute("user"));
+		mv.setViewName("confirmation");
+		return mv;
+	}
 		
 }
