@@ -48,9 +48,10 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "About.do")
-	public ModelAndView about() {
+	public ModelAndView about(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("about");
+		mv.addObject("user", session.getAttribute("user"));
 		return mv;
 	}
 	

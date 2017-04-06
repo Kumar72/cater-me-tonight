@@ -74,7 +74,7 @@
 								wedding is as easy as logging in, selecting a cuisine, selecting
 								how many courses you want, and selecting the food! Your order is
 								sent to our kitchen, and our world class chefs will whip it up
-								lickety split and have it at your front door faster than you can
+								lickety-split and have it at your front door faster than you can
 								say, "What on earth did we do to cater our events before Cater
 								Me Tonight?"</p>
 								
@@ -82,7 +82,7 @@
 							value="${user.username}"> <input
 							type="hidden" name="password"
 							value="${user.password}"> <input
-							type="submit" value="Home">
+							type="submit" class="btn btn-primary btn-md" value="Home">
 					</div>
 				</div>
 			</div>
