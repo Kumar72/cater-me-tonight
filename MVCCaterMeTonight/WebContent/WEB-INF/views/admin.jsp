@@ -94,12 +94,16 @@
 							class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
 							aria-haspopup="true" aria-expanded="false">
 							${kitchen.name}</button>
-
+						
+						
+						
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
 							<a class="dropdown-item"
 								href="KitchenController.do?action=All&kitchenId=${kitchen.id}">All</a>
 							<div class="dropdown-divider"></div>
+						
+						
 							<a class="dropdown-item"
 								href="KitchenController.do?action=Appetizer&kitchenId=${kitchen.id}">Appetizer</a>
 							<a class="dropdown-item"
@@ -109,6 +113,9 @@
 							<a class="dropdown-item"
 								href="KitchenController.do?action=Drink&kitchenId=${kitchen.id}">Drink</a>
 							<div class="dropdown-divider"></div>
+							
+							
+							
 							<a class="dropdown-item"
 								href="UpdateKitchen.do?kitchenId=${kitchen.id}">Update</a>
 						

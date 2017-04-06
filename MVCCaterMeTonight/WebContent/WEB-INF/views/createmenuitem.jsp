@@ -100,7 +100,7 @@
 							</p> 
 							Price: <input type="number" name="price" min="1" step="any">
 							<br> 
-							Picture URL: <input type="text" name="picture">
+							Picture URL: <input type="text" size="75" name="picture">
 							<input type="hidden" name="kitchenId" value="${kitchen.id}">	
 							<br>
 		<select name = "courseId">							

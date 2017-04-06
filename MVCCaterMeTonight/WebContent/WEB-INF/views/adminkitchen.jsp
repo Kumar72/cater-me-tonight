@@ -120,7 +120,6 @@
 
 									 <c:choose>
 									<c:when test="${menu.status}">
-										
        									Add
     								</c:when>
     								<c:otherwise>

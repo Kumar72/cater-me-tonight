@@ -55,9 +55,11 @@ public class MenuDAOImpl implements MenuDAO {
 		String query = "SELECT m from MenuItem m where m.kitchen.id = :id and m.course.name = :name";
 		List<MenuItem> menuItems = em.createQuery(query, MenuItem.class).setParameter("id", id)
 				.setParameter("name", "Appetizer").getResultList();
+		if(menuItems == null){
 		Course course = new Course();
 		course = em.find(Course.class, id);
 		course.getName();
+		}
 		for (MenuItem menuItem : menuItems) {
 			System.out.println(menuItem);
 		}
@@ -69,9 +71,11 @@ public class MenuDAOImpl implements MenuDAO {
 		String query = "SELECT m from MenuItem m where m.kitchen.id = :id and m.course.name = :name";
 		List<MenuItem> menuItems = em.createQuery(query, MenuItem.class).setParameter("id", id)
 				.setParameter("name", "Entre").getResultList();
+		if(menuItems == null){
 		Course course = new Course();
 		course = em.find(Course.class, id);
 		course.getName();
+		}
 		for (MenuItem menuItem : menuItems) {
 			System.out.println(menuItem);
 		}
@@ -83,9 +87,11 @@ public class MenuDAOImpl implements MenuDAO {
 		String query = "SELECT m from MenuItem m where m.kitchen.id = :id and m.course.name = :name";
 		List<MenuItem> menuItems = em.createQuery(query, MenuItem.class).setParameter("id", id)
 				.setParameter("name", "Dessert").getResultList();
+		if(menuItems == null){
 		Course course = new Course();
 		course = em.find(Course.class, id);
 		course.getName();
+		}
 		for (MenuItem menuItem : menuItems) {
 			System.out.println(menuItem);
 		}
@@ -98,9 +104,11 @@ public class MenuDAOImpl implements MenuDAO {
 		String query = "SELECT m from MenuItem m where m.kitchen.id = :id and m.course.name = :name";
 		List<MenuItem> menuItems = em.createQuery(query, MenuItem.class).setParameter("id", id)
 				.setParameter("name", "Drink").getResultList();
+		if(menuItems == null){
 		Course course = new Course();
 		course = em.find(Course.class, id);
 		course.getName();
+		}
 		for (MenuItem menuItem : menuItems) {
 			System.out.println(menuItem);
 		}
