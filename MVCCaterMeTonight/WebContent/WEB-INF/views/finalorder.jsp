@@ -1,4 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <%@ page session="false"%>
 <!DOCTYPE html>
 <html>
@@ -36,6 +38,8 @@
 				<div class="collapse navbar-collapse" id="navcol-1">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="active" role="presentation"><a href="About.do">About</a></li>
+						<li role="presentation"><a href="Logout.do">Logout</a></li>
+
 						<!-- <li role="presentation"><a href="#">B</a></li>
 						<li role="presentation"><a href="#">C</a></li>
 						<li class="dropdown"><a class="dropdown-toggle"
@@ -55,28 +59,33 @@
 			<div class="col-md-offset-3 col-md-6 clear-area">
 				<form action="SubmitOrder.do">
 					<h2>Items in shopping cart</h2>
-			<c:forEach var="item" items="${shoppingCart.orderItemsAddedToCart}">
-			${item.value.menuItem.name}, ${item.value.quantity} $${item.value.totalForOrderItem}<br>
-			</c:forEach>
-			<hr>
-			Cart Total: $${shoppingCart.runningTotalOfOrderItems()}
-			
-				<h2>CreditCard chosen</h2>
-				<em>Name on card:</em> <strong>${ creditcard.fullName}</strong><br>
-				<em>Credit Card number:</em> <strong>${ creditcard.creditcardNumber}</strong>
-											
-				<h2>Address chosen</h2>
-				<em>Delivery address:</em><strong>${ address.streetAddress}</strong> <br>
-				<em>Delivery Zip Code:</em><strong>${ address.postalCode}</strong> <br>
-				<em>Delivery City:</em> <strong>${ address.city}</strong><br>
-				<em>Delivery State:</em> <strong>${ address.state}</strong><br>
-				
-						<input type="submit" class="btn btn-primary btn-md" value="Submit Order">
-					</div>
-				</form>
-			</div>
+					<c:forEach var="item" items="${shoppingCart.orderItemsAddedToCart}">
+			${item.value.menuItem.name}, ${item.value.quantity}, <fmt:formatNumber
+							value="${item.value.totalForOrderItem}" type="currency" />
+						<br>
+					</c:forEach>
+					<hr>
+					Cart Total:
+					<fmt:formatNumber
+						value="${shoppingCart.runningTotalOfOrderItems()}" type="currency" />
 
+					<h2>CreditCard chosen</h2>
+					<em>Name on card:</em> <strong>${ creditcard.fullName}</strong><br>
+					<em>Credit Card number:</em> <strong>${ creditcard.creditcardNumber}</strong>
+
+					<h2>Address chosen</h2>
+					<em>Delivery address:</em><strong>${ address.streetAddress}</strong>
+					<br> <em>Delivery Zip Code:</em><strong>${ address.postalCode}</strong>
+					<br> <em>Delivery City:</em> <strong>${ address.city}</strong><br>
+					<em>Delivery State:</em> <strong>${ address.state}</strong><br>
+
+					<input type="submit" class="btn btn-primary btn-md"
+						value="Submit Order">
+			</div>
+			</form>
 		</div>
+
+	</div>
 	</div>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
