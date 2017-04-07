@@ -1,5 +1,6 @@
 # Cater Me Tonight
 A Spring MVC web application that is a one stop shop catering center for event planners to cater their events.
+
 ![alt text](website.png "CaterMeTonight")
 ![alt text](start-order.png "Start Order")
 ![alt text](menu.png "Menu")
@@ -43,9 +44,9 @@ http://shaundashjian.com:8080/CaterMeTonight/
 ![alt text](data-model.png "Data Model")
 
 ## Future Feature Sets:
-  * The applications sends a confirmation email to the event planner and caterer when submitting order
-  * The caterer logs in to an order central where they view all placed orders
-  * Event planner has access to previous orders
+  * Email confirmation sent to both event planner and caterer
+  * Order history for event planner
+  * Order central for caterer to manage and fulfil orders
   
 ## Stumbling and Learning Points:
   * Changing requirements and discovery
