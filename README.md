@@ -44,13 +44,13 @@ http://shaundashjian.com:8080/CaterMeTonight/
 
 ## Future Feature Sets:
   * The applications sends a confirmation email to the event planner and caterer when submitting order
-  * The caterer logs in to an order central where they view all pplaced orders
-  * Event planner hass access to previous orders
+  * The caterer logs in to an order central where they view all placed orders
+  * Event planner has access to previous orders
   
 ## Stumbling and Learning Points:
   * Changing requirements and discovery
   * Paying attention to details when repurposing existing code
-  * Following good engineering practices like code reviews and unit testing produce better software and is an investment in time and effort
+  * Following good engineering practices like code reviews and unit testing produces better software and is an investment in time and effort
   <hr>
 
 [Up](README.md)
