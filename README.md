@@ -1,6 +1,9 @@
 # Cater Me Tonight
 A Spring MVC CRUD web application that is a one stop shop catering center for event planners to cater their events.
 ![alt text](website.png "CaterMeTonight")
+![alt text](start-order.png "Start Order")
+![alt text](menu.png "Menu")
+![alt text](confirmation.png "Confirmation")
 
 ## In This Document:
 1. [Application URL](#application-url)
